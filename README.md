@@ -1,1 +1,1 @@
-# EdgeOfAstralDishonor
+# EdgeOfAstral
