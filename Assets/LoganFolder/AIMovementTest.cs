@@ -19,5 +19,7 @@ public class AIMovementTest : MonoBehaviour
     void Update()
     {
         agent.SetDestination(target.transform.position);
+
+       
     }
 }
