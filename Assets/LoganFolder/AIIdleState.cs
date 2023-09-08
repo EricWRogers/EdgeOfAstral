@@ -17,15 +17,18 @@ public class AIIdleState : MonoBehaviour, IEnemyState
     public void Enter()
     {
         Debug.Log("Entering Idle State");
-        agent = GetComponentInParent<NavMeshAgent>();
+        //agent = GetComponentInParent<NavMeshAgent>();
+        agent = FindAnyObjectByType<NavMeshAgent>();
+        target = GameObject.Find("PlayerStandIn");
     }
 
-    public void Update()
+    public void Run()
     {
         Debug.Log("Idling. . ");
+       
         if (agent.transform.position != target.transform.position)
         {
-            stateMachine.SetState(new AIMoveState(stateMachine)); //Sends us back to idle.
+            stateMachine.SetState(new AIMoveState(stateMachine)); //Sends us to move.
         }
     }
 

@@ -6,7 +6,7 @@ using UnityEngine;
 public interface IEnemyState
 {
     void Enter();
-    void Update();
+    void Run();
     void Exit();
 }
 
@@ -21,7 +21,7 @@ public class AIStateMachine : MonoBehaviour
 
     private void Update()
     {
-        currentState.Update();
+        currentState.Run();
     }
 
     public void SetState(IEnemyState newState)

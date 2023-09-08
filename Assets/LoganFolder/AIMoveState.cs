@@ -18,10 +18,12 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     public void Enter() //First thing the state does.
     {
         Debug.Log("Entering Move State");
-        agent = GetComponentInParent<NavMeshAgent>();
+        //agent = GetComponentInParent<NavMeshAgent>();
+        agent = FindAnyObjectByType<NavMeshAgent>();
+        target = GameObject.Find("PlayerStandIn");
     }
 
-    public void Update() //Good ol update
+    public void Run() //Good ol update
     {
         agent.SetDestination(target.transform.position);
         if (agent.transform.position == target.transform.position)
