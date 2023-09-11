@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using static UnityEngine.GraphicsBuffer;
 
-public class AIIdleState : MonoBehaviour, IEnemyState
+public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit from here.
 {
     private AIStateMachine stateMachine;
     public NavMeshAgent agent;
@@ -14,15 +14,17 @@ public class AIIdleState : MonoBehaviour, IEnemyState
         this.stateMachine = stateMachine;
     }
 
-    public void Enter()
+    public void Enter() //First thing the state does.
     {
         Debug.Log("Entering Idle State");
         //agent = GetComponentInParent<NavMeshAgent>();
         agent = FindAnyObjectByType<NavMeshAgent>();
         target = GameObject.Find("PlayerStandIn");
+
+        agent.
     }
 
-    public void Run()
+    public void Run() //Good ol update
     {
         Debug.Log("Idling. . ");
        
@@ -32,7 +34,7 @@ public class AIIdleState : MonoBehaviour, IEnemyState
         }
     }
 
-    public void Exit()
+    public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
         Debug.Log("Exiting Idle State");
 

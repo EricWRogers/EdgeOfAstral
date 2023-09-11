@@ -32,7 +32,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         }
     }
 
-    public void Exit() //Last thing the state does before sending us wherever the user specified.
+    public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
         Debug.Log("Exiting Move State");
         
