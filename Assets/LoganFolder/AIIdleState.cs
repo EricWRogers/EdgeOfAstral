@@ -21,7 +21,7 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
         agent = FindAnyObjectByType<NavMeshAgent>();
         target = GameObject.Find("PlayerStandIn");
 
-        agent.
+     
     }
 
     public void Run() //Good ol update
