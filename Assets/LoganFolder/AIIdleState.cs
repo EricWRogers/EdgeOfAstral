@@ -7,8 +7,8 @@ using static UnityEngine.GraphicsBuffer;
 public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit from here.
 {
     private AIStateMachine stateMachine;
-    public NavMeshAgent agent;
-    public GameObject target;
+    private NavMeshAgent agent;
+    private GameObject target;
     public AIIdleState(AIStateMachine stateMachine)
     {
         this.stateMachine = stateMachine;
@@ -19,7 +19,7 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
         Debug.Log("Entering Idle State");
         //agent = GetComponentInParent<NavMeshAgent>();
         agent = FindAnyObjectByType<NavMeshAgent>();
-        target = GameObject.Find("PlayerStandIn");
+        target = GameObject.FindGameObjectWithTag("Player");
 
      
     }
@@ -28,7 +28,7 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
     {
         Debug.Log("Idling. . ");
        
-        if (agent.transform.position != target.transform.position)
+        if (Vector3.Distance(agent.transform.position, target.transform.position) >= 2)
         {
             stateMachine.SetState(new AIMoveState(stateMachine)); //Sends us to move.
         }

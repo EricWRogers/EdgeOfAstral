@@ -23,14 +23,14 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         Debug.Log("Entering Move State");
         //agent = GetComponentInParent<NavMeshAgent>();
         agent = FindAnyObjectByType<NavMeshAgent>();
-        target = GameObject.Find("PlayerStandIn");
+        target = GameObject.FindGameObjectWithTag("Player");
 
     }
 
     public void Run() //Good ol update
     {
         agent.SetDestination(target.transform.position);
-        if (agent.transform.position == target.transform.position)
+        if (Vector3.Distance(agent.transform.position, target.transform.position) <= 2)
         {
             stateMachine.SetState(new AIIdleState(stateMachine)); //Sends us back to idle.
 
@@ -47,6 +47,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
+        
         Debug.Log("Exiting Move State");
         
     }
