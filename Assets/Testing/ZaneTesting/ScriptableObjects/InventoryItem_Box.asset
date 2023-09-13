@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fcb84f65f3bad4daa8c69202572ed0, type: 3}
   m_Name: InventoryItem_Box
   m_EditorClassIdentifier: 
-  id: 
-  displayName: 
+  id: InventoryItem_Box
+  displayName: Box
   icon: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 104344050637712271, guid: ba1a9606c184c3f4a992851ac23f85e6, type: 3}

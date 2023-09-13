@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3fcb84f65f3bad4daa8c69202572ed0, type: 3}
   m_Name: InventoryItem_Sphere
   m_EditorClassIdentifier: 
-  id: 
-  displayName: 
+  id: InventoryItem_Sphere
+  displayName: Sphere
   icon: {fileID: 0}
-  prefab: {fileID: 0}
+  prefab: {fileID: 8382637896729625764, guid: 681274c2e422e8a48b91d463b1733f51, type: 3}
