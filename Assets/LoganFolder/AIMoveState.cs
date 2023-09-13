@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.Apple;
 using static UnityEngine.GraphicsBuffer;
 
 public class AIMoveState : MonoBehaviour, IEnemyState
 {
     private AIStateMachine stateMachine;
-    public NavMeshAgent agent;
-    public GameObject target;
+    private NavMeshAgent agent;
+    private GameObject target;
+
+  
 
     public AIMoveState(AIStateMachine stateMachine)
     {
@@ -21,6 +24,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         //agent = GetComponentInParent<NavMeshAgent>();
         agent = FindAnyObjectByType<NavMeshAgent>();
         target = GameObject.Find("PlayerStandIn");
+
     }
 
     public void Run() //Good ol update
@@ -29,6 +33,15 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         if (agent.transform.position == target.transform.position)
         {
             stateMachine.SetState(new AIIdleState(stateMachine)); //Sends us back to idle.
+
+        }
+
+        if(PathValid() == false)
+        {
+            Debug.Log("Cant reach em boss.");
+
+            return;
+           
         }
     }
 
@@ -36,6 +49,22 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     {
         Debug.Log("Exiting Move State");
         
+    }
+
+    public void Patrol()
+    {
+        if (PathValid() == true)
+        {
+            return;
+        }
+
+        
+    }
+    public bool PathValid()
+    {
+        return agent.CalculatePath(target.transform.position, agent.path);
 
     }
+
+
 }
