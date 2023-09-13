@@ -368,8 +368,8 @@ Transform:
   m_GameObject: {fileID: 215351442}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 1.65, y: 0.65, z: 3.5}
-  m_LocalScale: {x: -0.03, y: 0.76, z: 11.85}
+  m_LocalPosition: {x: -0.42, y: 0.65, z: 3.5}
+  m_LocalScale: {x: 0.03, y: 0.76, z: 11.85}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -545,18 +545,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerOptions:
-    triggerType: 0
+    triggerType: 1
     minimumCollisionForce: 1000
     filterCollisionsByTag: 1
     triggerAllowedTags:
-    - Melee
+    - Projectile
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 25
+    fragmentCount: 54
     xAxis: 1
     yAxis: 1
-    zAxis: 0
-    detectFloatingFragments: 0
+    zAxis: 1
+    detectFloatingFragments: 1
     asynchronous: 0
     insideMaterial: {fileID: 2100000, guid: f4f112cd5a11456468ff76364c69496a, type: 2}
     textureScale: {x: 1, y: 1}
@@ -571,19 +571,7 @@ MonoBehaviour:
         m_Calls: []
     onCompleted:
       m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: UnityEngine.AudioSource, UnityEngine
-          m_MethodName: Play
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
   currentRefractureCount: 0
 --- !u!54 &892853085
 Rigidbody:
@@ -693,7 +681,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
   m_LocalPosition: {x: 3.15, y: 0.61, z: 3.5}
-  m_LocalScale: {x: -0.03, y: 0.76, z: 11.85}
+  m_LocalScale: {x: 0.07, y: 0.879092, z: 13.7069}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -711,9 +699,10 @@ GameObject:
   - component: {fileID: 1030000155}
   - component: {fileID: 1030000154}
   - component: {fileID: 1030000153}
+  - component: {fileID: 1030000158}
   m_Layer: 0
   m_Name: wall (1)
-  m_TagString: Untagged
+  m_TagString: Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -740,7 +729,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -825,12 +814,33 @@ Transform:
   m_GameObject: {fileID: 1030000152}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 3.13, y: 1.794, z: 3.5}
-  m_LocalScale: {x: -0.03, y: 0.76, z: 11.85}
+  m_LocalPosition: {x: 3.13, y: 0.75, z: 5.58}
+  m_LocalScale: {x: 0.06, y: 0.15, z: 0.15}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!65 &1030000158
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1030000152}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 15, y: 2.0000002, z: 0.10000002}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1519440370
 GameObject:
   m_ObjectHideFlags: 0
@@ -958,8 +968,8 @@ Transform:
   m_GameObject: {fileID: 1519440370}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
-  m_LocalPosition: {x: 4.691, y: 0.61, z: 3.5}
-  m_LocalScale: {x: -0.03, y: 0.76, z: 11.85}
+  m_LocalPosition: {x: 5.29, y: 0.61, z: 3.5}
+  m_LocalScale: {x: 0.03, y: 0.76, z: 11.85}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
