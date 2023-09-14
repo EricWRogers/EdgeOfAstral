@@ -1074,6 +1074,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0957d0e159c5e984b90dc8ab7e9e1611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 1984759349}
+  points: []
 --- !u!114 &1218116436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1086,8 +1088,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7204c0df8b1708741b3a0ce250eb8670, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
-  target: {fileID: 0}
 --- !u!114 &1218116437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1221,7 +1221,7 @@ GameObject:
   - component: {fileID: 1486833528}
   m_Layer: 0
   m_Name: GFX
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1496,7 +1496,7 @@ GameObject:
   - component: {fileID: 1984759351}
   m_Layer: 0
   m_Name: PlayerStandIn
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1510,7 +1510,7 @@ Transform:
   m_GameObject: {fileID: 1984759349}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.2875311, y: 5.0027685, z: -1.63}
+  m_LocalPosition: {x: -1.2875311, y: 0.94, z: -9.487}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1529,7 +1529,7 @@ GameObject:
   - component: {fileID: 1998322449}
   - component: {fileID: 1998322448}
   - component: {fileID: 1998322447}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
