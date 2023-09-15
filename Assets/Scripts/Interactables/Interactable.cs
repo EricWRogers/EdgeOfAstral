@@ -7,7 +7,7 @@ using UnityEngine.AI;
 	to be used as a base class.
 */
 
-[RequireComponent(typeof(ColorOnHover))]
+//[RequireComponent(typeof(ColorOnHover))]
 public class Interactable : MonoBehaviour
 {
 
