@@ -1,3 +1,6 @@
 [submodule "Assets/SuperPupStudioUtilities"]
 	path = Assets/SuperPupStudioUtilities
 	url = https://github.com/EricWRogers/SPSUnityUtilities.git
+[submodule "Assets/OmniCatLabs"]
+	path = Assets/OmniCatLabs
+	url = https://github.com/BenJLawrence/OmniCatLabs.git
