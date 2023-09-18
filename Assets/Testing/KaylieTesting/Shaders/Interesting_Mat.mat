@@ -51,22 +51,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0
+    - _Alpha: 0.087
     - _AngleOffset: 0
     - _BaseColor: 0
     - _CloudBrightness: 0.5
     - _CloudPower: 0
     - _CloudScale: 50
     - _Density: 0
-    - _Distance: 0.116
+    - _Distance: 0.13
     - _EdgeAmount: 0.5
     - _EdgeWidth: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 58
-    - _ScanlineSpeed: 0.159
+    - _Scale: 134
+    - _ScanlineSpeed: 1
     - _ScanlineStrength: 1
-    - _ScanlineThickness: 0.036
+    - _ScanlineThickness: 0.009
     - _ScrollSpeed: 0.376
     - _StepScale: 0.5
     - _alpha: 0.19
@@ -75,7 +75,7 @@ Material:
     - _CloudColor: {r: 1, g: 1, b: 1, a: 0}
     - _CloudDirection: {r: 1, g: 1, b: 0, a: 0}
     - _CloudTiling: {r: 25, g: 25, b: 0, a: 0}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Color: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
     - _Direction: {r: 0.1, g: 0.1, b: 0.1, a: 0}
     - _ScanlineColor: {r: 0.5188679, g: 0.011747938, b: 0.4239638, a: 1}
   m_BuildTextureStacks: []
