@@ -12,7 +12,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     public List<Vector3> points = new List<Vector3>();
     private int destPoint = 0;
 
-    float radius = 0;
+    float radius = 1;
 
     public AIMoveState(AIStateMachine stateMachine)
     {
@@ -39,15 +39,15 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         if (PathValid(target.transform) == false)
         {
-            Debug.Log("Can't reach the target.");
+            Debug.Log("Can't get there boss.");
 
-            if (GenerateWaypoints()) // Try generating waypoints.
+            if (GenerateWaypoints()) //IF this returns true, execute the patrol.
             {
                 Patrol();
             }
-            else
+            else //Increase the radius and try again if no waypoints were found.
             {
-                // Increase the radius and try again if no waypoints were found.
+                Debug.Log("Radius = " + radius);
                 radius += 1;
                 GenerateWaypoints();
                 Patrol();
@@ -64,62 +64,62 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Patrol()
     {
-        if (PathValid(target.transform) == true || points.Count == 0)
+        if (PathValid(target.transform) == true /*|| points.Count == 0*/)
         {
+            Debug.Log("We aint patrollin.");
             agent.autoBraking = true;
             points.Clear();
             return;
         }
-
+        Debug.Log("We are patrolin.");
         agent.autoBraking = false;
 
-        if (!agent.pathPending && agent.remainingDistance < 0.5f)
+        if (!agent.pathPending && agent.remainingDistance < 0.5f && points.Count != 0)
         {
             agent.destination = points[destPoint];
         }
-
-        destPoint = (destPoint + 1) % points.Count;
+        if(points.Count != 0)
+        {
+            destPoint = (destPoint + 1) % points.Count;
+        }
+        
     }
 
     public bool GenerateWaypoints()
     {
-        float i = 1;
-
         RaycastHit[] hits = FindPoints(radius);
 
-        if (hits.Length <= 2)
-        {
-            Debug.Log("Iterator = " + i);
-            if (hits.Length >= 2)
-            {
+            if(hits.Length >= 2)
+           {
+                Debug.Log("We got points.");
                 foreach (RaycastHit hit in hits)
                 {
-                    if (hit.collider.CompareTag("Ground")) // You may need to tag walkable surfaces.
-                    {
-                        points.Add(hit.point);
-                    }
+                   
+                     Debug.Log(hit.point);
+                    points.Add(hit.point);
                 }
+                    
+                
                 return true;
-            }
-        }
-        else
-        {
-            Debug.Log("No suitable points found.");
-        }
+           }
 
-        return false;
+            Debug.Log("No point.");
+            return false;
+
     }
 
     public RaycastHit[] FindPoints(float _radius)
     {
-        return Physics.SphereCastAll(target.transform.position, _radius, Vector3.up, 8, NavMesh.AllAreas);
+        Debug.Log("Finding points");
+        return Physics.SphereCastAll(target.transform.position, _radius, Vector3.up, 8);
     }
 
-
+ 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
         Gizmos.DrawSphere(target.transform.position, radius); 
+        Gizmos.DrawSphere(target.transform.position, 1);
     }
 
     public bool PathValid(Transform _target)
