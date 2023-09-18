@@ -9,7 +9,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     private NavMeshAgent agent;
     public GameObject target;
 
-    public List<Transform> points = new List<Transform>();
+    public List<Vector3> points = new List<Vector3>();
     private int destPoint = 0;
 
     float radius = 0;
@@ -39,12 +39,19 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         if (PathValid(target.transform) == false)
         {
-            Debug.Log("Cant reach em boss.");
+            Debug.Log("Can't reach the target.");
 
-            GenereateWaypoints();
-
-            Patrol();
-
+            if (GenerateWaypoints()) // Try generating waypoints.
+            {
+                Patrol();
+            }
+            else
+            {
+                // Increase the radius and try again if no waypoints were found.
+                radius += 1;
+                GenerateWaypoints();
+                Patrol();
+            }
         }
     }
 
@@ -68,53 +75,57 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         if (!agent.pathPending && agent.remainingDistance < 0.5f)
         {
-            agent.destination = points[destPoint].position;
+            agent.destination = points[destPoint];
         }
 
         destPoint = (destPoint + 1) % points.Count;
-
-
-    }
-    public bool PathValid(Transform _target)
-    {
-        return agent.CalculatePath(_target.position, agent.path);
-
     }
 
-    public void GenereateWaypoints()
+    public bool GenerateWaypoints()
     {
         float i = 1;
 
-        if(FindPoints(i).Length <= 2)
+        RaycastHit[] hits = FindPoints(radius);
+
+        if (hits.Length <= 2)
         {
             Debug.Log("Iterator = " + i);
-            if(FindPoints(i++).Length >= 2)
+            if (hits.Length >= 2)
             {
-                foreach(RaycastHit hit in FindPoints(i))
+                foreach (RaycastHit hit in hits)
                 {
-                    points.Add(hit.transform);
+                    if (hit.collider.CompareTag("Ground")) // You may need to tag walkable surfaces.
+                    {
+                        points.Add(hit.point);
+                    }
                 }
-                return;
+                return true;
             }
         }
         else
         {
-            Debug.Log("Idk man");
+            Debug.Log("No suitable points found.");
         }
-        
+
+        return false;
     }
 
     public RaycastHit[] FindPoints(float _radius)
     {
-        radius = _radius;
-        Debug.Log("Thing = " + Physics.SphereCastAll(target.transform.position, _radius, transform.forward, 8));
-        return Physics.SphereCastAll(target.transform.position, _radius, transform.forward, 8);
+        return Physics.SphereCastAll(target.transform.position, _radius, Vector3.up, 8, NavMesh.AllAreas);
     }
+
 
     void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(target.transform.position, radius);
+        Gizmos.DrawSphere(target.transform.position, radius); 
+    }
+
+    public bool PathValid(Transform _target)
+    {
+        return agent.CalculatePath(_target.position, agent.path);
+
     }
 
 }
