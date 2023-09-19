@@ -25,14 +25,19 @@ Material:
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ALPHAPREMULTIPLY_ON
+  - _ALPHATEST_ON
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - DepthOnly
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -51,24 +56,39 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.202
+    - _Alpha: 0.188
+    - _AlphaClip: 1
+    - _AlphaToMask: 0
     - _AngleOffset: 0
     - _BaseColor: 0
+    - _Blend: 0
+    - _BlendModePreserveSpecular: 1
+    - _CastShadows: 1
     - _CloudBrightness: 0.5
     - _CloudPower: 0
     - _CloudScale: 50
+    - _Cull: 2
     - _Density: 0
     - _Distance: 0
+    - _DstBlend: 10
     - _EdgeAmount: 0.5
     - _EdgeWidth: 0
+    - _ModNum: 2
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ReceiveShadows: 1
     - _Scale: 43
     - _ScanlineSpeed: 1
     - _ScanlineStrength: 1
     - _ScanlineThickness: 0.011
     - _ScrollSpeed: 1
+    - _SrcBlend: 1
     - _StepScale: 0.5
+    - _Surface: 1
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZWrite: 0
+    - _ZWriteControl: 0
     - _alpha: 0.19
     m_Colors:
     - _BaseColor: {r: 0.6792453, g: 0.105731584, b: 0.105731584, a: 0}
@@ -77,5 +97,6 @@ Material:
     - _CloudTiling: {r: 25, g: 25, b: 0, a: 0}
     - _Color: {r: 0.9622642, g: 0.9622642, b: 0.9622642, a: 1}
     - _Direction: {r: 0.1, g: 0.1, b: 0.1, a: 0}
+    - _RemapNum: {r: 0, g: 2.1, b: 0, a: 0}
     - _ScanlineColor: {r: 0.8018868, g: 0, b: 0.47668353, a: 1}
   m_BuildTextureStacks: []
