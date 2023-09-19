@@ -16,7 +16,7 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
 
     public void Enter() //First thing the state does.
     {
-        Debug.Log("Entering Idle State");
+        //Debug.Log("Entering Idle State");
         //agent = GetComponentInParent<NavMeshAgent>();
         agent = FindAnyObjectByType<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
@@ -26,7 +26,7 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
 
     public void Run() //Good ol update
     {
-        Debug.Log("Idling. . ");
+        //Debug.Log("Idling. . ");
        
         if (Vector3.Distance(agent.transform.position, target.transform.position) >= 2)
         {
@@ -36,7 +36,7 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
-        Debug.Log("Exiting Idle State");
+        //Debug.Log("Exiting Idle State");
 
     }
 }
