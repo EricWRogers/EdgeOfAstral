@@ -9,7 +9,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     private NavMeshAgent agent;
     public GameObject target;
 
-    private SphereCollider detectCol;
 
     public AIMoveState(AIStateMachine stateMachine)
     {
@@ -23,9 +22,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         agent = FindAnyObjectByType<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
 
-        detectCol = target.AddComponent<SphereCollider>();
-
-        target.AddComponent<GetContacts>();
 
 
     }
@@ -64,8 +60,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void GetPatrolPoints()
     {
-        target.GetComponent<GetContacts>();
-       
+      
     }
 
     
