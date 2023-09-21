@@ -18,6 +18,8 @@ public class MeleeWeapon : MonoBehaviour
     [Header("Attack Variables")]
     public float attackCoolDown;
     public float attackDamage;
+    public float attackForce;
+    public Vector3 forceDirection = Vector3.forward;
 
     [HideInInspector]
     public bool canAttack = true;
@@ -87,8 +89,15 @@ public class MeleeWeapon : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+            Rigidbody otherRigidbody = other.GetComponent<Rigidbody>();
             Debug.Log("Enemy has been hit");
-            Destroy(other.gameObject);
+
+            if (otherRigidbody != null)
+            {
+                otherRigidbody.AddForce(forceDirection * attackForce, ForceMode.Impulse);
+            }
+            
+            //Destroy(other.gameObject);
         }
     }
 
