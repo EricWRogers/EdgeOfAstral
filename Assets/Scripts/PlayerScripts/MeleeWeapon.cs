@@ -61,10 +61,18 @@ public class MeleeWeapon : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && canAttack) //&& !isAttacking)
         {
+            EnableWeaponCollider();
             isAttacking = true;
             animator.SetTrigger("Attacking");
             Debug.Log("Player is Attacking!");
             canAttack = false;
+
+            if (!canAttack && !isAttacking)
+            {
+                DisableWeaponCollider();
+                StartCoroutine(AttackCoolDown());
+            }
+            //DisableWeaponCollider();
             StartCoroutine(AttackCoolDown());
         }
 
@@ -104,8 +112,11 @@ public class MeleeWeapon : MonoBehaviour
     private IEnumerator AttackCoolDown()
     {
         Debug.Log("Attack Cooldown!");
+        //DisableWeaponCollider();
         
         yield return new WaitForSeconds(attackCoolDown);
+
+        DisableWeaponCollider();
         
         canAttack = true;
     }

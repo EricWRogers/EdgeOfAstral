@@ -13,6 +13,10 @@ public class ObjectInteraction : MonoBehaviour
     [Tooltip("This is the keybind for object interaction. You can change this here.")]
     private KeyCode interactKey = KeyCode.E;
 
+    [SerializeField]
+    [Tooltip("This is where you add the camera you want the raycast to fire from.")]
+    private Camera camera;
+
     public float interactRange;
     public LayerMask interactableLayer;
     //Ray RayOrigin;
@@ -26,7 +30,7 @@ public class ObjectInteraction : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
+        Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactableLayer))
         {
