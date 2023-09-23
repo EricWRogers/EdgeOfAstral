@@ -8,7 +8,7 @@ public class MeleeWeapon : MonoBehaviour
 
     [Header("Weapon Variables")]
     [SerializeField]
-    private BoxCollider weaponBoxCollider;
+    private Collider weaponBoxCollider;
     [SerializeField]
     public string[] validTags;
 
