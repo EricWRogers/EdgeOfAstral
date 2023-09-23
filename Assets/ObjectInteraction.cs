@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ObjectInteraction : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("This is interactable UI text that you can edit with tweening.")]
-    public Text interactText;
+    public TextMeshProUGUI interactText;
 
     [SerializeField]
     [Tooltip("This is the keybind for object interaction. You can change this here.")]
@@ -39,22 +40,21 @@ public class ObjectInteraction : MonoBehaviour
             if (interactableObject != null)
             {
                 // Display interaction info. I.E. Tween things go here.
-                Debug.Log("Raycast has hit interactable object");
+                //Debug.Log("Raycast has hit interactable object");
                 Debug.DrawLine(ray.origin, hit.point, Color.red);
 
-                /* *** Uncomment this and and the interactable/tweened text you want to use and it should work just fine ***
-                //interactText.text = "Press E to Interact";
+                //***Uncomment this and and the interactable/ tweened text you want to use and it should work just fine * **
+                interactText.text = "Press E to Interact";
 
-                //interactText.enabled = true;
-                */
+                interactText.enabled = true;
+
 
                 if (Input.GetKeyDown(interactKey))
                 {
-                    interactableObject.GetComponent<Interactable>();
+                    interactableObject.onInteract.Invoke();
                 }
             }
         }
-
         else
         {
             // Hides the interaction text when not looking, or in range of the object
