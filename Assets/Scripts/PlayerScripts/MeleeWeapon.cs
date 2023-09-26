@@ -8,7 +8,7 @@ public class MeleeWeapon : MonoBehaviour
 
     [Header("Weapon Variables")]
     [SerializeField]
-    private BoxCollider weaponBoxCollider;
+    private Collider weaponBoxCollider;
     [SerializeField]
     public string[] validTags;
 
@@ -18,6 +18,8 @@ public class MeleeWeapon : MonoBehaviour
     [Header("Attack Variables")]
     public float attackCoolDown;
     public float attackDamage;
+    public float attackForce;
+    public Vector3 forceDirection = Vector3.forward;
 
     [HideInInspector]
     public bool canAttack = true;
@@ -59,10 +61,18 @@ public class MeleeWeapon : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0) && canAttack) //&& !isAttacking)
         {
+            EnableWeaponCollider();
             isAttacking = true;
             animator.SetTrigger("Attacking");
             Debug.Log("Player is Attacking!");
             canAttack = false;
+
+            if (!canAttack && !isAttacking)
+            {
+                DisableWeaponCollider();
+                StartCoroutine(AttackCoolDown());
+            }
+            //DisableWeaponCollider();
             StartCoroutine(AttackCoolDown());
         }
 
@@ -87,16 +97,26 @@ public class MeleeWeapon : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
+            Rigidbody otherRigidbody = other.GetComponent<Rigidbody>();
             Debug.Log("Enemy has been hit");
-            Destroy(other.gameObject);
+
+            if (otherRigidbody != null)
+            {
+                otherRigidbody.AddForce(forceDirection * attackForce, ForceMode.Impulse);
+            }
+            
+            //Destroy(other.gameObject);
         }
     }
 
     private IEnumerator AttackCoolDown()
     {
         Debug.Log("Attack Cooldown!");
+        //DisableWeaponCollider();
         
         yield return new WaitForSeconds(attackCoolDown);
+
+        DisableWeaponCollider();
         
         canAttack = true;
     }
