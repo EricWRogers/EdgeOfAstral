@@ -54,7 +54,7 @@ public class Interactable : MonoBehaviour
     // Code for whatever each interactable needs to do
     public virtual void OnInteract()
     {
-
+        
     }
 
     void OnDrawGizmosSelected()
