@@ -9,6 +9,9 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     private NavMeshAgent agent;
     public GameObject target;
 
+    private int currentPatrolIndex = 0;
+    private NavMeshPath lastPath;
+
 
     public AIMoveState(AIStateMachine stateMachine)
     {
@@ -37,9 +40,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         if (PathValid(target.transform) == false)
         {
-            Debug.Log("Can't get there boss.");
-
-            GetPatrolPoints();
             Patrol();
         }
        
@@ -54,25 +54,58 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Patrol()
     {
-        
+        GameObject[] patrolRoutes = GameObject.FindGameObjectsWithTag("PatrolRoute");
 
-    }
+        if (patrolRoutes.Length > 0)
+        {
+            GameObject closestPatrolRoute = null;
+            float closestDistance = float.MaxValue;
 
-    public void GetPatrolPoints()
-    {
-      
-    }
+            foreach (GameObject route in patrolRoutes)
+            {
+                float distanceToRoute = Vector3.Distance(target.transform.position, route.transform.position);
 
-    
+                if (distanceToRoute < closestDistance)
+                {
+                    closestDistance = distanceToRoute;
+                    closestPatrolRoute = route;
+                }
+            }
 
-   
+            if (closestPatrolRoute != null)
+            {
+                Transform[] patrolPoints = closestPatrolRoute.GetComponentsInChildren<Transform>();
 
+                
+                List<Transform> validPatrolPoints = patrolPoints.Where(point => point != closestPatrolRoute.transform).ToList();
 
-    void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(target.transform.position, radius);
-     
+                if (validPatrolPoints.Count > 0)
+                {
+                    NavMeshPath path = new NavMeshPath();
+
+                    NavMesh.CalculatePath(agent.transform.position, validPatrolPoints[currentPatrolIndex].position, NavMesh.AllAreas, path);
+
+                    agent.SetPath(path);
+
+                    if (Vector3.Distance(agent.transform.position, validPatrolPoints[currentPatrolIndex].position) <= 2)
+                    {
+                        currentPatrolIndex = (currentPatrolIndex + 1) % validPatrolPoints.Count;
+                    }
+                }
+                else
+                {
+                    Debug.LogError("No valid patrol points found.");
+                }
+            }
+            else
+            {
+                Debug.LogError("No valid patrol route found.");
+            }
+        }
+        else
+        {
+            Debug.LogError("No patrol routes found in the scene.");
+        }
     }
 
     public bool PathValid(Transform _target)
