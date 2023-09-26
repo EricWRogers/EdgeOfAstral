@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Floor
+  - PatrolRoute
   - Weapon
   - Destructable
   layers:
@@ -20,6 +21,8 @@ TagManager:
   - Ground
   - Weapon
   - FracturePiece
+  - DestructionFragment
+  - Runnable
   - Interactable
   - 
   - 
