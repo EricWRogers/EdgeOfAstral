@@ -10,8 +10,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     public GameObject target;
 
     private int currentPatrolIndex = 0;
-    private NavMeshPath lastPath;
-
 
     public AIMoveState(AIStateMachine stateMachine)
     {
@@ -40,9 +38,10 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         if (PathValid(target.transform) == false)
         {
+            Debug.Log("Cant Reach em boss.");
             Patrol();
         }
-       
+
     }
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
@@ -76,21 +75,17 @@ public class AIMoveState : MonoBehaviour, IEnemyState
             {
                 Transform[] patrolPoints = closestPatrolRoute.GetComponentsInChildren<Transform>();
 
-                
+
                 List<Transform> validPatrolPoints = patrolPoints.Where(point => point != closestPatrolRoute.transform).ToList();
 
                 if (validPatrolPoints.Count > 0)
                 {
-                    NavMeshPath path = new NavMeshPath();
-
-                    NavMesh.CalculatePath(agent.transform.position, validPatrolPoints[currentPatrolIndex].position, NavMesh.AllAreas, path);
-
-                    agent.SetPath(path);
-
                     if (Vector3.Distance(agent.transform.position, validPatrolPoints[currentPatrolIndex].position) <= 2)
                     {
                         currentPatrolIndex = (currentPatrolIndex + 1) % validPatrolPoints.Count;
                     }
+
+                    agent.SetDestination(validPatrolPoints[currentPatrolIndex].position);
                 }
                 else
                 {
