@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - Floor
+  - Weapon
+  - Destructable
   layers:
   - Default
   - TransparentFX
@@ -16,8 +18,10 @@ TagManager:
   - Player
   - Pickup
   - Ground
-  - 
-  - 
+  - Weapon
+  - DestructionFragment
+  - Runnable
+  - Interactable
   - 
   - 
   - 
