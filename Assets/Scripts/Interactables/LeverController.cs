@@ -6,13 +6,13 @@ using OmnicatLabs.Tween;
 public class LeverController : MonoBehaviour
 {
     private bool isForward = false;
-    private Quaternion initialRotation;
-    private Quaternion targetRotation;
+    private Vector3 initialPosition;
+    private Vector3 forwardPosition;
 
     private void Start()
     {
-        initialRotation = transform.rotation;
-        targetRotation = Quaternion.Euler(transform.eulerAngles + Vector3.forward * 45f); // Set the target rotation for moving the lever forward
+        initialPosition = transform.position;
+        forwardPosition = initialPosition + Vector3.forward * 0.1f; // Set the target position for moving the lever forward
     }
 
     private void OnMouseDown()
@@ -20,13 +20,13 @@ public class LeverController : MonoBehaviour
         if (!isForward)
         {
             // Move the lever forward smoothly using the Tween library
-            transform.TweenRotation(targetRotation, 1.0f, () => { /* Callback function on completion, you can leave it empty or add your function here */ });
+            transform.TweenPosition(forwardPosition, 1.0f, () => { /* Callback function on completion, you can leave it empty or add your function here */ });
             isForward = true;
         }
         else
         {
-            // Move the lever back to the initial rotation smoothly
-            transform.TweenRotation(initialRotation, 1.0f, () => { /* Callback function on completion, you can leave it empty or add your function here */ });
+            // Move the lever back to the initial position smoothly
+            transform.TweenPosition(initialPosition, 1.0f, () => { /* Callback function on completion, you can leave it empty or add your function here */ });
             isForward = false;
         }
     }
