@@ -1,8 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
+using OmnicatLabs.Extensions;
 
 public class ObjectInteraction : MonoBehaviour
 {
@@ -20,38 +19,34 @@ public class ObjectInteraction : MonoBehaviour
 
     public float interactRange;
     public LayerMask interactableLayer;
-    //Ray RayOrigin;
-    //RaycastHit HitInfo;
-
+    private string interactKeyName;
+    private Interactable interactableObject;
 
     void Start()
     {
         SetInteractTextVisibility(false);
+        interactKeyName = OmnicatLabs.CharacterControllers.CharacterController.Instance.GetComponent<PlayerInput>().actions["Interact"].GetBindingDisplayString();
     }
-    // Update is called once per frame
+
     void Update()
     {
         Ray ray = camera.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
 
         if (Physics.Raycast(ray, out RaycastHit hit, interactRange, interactableLayer))
         {
-            Interactable interactableObject = hit.collider.GetComponent<Interactable>();
-
-            if (interactableObject != null)
+            //Interactable interactableObject = hit.collider.GetComponent<Interactable>();
+            if (hit.transform.TryGetComponentInParentAndChildren(out interactableObject))
             {
                 // Display interaction info. I.E. Tween things go here.
                 //Debug.Log("Raycast has hit interactable object");
                 Debug.DrawLine(ray.origin, hit.point, Color.red);
 
-                //***Uncomment this and and the interactable/ tweened text you want to use and it should work just fine * **
-                interactText.text = "Press E to Interact";
+                interactableObject.onHover.Invoke();
 
-                interactText.enabled = true;
-
-
-                if (Input.GetKeyDown(interactKey))
+                if (interactableObject.interactText != "" && interactableObject.canInteract)
                 {
-                    interactableObject.onInteract.Invoke();
+                    interactText.text = $"{interactKeyName} {interactableObject.interactText}";
+                    SetInteractTextVisibility(true);
                 }
             }
         }
@@ -59,6 +54,14 @@ public class ObjectInteraction : MonoBehaviour
         {
             // Hides the interaction text when not looking, or in range of the object
            SetInteractTextVisibility(false);
+        }
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.performed && interactableObject != null)
+        {
+            interactableObject.Interact();
         }
     }
 
