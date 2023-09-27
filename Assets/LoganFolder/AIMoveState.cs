@@ -18,7 +18,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Enter() //First thing the state does.
     {
-        Debug.Log("Entering Move State");
         //agent = GetComponentInParent<NavMeshAgent>();
         agent = FindAnyObjectByType<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
@@ -36,9 +35,8 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         }
 
-        if (PathValid(target.transform) == false)
+        if (PathValid(target.transform) == false && OmnicatLabs.CharacterControllers.CharacterController.Instance.isGrounded)
         {
-            Debug.Log("Cant Reach em boss.");
             Patrol();
         }
 
@@ -47,7 +45,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
 
-        Debug.Log("Exiting Move State");
 
     }
 

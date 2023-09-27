@@ -49,11 +49,16 @@ public class ObjectInteraction : MonoBehaviour
                     SetInteractTextVisibility(true);
                 }
             }
+            else
+            {
+                interactableObject = null;
+            }
         }
         else
         {
             // Hides the interaction text when not looking, or in range of the object
-           SetInteractTextVisibility(false);
+            SetInteractTextVisibility(false);
+            interactableObject = null;
         }
     }
 

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 91553922316980976}
   - component: {fileID: 3579216176410605868}
   - component: {fileID: 736714539193757341}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: Numbers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 2406182961591330325}
   - component: {fileID: 331065622940993837}
   - component: {fileID: 1625298499854543765}
-  m_Layer: 5
+  m_Layer: 13
   m_Name: NotePadCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,9 @@ GameObject:
   - component: {fileID: 2636121499444944159}
   - component: {fileID: 5442063140576945906}
   - component: {fileID: 6655008786754305738}
-  m_Layer: 0
+  - component: {fileID: 6184739545696669613}
+  - component: {fileID: 8266605339547367008}
+  m_Layer: 13
   m_Name: CodeNote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -358,3 +360,40 @@ MonoBehaviour:
   RandNum: 0
   numText: {fileID: 736714539193757341}
   test: 10
+--- !u!114 &6184739545696669613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6044053108484222077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1adcaa842a4c0754ba701841e15e4846, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  contactRadius: 0
+  interactText: 
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &8266605339547367008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6044053108484222077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab5d83f396c96047921672a1669f452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: Hey could this be some kinda code for something?
+  oneTime: 0
+  timeShown: 5
+  lockoutTime: 5

@@ -49,6 +49,7 @@ public class KeypadUIController : MonoBehaviour
             {
                 input = "";
                 buttonCount = 0;
+                Debug.Log("Correct");
                 onCorrectPassword.Invoke();
             }
             else
