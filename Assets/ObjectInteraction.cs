@@ -48,6 +48,11 @@ public class ObjectInteraction : MonoBehaviour
                     interactText.text = $"{interactKeyName} {interactableObject.interactText}";
                     SetInteractTextVisibility(true);
                 }
+                else if (interactableObject.uninteractableText != "" && !interactableObject.canInteract)
+                {
+                    interactText.SetText(interactableObject.uninteractableText);
+                    SetInteractTextVisibility(true);
+                }
             }
             else
             {

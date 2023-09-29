@@ -18,6 +18,7 @@ public class Interactable : MonoBehaviour
     public InteractType type;
     public float contactRadius = 3f;
     public string interactText = "to Interact";
+    public string uninteractableText = "";
     public UnityEvent onInteract = new UnityEvent();
     public UnityEvent onHover = new UnityEvent();
 

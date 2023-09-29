@@ -1,14 +1,14 @@
 using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
-using SuperPupSystems.Helper;
+using OmnicatLabs.Timers;
 
 public class KeypadUIController : MonoBehaviour
 {
     public TMP_Text displayText;
     public UnityEvent onCorrectPassword;
-    public Timer wrongTimer;
-    public Timer rightTimer;
+    public UnityEvent onIncorrectPassword;
+    public float timeAfterSubmit = 1f;
     private string input;
     private float buttonCount = 0;
     private float guesses;
@@ -28,45 +28,74 @@ public class KeypadUIController : MonoBehaviour
         {
             case "Q":
                 //Debug.Log("Quit");
-                input = "";
-                displayText.text = input.ToString();
-                OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
-                Destroy(gameObject);
+                Quit();
                 break;
             case "C":
                 //Debug.Log("Clear");
-                input = "";
-                buttonCount = 0;
-                displayText.text = input.ToString();
+                Clear();
                 break;
             default:
                 //Debug.Log("Default");
-                buttonCount++;
-                input += valueEntered;
-                displayText.text = input.ToString();
+                if (buttonCount < 4)
+                {
+                    buttonCount++;
+                    input += valueEntered;
+                    displayText.text = input.ToString();
+                }
                 break;
         }
     }
 
-    void Update()
+    public void Quit()
     {
-        if (buttonCount == guesses)
+        input = "";
+        displayText.text = input.ToString();
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
+        Destroy(gameObject);
+    }
+
+    public void Clear()
+    {
+        input = "";
+        buttonCount = 0;
+        displayText.text = input.ToString();
+    }
+
+    public void Submit()
+    {
+        if (input == correctPass)
         {
-            if (input == correctPass)
-            {
-                displayText.text = "<color=#15F00B>" + input.ToString();
-                buttonCount = 0;
-                Debug.Log("Correct");
-                onCorrectPassword.Invoke();
-            }
-            else
-            {
-                displayText.text = "<color=#F00B0B>" + input.ToString();
-                wrongTimer.StartTimer(wrongTimer.countDownTime, wrongTimer.autoRestart);
-                buttonCount = 0;
-            }
+            displayText.text = "<color=#15F00B>" + input.ToString();
+            TimerManager.Instance.CreateTimer(timeAfterSubmit, () => { Quit(); });
+            onCorrectPassword.Invoke();
+        }
+        else
+        {
+            displayText.text = "<color=#F00B0B>" + input.ToString();
+            onIncorrectPassword.Invoke();
+            TimerManager.Instance.CreateTimer(timeAfterSubmit, () => { Clear(); });
         }
     }
+
+    //void Update()
+    //{
+    //    if (buttonCount == guesses)
+    //    {
+    //        if (input == correctPass)
+    //        {
+    //            displayText.text = "<color=#15F00B>" + input.ToString();
+    //            buttonCount = 0;
+    //            Debug.Log("Correct");
+    //            onCorrectPassword.Invoke();
+    //        }
+    //        else
+    //        {
+    //            displayText.text = "<color=#F00B0B>" + input.ToString();
+    //            //wrongTimer.StartTimer(wrongTimer.countDownTime, wrongTimer.autoRestart);
+    //            buttonCount = 0;
+    //        }
+    //    }
+    //}
 
     public void ClearInput()
     {
