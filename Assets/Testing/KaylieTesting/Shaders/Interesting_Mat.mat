@@ -80,7 +80,7 @@ Material:
     - _Scale: 43
     - _ScanlineSpeed: 2
     - _ScanlineStrength: 0.646
-    - _ScanlineThickness: 0.017
+    - _ScanlineThickness: 0.007
     - _ScrollSpeed: 1
     - _Size: 10
     - _SrcBlend: 1
@@ -101,5 +101,5 @@ Material:
     - _MinMaxX: {r: -1, g: 1, b: 0, a: 0}
     - _MinMaxY: {r: 0, g: 0, b: 0, a: 0}
     - _RemapNum: {r: 0.27, g: 1.26, b: 0, a: 0}
-    - _ScanlineColor: {r: 1, g: 0, b: 0.93395376, a: 1}
+    - _ScanlineColor: {r: 0.09967959, g: 0.67455876, b: 0.8490566, a: 1}
   m_BuildTextureStacks: []
