@@ -11,7 +11,14 @@ public class Launch : MonoBehaviour
     {
         if(collision.gameObject.CompareTag(playerTag))
         {
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, launchForce, 0));
+            if (UpgradeManager.Owns(UpgradeIds.MagBoots))
+            {
+                collision.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, launchForce, 0), ForceMode.Force);
+            }
+            else
+            {
+                GetComponent<Dialogue>().TriggerDialogue();
+            }
         }
     }
 
