@@ -11,6 +11,7 @@ public class GameStateController : MonoBehaviour
 
     private void Awake()
     {
+        GetComponent<Dialogue>().TriggerDialogue();
         if (Instance == null)
         {
             Instance = this;

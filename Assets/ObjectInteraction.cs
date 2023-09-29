@@ -64,7 +64,7 @@ public class ObjectInteraction : MonoBehaviour
 
     public void OnInteract(InputAction.CallbackContext context)
     {
-        if (context.performed && interactableObject != null)
+        if (context.performed && interactableObject != null && !OmnicatLabs.CharacterControllers.CharacterController.Instance.isLocked)
         {
             interactableObject.Interact();
         }
