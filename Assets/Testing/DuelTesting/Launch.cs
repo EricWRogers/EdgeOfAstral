@@ -19,13 +19,26 @@ public class Launch : MonoBehaviour
 
     private void Update()
     {
-        shouldPush = Physics.CheckBox(new Vector3(col.bounds.center.x, col.bounds.center.y + offset, col.bounds.center.z), col.bounds.extents, Quaternion.identity, playerLayer);
+        if (Physics.CheckBox(new Vector3(col.bounds.center.x, col.bounds.center.y + offset, col.bounds.center.z), col.bounds.extents, Quaternion.identity, playerLayer))
+        {
+            if (UpgradeManager.Owns(UpgradeIds.MagBoots))
+            {
+                shouldPush = true;
+            }
+            else
+            {
+                GetComponent<Dialogue>().TriggerDialogue();
+            }
+        }
     }
 
     private void FixedUpdate()
     {
         if (shouldPush)
+        {
             OmnicatLabs.CharacterControllers.CharacterController.Instance.rb.AddForce(new Vector3(0, launchForce, 0), ForceMode.Force);
+            shouldPush = false;
+        }
     }
 
     void OnTriggerEnter(Collider col)

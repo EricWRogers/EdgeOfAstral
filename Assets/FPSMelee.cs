@@ -12,6 +12,7 @@ public class FPSMelee : MonoBehaviour
     private bool shouldAttack = false;
     private bool canAttack = true;
     private int attackCount = 0;
+    private Fracture fractureComponent;
 
     public void OnAttack(InputAction.CallbackContext context)
     {
@@ -29,6 +30,17 @@ public class FPSMelee : MonoBehaviour
     private void Update()
     {
         Attack();
+        if (fractureComponent != null)
+            fractureComponent.pieces.ForEach((piece) => {
+                if (piece != null)
+                {
+                    piece.transform.localScale *= .995f;
+                    if (piece.transform.localScale.magnitude < 1f)
+                    {
+                        Destroy(piece);
+                    }
+                }
+            });
     }
 
     private void Attack()
@@ -42,7 +54,8 @@ public class FPSMelee : MonoBehaviour
             {
                 if (hit.transform.TryGetComponent<Fracture>(out var frac))
                 {
-                    frac.CauseFracture();
+                    fractureComponent = frac;
+                    frac.CauseFracture(-hit.normal);
                 }
             }
 
