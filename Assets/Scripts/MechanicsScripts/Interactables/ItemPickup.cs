@@ -9,6 +9,11 @@ public class ItemPickup : Interactable
         base.OnInteract();
 
         PickUp();
+
+        if (TryGetComponent<Dialogue>(out var dialogue))
+        {
+            dialogue.TriggerDialogue();
+        }
     }
 
     // Pick up the item

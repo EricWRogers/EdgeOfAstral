@@ -8,7 +8,7 @@ public class DemoLoseController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            GameStateController.ActivateLose();
+            GameStateController.Instance.ActivateLose();
         }
     }
 }

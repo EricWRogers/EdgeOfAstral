@@ -6,13 +6,49 @@ public class Launch : MonoBehaviour
 {
     public string playerTag;
     public float launchForce;
+    public float offset = 1f;
+    public LayerMask playerLayer;
 
-    void OnCollisionEnter(Collision collision)
+    private Collider col;
+    private bool shouldPush = false;
+
+    private void Start()
     {
-        if(collision.gameObject.CompareTag(playerTag))
-        {
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, launchForce, 0));
-        }
+        col = GetComponent<Collider>();
+    }
+
+    private void Update()
+    {
+        shouldPush = Physics.CheckBox(new Vector3(col.bounds.center.x, col.bounds.center.y + offset, col.bounds.center.z), col.bounds.extents, Quaternion.identity, playerLayer);
+    }
+
+    private void FixedUpdate()
+    {
+        if (shouldPush)
+            OmnicatLabs.CharacterControllers.CharacterController.Instance.rb.AddForce(new Vector3(0, launchForce, 0), ForceMode.Force);
+    }
+
+    void OnTriggerEnter(Collider col)
+    {
+        //col.GetComponentInParent<Rigidbody>().AddForce(new Vector3(0, launchForce, 0), ForceMode.Force);
+
+        //if(col.CompareTag(playerTag))
+        //{
+        //    if (UpgradeManager.Owns(UpgradeIds.MagBoots))
+        //    {
+        //        col.GetComponent<Rigidbody>().AddForce(new Vector3(0, launchForce, 0), ForceMode.Force);
+        //    }
+        //    else
+        //    {
+        //        GetComponent<Dialogue>().TriggerDialogue();
+        //    }
+        //}
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(new Vector3(GetComponent<Collider>().bounds.center.x, GetComponent<Collider>().bounds.center.y +offset, GetComponent<Collider>().bounds.center.z), GetComponent<Collider>().bounds.extents * 2);
     }
 
     // Commented out code is designed to work when attached to the player; unused

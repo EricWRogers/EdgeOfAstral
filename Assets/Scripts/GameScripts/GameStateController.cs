@@ -5,19 +5,36 @@ using OmnicatLabs.CharacterControllers;
 
 public class GameStateController : MonoBehaviour
 {
-    public static void ActivateWin()
+    public Canvas canvas;
+
+    public static GameStateController Instance;
+
+    private void Awake()
     {
-        FindObjectOfType<PlayerInput>().enabled = false;
-        FindObjectOfType<MouseLook>().Lock();
-        GameObject instance = Instantiate(Resources.Load("UI/WinUI") as GameObject, FindObjectOfType<Canvas>().transform);
-        instance.GetComponent<CanvasGroup>().FadeIn(.8f);
+        GetComponent<Dialogue>().TriggerDialogue();
+        if (Instance == null)
+        {
+            Instance = this;
+        }
     }
 
-    public static void ActivateLose()
+    public void ActivateWin()
     {
         FindObjectOfType<PlayerInput>().enabled = false;
         FindObjectOfType<MouseLook>().Lock();
-        GameObject instance = Instantiate(Resources.Load("UI/LoseUI") as GameObject, FindObjectOfType<Canvas>().transform);
+        GameObject instance = Instantiate(Resources.Load("UI/WinUI") as GameObject, canvas.transform);
         instance.GetComponent<CanvasGroup>().FadeIn(.8f);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    public void ActivateLose()
+    {
+        FindObjectOfType<PlayerInput>().enabled = false;
+        FindObjectOfType<MouseLook>().Lock();
+        GameObject instance = Instantiate(Resources.Load("UI/LoseUI") as GameObject, canvas.transform);
+        instance.GetComponent<CanvasGroup>().FadeIn(.8f);
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }
