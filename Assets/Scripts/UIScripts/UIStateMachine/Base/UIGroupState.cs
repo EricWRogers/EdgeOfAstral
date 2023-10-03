@@ -9,6 +9,7 @@ public class UIGroupState : UIState
 {
     public CanvasGroup group;
     public float fadeTime = .3f;
+    [Tooltip("Easing is a type of smoothing that can be applied during the transition on the fade. You can google 'Easing Demo' for a visual representation of these options")]
     public EasingFunctions.Ease easing;
 
     private UnityAction inCallback;
