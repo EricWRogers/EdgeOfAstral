@@ -12,9 +12,14 @@ public class InventorySystem : MonoBehaviour
 
     private void Awake()
     {
-        inventory = new List<InventoryItem>();
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+    }
+
+    private void Start()
+    {
         m_itemDictionary = new Dictionary<InventoryItemData, InventoryItem>();
+        inventory = new List<InventoryItem>();
     }
 
     public InventoryItem Get(InventoryItemData referenceData)

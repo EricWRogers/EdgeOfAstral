@@ -14,12 +14,15 @@ public class DialogueManager : MonoBehaviour
 
     private void Awake()
     {
-        textArea = dialogueArea.GetComponentInChildren<TextMeshProUGUI>();
-
         if (Instance == null)
         {
             Instance = this;
         }
+    }
+
+    private void Start()
+    {
+        textArea = dialogueArea.GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void ShowDialogue(string message)
