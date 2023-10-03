@@ -7,30 +7,35 @@ public class PauseMenu : MonoBehaviour
     public static bool GameIsPaused = false;
     public float fadeTime = .3f;
     public CanvasGroup pauseMenuUI;
+    public UIStateMachineController controller;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (GameIsPaused)
-            {
-                Resume();
-            }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    if (GameIsPaused)
+        //    {
+        //        Resume();
+        //    }
 
-            else
-            {
-                Pause();
-            }
-        }
+        //    else
+        //    {
+        //        Pause();
+        //    }
+        //}
     }
 
     public void Resume()
     {
+        //Time.timeScale = 1f;
+        //pauseMenuUI.FadeOut(fadeTime, null, EasingFunctions.Ease.EaseOutQuart);
+        //GameIsPaused = false;
+        //Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+
         Time.timeScale = 1f;
-        pauseMenuUI.FadeOut(fadeTime, null, EasingFunctions.Ease.EaseOutQuart);
-        GameIsPaused = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        controller.ChangeState<HUDIdleState>();
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
     }
 
     void Pause()
