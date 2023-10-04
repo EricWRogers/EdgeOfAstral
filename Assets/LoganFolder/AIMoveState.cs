@@ -35,16 +35,18 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         }
 
-        if (PathValid(target.transform) == false && OmnicatLabs.CharacterControllers.CharacterController.Instance.isGrounded)
+        if (PathValid(target.transform) == false /*&& OmnicatLabs.CharacterControllers.CharacterController.Instance.isGrounded*/ )
         {
-            Patrol();
+            //Patrol();
+
+            stateMachine.SetState(new AITransitionState(stateMachine));
         }
 
     }
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
-
+       // stateMachine.SetState(new AIIdleState(stateMachine));
 
     }
 
@@ -99,6 +101,8 @@ public class AIMoveState : MonoBehaviour, IEnemyState
             Debug.LogError("No patrol routes found in the scene.");
         }
     }
+
+
 
     public bool PathValid(Transform _target)
     {
