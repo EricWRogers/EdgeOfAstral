@@ -12,9 +12,14 @@ public class InventorySystem : MonoBehaviour
 
     private void Awake()
     {
-        inventory = new List<InventoryItem>();
-        Instance = this;
+        if (Instance == null)
+            Instance = this;
+    }
+
+    private void Start()
+    {
         m_itemDictionary = new Dictionary<InventoryItemData, InventoryItem>();
+        inventory = new List<InventoryItem>();
     }
 
     public InventoryItem Get(InventoryItemData referenceData)
@@ -39,6 +44,8 @@ public class InventorySystem : MonoBehaviour
 
     public void Add(InventoryItemData referenceData)
     {
+        referenceData.onAddToInventory.Invoke();
+
         if (m_itemDictionary.TryGetValue(referenceData, out InventoryItem value))
         {
             value.AddToStack();

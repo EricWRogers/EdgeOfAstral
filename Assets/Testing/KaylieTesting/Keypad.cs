@@ -1,72 +1,32 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 
-public class Keypad : MonoBehaviour
+public class Keypad : Interactable
 {
+    public GameObject keypadUI;
+    public Canvas canvas;
+    public Locker door;
 
-    [SerializeField] private UnityEvent correctPassword;
-
-    private string correctPass = "12345";
-    private string input;
-    public TMP_Text displayText;
-
-    private float buttonCount = 0;
-    private float guesses;
-    
-    // Start is called before the first frame update
-    void Start()
+    public override void OnInteract()
     {
-        guesses = correctPass.Length;
-    }
+        base.OnInteract();
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(buttonCount == guesses)
+        var go = Instantiate(keypadUI, canvas.transform);
+        go.transform.SetAsLastSibling();
+
+        if (door != null && door.useKeypad)
         {
-            if(input == correctPass)
-            {
-                Debug.Log("Correct Password");
-                input = "";
-                buttonCount = 0;
-                correctPassword.Invoke();
-            }
-            else
-            {
-                input = "";
-                displayText.text = input.ToString();
-                buttonCount = 0;
-            }
+            go.GetComponent<KeypadUIController>().onCorrectPassword.AddListener(() => door.SetInteractable(true));
         }
+
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(true, true, true);
     }
 
-    public void ValueEntered(string valueEntered)
+    protected override void OnHover()
     {
-        switch (valueEntered)
-        {
-            case "Q":
-                input = "";
-                displayText.text = input.ToString();
-                Debug.Log("Quit");
-                break;
-            case "C":
-                input = "";
-                buttonCount = 0;
-                displayText.text = input.ToString();
-                break;
-            default:
-                buttonCount++;
-                input += valueEntered;
-                displayText.text = input.ToString();
-                break;
-        }
-    }
+        base.OnHover();
 
-    public void Test()
-    {
-        Debug.Log("Does the event work");
+        GetComponent<Dialogue>().TriggerDialogue();
     }
 }

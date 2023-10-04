@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 6980236547478433618}
   - component: {fileID: 8880047568603676031}
   - component: {fileID: 376165714893314931}
+  - component: {fileID: 8520768205861949061}
   m_Layer: 0
   m_Name: Destructable Wall
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5679268365632499557}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 26.140486, y: 3.6858983, z: 19.374672}
   m_LocalScale: {x: 0.9576817, y: 3.834677, z: 3.545257}
   m_ConstrainProportionsScale: 0
@@ -146,7 +147,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 0
+  m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
@@ -172,13 +173,13 @@ MonoBehaviour:
     - Weapon
     triggerKey: 0
   fractureOptions:
-    fragmentCount: 40
+    fragmentCount: 19
     xAxis: 1
     yAxis: 1
     zAxis: 1
     detectFloatingFragments: 0
     asynchronous: 0
-    insideMaterial: {fileID: 0}
+    insideMaterial: {fileID: 2100000, guid: ca5bfbdf09b4f8541ad3b8cdab4ab9d6, type: 2}
     textureScale: {x: 1, y: 1}
     textureOffset: {x: 0, y: 0}
   refractureOptions:
@@ -188,8 +189,32 @@ MonoBehaviour:
   callbackOptions:
     onFracture:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 8520768205861949061}
+          m_TargetAssemblyTypeName: FracturePieceScript, Assembly-CSharp
+          m_MethodName: FracturePieces
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onCompleted:
       m_PersistentCalls:
         m_Calls: []
   currentRefractureCount: 0
+--- !u!114 &8520768205861949061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679268365632499557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 493577de0f4e18d45ab55d1f22173e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
