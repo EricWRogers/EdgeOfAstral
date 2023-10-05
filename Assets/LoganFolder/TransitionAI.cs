@@ -8,9 +8,11 @@ public class TransitionAI : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.CompareTag("Enemy") /* && other.GetComponentInChildren<AIStateMachine>().currentState == */)
+        if(other.CompareTag("Enemy"))
         {
-            other.GetComponentInChildren<AITransitionState>().Transition(gameObject.transform, exitTrans);
+            Debug.Log("Crossed");
+
+            other.transform.position = exitTrans.position;
         }
     }
 }

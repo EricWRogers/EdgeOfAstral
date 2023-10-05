@@ -9,6 +9,8 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     private NavMeshAgent agent;
     public GameObject target;
 
+    public bool checkPoint;
+
     private int currentPatrolIndex = 0;
 
     public AIMoveState(AIStateMachine stateMachine)
@@ -28,19 +30,30 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Run() //Good ol update
     {
-        agent.SetDestination(target.transform.position);
+        Debug.Log("Path Valid is: " + PathValid(target.transform));
+
+       
+
+        MoveAgent(target.transform);
+        /*
         if (Vector3.Distance(agent.transform.position, target.transform.position) <= 2)
         {
             stateMachine.SetState(new AIIdleState(stateMachine)); //Sends us back to idle.
 
         }
 
-        if (PathValid(target.transform) == false /*&& OmnicatLabs.CharacterControllers.CharacterController.Instance.isGrounded*/ )
+        if (!PathValid(target.transform) && OmnicatLabs.CharacterControllers.CharacterController.Instance.isGrounded )
         {
-            //Patrol();
-
-            stateMachine.SetState(new AITransitionState(stateMachine));
+            Patrol();
+            
+            
         }
+
+        if(!PathValid(target.transform) && checkPoint == true)
+        {
+            Transition();
+        }
+        */
 
     }
 
@@ -102,12 +115,87 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         }
     }
 
+    public void Transition()
+    {
+        GameObject[] transitions = GameObject.FindGameObjectsWithTag("Transition");
 
+        if (transitions.Length > 0)
+        {
+            GameObject closestTrans = null;
+            float closestDistance = float.MaxValue;
+
+            foreach (GameObject trans in transitions)
+            {
+                float distanceToTrans = Vector3.Distance(target.transform.position, trans.transform.position);
+
+                if (distanceToTrans < closestDistance)
+                {
+                    closestDistance = distanceToTrans;
+                    closestTrans = trans;
+                }
+            }
+
+            if (closestTrans != null)
+            {
+                MoveAgent(closestTrans.transform);
+                if (agent.isPathStale)
+                {
+                    Debug.Log("Stale");
+                    stateMachine.SetState(new AIIdleState(stateMachine));
+                }
+            }
+        }
+
+    }
 
     public bool PathValid(Transform _target)
     {
-        return agent.CalculatePath(_target.position, agent.path);
+        //Debug.Log("Path is: " + agent.CalculatePath(_target.position, agent.path));
+       
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(_target.position, path);
 
+        if(!agent.CalculatePath(_target.position, path) || path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
+        {
+            return false;
+        }
+
+        if (agent.CalculatePath(_target.position, path) || path.status == NavMeshPathStatus.PathComplete)
+        {
+            return true;
+        }
+
+        else
+        {
+            Debug.Log("PathValid Failed");
+            return false;
+        }
+    }
+
+    public void MoveAgent(Transform destination)
+    {
+        if (!agent.hasPath)
+        {
+            Debug.Log("No Path");
+            //Validate the path
+            NavMeshPath path = new NavMeshPath();
+            agent.CalculatePath(destination.position, path);
+           
+            if (path.status == NavMeshPathStatus.PathComplete)
+            {
+                Debug.Log("Path Set");
+                agent.SetPath(path);
+            }
+            else
+            {
+                Debug.Log("Bad Path.");
+            }
+        }
+        else
+        {
+            Debug.Log("No need for a path.");
+            return;
+        }
     }
 
 }
