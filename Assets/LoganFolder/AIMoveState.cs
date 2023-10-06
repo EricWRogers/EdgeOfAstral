@@ -1,3 +1,4 @@
+using OmnicatLabs.DebugUtils;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -9,7 +10,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     private NavMeshAgent agent;
     public GameObject target;
 
-    public bool checkPoint;
+    public bool checkPoint = true;
 
     private int currentPatrolIndex = 0;
 
@@ -24,8 +25,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         agent = FindAnyObjectByType<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
 
-
-
     }
 
     public void Run() //Good ol update
@@ -35,15 +34,23 @@ public class AIMoveState : MonoBehaviour, IEnemyState
        
 
         MoveAgent(target.transform);
-        /*
+
+        if(target.transform.position != agent.path.corners.Last()) //Corners, for whatever reason, is the name of the waypoint array for pathfinding.
+        {
+            agent.ResetPath();
+            MoveAgent(target.transform);
+        }
+        
         if (Vector3.Distance(agent.transform.position, target.transform.position) <= 2)
         {
             stateMachine.SetState(new AIIdleState(stateMachine)); //Sends us back to idle.
 
         }
 
-        if (!PathValid(target.transform) && OmnicatLabs.CharacterControllers.CharacterController.Instance.isGrounded )
+        if (checkPoint == false && !PathValid(target.transform)  /* && OmnicatLabs.CharacterControllers.CharacterController.Instance.isGrounded*/ )
         {
+            agent.ResetPath();
+            Debug.Log("Doing a patrol");
             Patrol();
             
             
@@ -51,15 +58,22 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         if(!PathValid(target.transform) && checkPoint == true)
         {
+            agent.ResetPath();
+            Debug.Log("Doing a transition");
             Transition();
         }
-        */
+
+        if(agent.isStopped == true)
+        {
+            Patrol();
+        }
+        
 
     }
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
-       // stateMachine.SetState(new AIIdleState(stateMachine));
+      
 
     }
 
