@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using OmnicatLabs.Timers;
 using UnityEngine;
 
-public class TUTORIALPauseMenuCheckState : UITextState
+public class TUTORIALPauseMenuCheckState : UIGroupState
 {
     public override void OnStateEnter(UIStateMachineController controller)
     {
+        SetInCallback(() => { Time.timeScale = 0f; });
+
         base.OnStateEnter(controller);
     }
 
@@ -16,6 +19,8 @@ public class TUTORIALPauseMenuCheckState : UITextState
 
     public override void OnStateExit(UIStateMachineController controller)
     {
+        Time.timeScale = 1f;
         base.OnStateExit(controller);
+        controller.ChangeState<PLAYERDefaultState>();
     }
 }

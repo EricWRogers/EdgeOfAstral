@@ -17,5 +17,7 @@ public class TUTORIALSlideCheckState : UITextState
     public override void OnStateExit(UIStateMachineController controller)
     {
         base.OnStateExit(controller);
+        controller.ChangeState<TUTORIALPauseMenuCheckState>();
+        //controller.ChangeState<PLAYERDefaultState>();
     }
 }

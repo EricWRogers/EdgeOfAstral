@@ -7,6 +7,7 @@ public class TUTORIALMovementState : UITextState
     public override void OnStateEnter(UIStateMachineController controller)
     {
         base.OnStateEnter(controller);
+        controller.textArea.SetText(text);
     }
 
     public override void OnStateUpdate(UIStateMachineController controller)
@@ -17,5 +18,7 @@ public class TUTORIALMovementState : UITextState
     public override void OnStateExit(UIStateMachineController controller)
     {
         base.OnStateExit(controller);
+        controller.ChangeState<TUTORIALSprintCheckState>();
+        //controller.ChangeState<PLAYERDefaultState>();
     }
 }
