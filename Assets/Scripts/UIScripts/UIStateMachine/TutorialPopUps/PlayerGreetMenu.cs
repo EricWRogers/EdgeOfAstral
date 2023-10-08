@@ -31,7 +31,7 @@ public class PlayerGreetMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         GreetMessageIsActive = false;
-        controller.ChangeState<TUTORIALCameraCheckState>();
+        controller.ChangeState<TUTORIALPauseMenuCheckState>();
         OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
     }
 

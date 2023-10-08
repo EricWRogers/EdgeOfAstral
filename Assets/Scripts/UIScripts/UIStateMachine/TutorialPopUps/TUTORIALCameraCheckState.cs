@@ -5,22 +5,57 @@ using TMPro;
 
 public class TUTORIALCameraCheckState : UITextState
 {
+    public bool hasMouseMoved = false; // Flag to track mouse movement
+    public float totalRotationX = 0f;
+    public float totalRotationY = 0f;
+    public float requiredRotationAmount = 180f;
+
     public override void OnStateEnter(UIStateMachineController controller)
     {
         base.OnStateEnter(controller);
-        controller.textArea.SetText(text);
+
+        if (controller.textArea != null)
+        {
+            controller.textArea.SetText(text);
+        }
+        else
+        {
+            Debug.LogError("Text Area is not assigned in the UIStateMachineController.");
+        }
+
+        hasMouseMoved = false; // Reset the flag when entering the state
     }
 
     public override void OnStateUpdate(UIStateMachineController controller)
     {
         base.OnStateUpdate(controller);
+
+        // Check for mouse movement
+        float mouseX = Input.GetAxis("Mouse X");
+        float mouseY = Input.GetAxis("Mouse Y");
+
+        if (!hasMouseMoved)
+        {
+            totalRotationX += Input.GetAxis("Mouse X");
+            totalRotationY += Input.GetAxis("Mouse Y");
+
+            if (Mathf.Abs(totalRotationX) >= requiredRotationAmount && Mathf.Abs(totalRotationY) >= requiredRotationAmount)
+            {
+                controller.textArea.SetText("Great! Let's move on to player movement");
+                hasMouseMoved = true;
+            }
+        }
     }
 
     public override void OnStateExit(UIStateMachineController controller)
     {
         base.OnStateExit(controller);
-        controller.textArea.SetText("");
-        controller.ChangeState<TUTORIALMovementState>();
-        //controller.ChangeState<PLAYERDefaultState>();
+        Debug.Log("Has entered On State Exit");
+        if (hasMouseMoved)
+        {
+            controller.textArea.SetText("");
+            hasMouseMoved = false; // Reset the flag when exiting the state
+            controller.ChangeState<TUTORIALMovementState>();
+        }
     }
 }

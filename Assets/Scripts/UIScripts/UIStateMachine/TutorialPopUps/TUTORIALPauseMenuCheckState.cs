@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using OmnicatLabs.Timers;
 using UnityEngine;
 
-public class TUTORIALPauseMenuCheckState : UIGroupState
+public class TUTORIALPauseMenuCheckState : UITextState
 {
+    public bool hasPressedEsc = false;
     public override void OnStateEnter(UIStateMachineController controller)
     {
-        SetInCallback(() => { Time.timeScale = 0f; });
+        //SetInCallback(() => { Time.timeScale = 0f; });
 
         base.OnStateEnter(controller);
     }
@@ -15,11 +16,19 @@ public class TUTORIALPauseMenuCheckState : UIGroupState
     public override void OnStateUpdate(UIStateMachineController controller)
     {
         base.OnStateUpdate(controller);
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            //SetInCallback(() => { Time.timeScale = 0f; });
+            hasPressedEsc = true;
+            controller.textArea.SetText(
+                "Perfect! You have now completed the tutorial. With these skills you will be one step ahead of your enemies..but only one. Good luck.");
+        }
     }
 
     public override void OnStateExit(UIStateMachineController controller)
     {
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
         base.OnStateExit(controller);
         controller.ChangeState<PLAYERDefaultState>();
     }
