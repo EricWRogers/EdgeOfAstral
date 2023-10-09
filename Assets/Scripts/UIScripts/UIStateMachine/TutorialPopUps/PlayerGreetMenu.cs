@@ -30,8 +30,8 @@ public class PlayerGreetMenu : MonoBehaviour
     public void StartTutorial()
     {
         Time.timeScale = 1f;
-        GreetMessageIsActive = false;
-        controller.ChangeState<TUTORIALPauseMenuCheckState>();
+        GreetMessageIsActive = true;
+        controller.ChangeState<TUTORIALMovementState>();
         OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
     }
 

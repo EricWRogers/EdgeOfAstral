@@ -5,6 +5,7 @@ using TMPro;
 
 public class TUTORIALCameraCheckState : UITextState
 {
+    public PLAYERDefaultState playerDefaultState;
     public bool hasMouseMoved = false; // Flag to track mouse movement
     public float totalRotationX = 0f;
     public float totalRotationY = 0f;
@@ -43,6 +44,10 @@ public class TUTORIALCameraCheckState : UITextState
             {
                 controller.textArea.SetText("Great! Let's move on to player movement");
                 hasMouseMoved = true;
+
+                playerDefaultState.oneTimeCameraCheck = true;
+
+                controller.ChangeState<TUTORIALMovementState>();
             }
         }
     }
@@ -51,11 +56,7 @@ public class TUTORIALCameraCheckState : UITextState
     {
         base.OnStateExit(controller);
         Debug.Log("Has entered On State Exit");
-        if (hasMouseMoved)
-        {
-            controller.textArea.SetText("");
-            hasMouseMoved = false; // Reset the flag when exiting the state
-            controller.ChangeState<TUTORIALMovementState>();
-        }
+        
+        controller.textArea.SetText(""); 
     }
 }

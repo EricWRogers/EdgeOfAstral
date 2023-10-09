@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TUTORIALSprintCheckState : UITextState
 {
+    public PLAYERDefaultState playerDefaultState;
     public bool hasPressedLShift = false;
 
     public override void OnStateEnter(UIStateMachineController controller)
@@ -19,6 +20,9 @@ public class TUTORIALSprintCheckState : UITextState
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             hasPressedLShift = true;
+            playerDefaultState.oneTimeSprintCheck = true;
+
+            controller.ChangeState<TUTORIALCrouchCheckState>();
         }
     }
 

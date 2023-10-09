@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TUTORIALPauseMenuCheckState : UITextState
 {
+    public PLAYERDefaultState playerDefaultState;
     public bool hasPressedEsc = false;
     public override void OnStateEnter(UIStateMachineController controller)
     {
@@ -21,8 +22,12 @@ public class TUTORIALPauseMenuCheckState : UITextState
         {
             //SetInCallback(() => { Time.timeScale = 0f; });
             hasPressedEsc = true;
+            playerDefaultState.oneTimePauseCheck = true;
+
             controller.textArea.SetText(
                 "Perfect! You have now completed the tutorial. With these skills you will be one step ahead of your enemies..but only one. Good luck.");
+
+            controller.ChangeState<PLAYERDefaultState>();
         }
     }
 

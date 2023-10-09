@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TUTORIALCrouchCheckState : UITextState
 {
+    public PLAYERDefaultState playerDefaultState;
     public bool hasPressedLCtrl = false;
 
     public override void OnStateEnter(UIStateMachineController controller)
@@ -19,13 +20,14 @@ public class TUTORIALCrouchCheckState : UITextState
         if (Input.GetKeyDown(KeyCode.LeftControl))
         {
             hasPressedLCtrl = true;
+            playerDefaultState.oneTimeCrouchCheck = true;
+            
+            controller.ChangeState<TUTORIALSlideCheckState>();
         }
     }
 
     public override void OnStateExit(UIStateMachineController controller)
     {
         base.OnStateExit(controller);
-        controller.ChangeState<TUTORIALSlideCheckState>();
-        //controller.ChangeState<PLAYERDefaultState>();
     }
 }

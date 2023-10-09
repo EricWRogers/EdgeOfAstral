@@ -9,6 +9,10 @@ public class TUTORIALMovementState : UITextState
     public bool hasPressedS = false;
     public bool hasPressedD = false;
 
+    public bool movementTutorialComplete = false;
+
+    public PLAYERDefaultState playerDefaultState;
+
     public override void OnStateEnter(UIStateMachineController controller)
     {
         base.OnStateEnter(controller);
@@ -43,16 +47,18 @@ public class TUTORIALMovementState : UITextState
         {
             controller.textArea.SetText("Great! Your movement looks good.");
         }
+
+        if (hasPressedW && hasPressedA && hasPressedS && hasPressedD)
+        {
+            playerDefaultState.oneTimeMovementCheck = true;
+            movementTutorialComplete = true;
+            controller.ChangeState<TUTORIALSprintCheckState>();
+        }
     }
 
     public override void OnStateExit(UIStateMachineController controller)
     {
         base.OnStateExit(controller);
-
-        if (hasPressedW && hasPressedA && hasPressedS && hasPressedD)
-        {
-            controller.ChangeState<TUTORIALSprintCheckState>();
-        }
         //controller.ChangeState<PLAYERDefaultState>();
     }
 }
