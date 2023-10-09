@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class LightPuzzleLever : Interactable
 {
+    //Set lights to toggle in inspector
     public List<GameObject> linkedLights = new List<GameObject>();
 
     private bool isFlipped = false;
 
+
+    //changes state of each light
     public override void OnInteract()
     {
         base.OnInteract();
@@ -19,4 +22,5 @@ public class LightPuzzleLever : Interactable
             linkedLights[i].GetComponent<LightPuzzleController>().ChangeLightState();
         }
     }
+
 }

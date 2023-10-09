@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class LightPuzzleController : MonoBehaviour
 {
-    private bool lit = false;
+    public bool lit = false;
 
+    //Changing the light state and sending a debug message
     public void ChangeLightState()
     {
         lit = !lit;
