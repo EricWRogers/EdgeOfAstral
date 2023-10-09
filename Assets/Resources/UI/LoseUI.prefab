@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00893969ca8b9014585a3dc65fa94ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LoseUI: {fileID: 757552495682305528}
 --- !u!225 &6908746725970165936
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -724,7 +725,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 320916127305648015}
         m_TargetAssemblyTypeName: UIFunctions, Assembly-CSharp
-        m_MethodName: Reload
+        m_MethodName: Retry
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
