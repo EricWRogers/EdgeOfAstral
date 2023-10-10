@@ -4,6 +4,22 @@ using UnityEngine;
 
 public class TUTORIALMovementState : UITextState
 {
+    public CanvasGroup playerGreetUI;
+
+    [SerializeField]
+    [Tooltip("This is where you assign the the reference to the player default state. It allows updates to bool checks within it")]
+    public PLAYERDefaultState playerDefaultState;
+
+    [SerializeField]
+    [Tooltip("This is the keybind for movement interaction. You can change this here. MAKE SURE TO CHANGE IN CHARACTER CONTROLLER FOR CORRECT REFERENCE")]
+    private KeyCode playerForwardKey = KeyCode.W;
+    private KeyCode playerLeftKey = KeyCode.A;
+    private KeyCode playerBackKey = KeyCode.S;
+    private KeyCode playerRightKey = KeyCode.D;
+
+    [SerializeField]
+    [Header("BOOL CHECKS")]
+    [Tooltip("This is where your bool checks are logged")]
     public bool hasPressedW = false;
     public bool hasPressedA = false;
     public bool hasPressedS = false;
@@ -11,12 +27,15 @@ public class TUTORIALMovementState : UITextState
 
     public bool movementTutorialComplete = false;
 
-    public PLAYERDefaultState playerDefaultState;
-
     public override void OnStateEnter(UIStateMachineController controller)
     {
         base.OnStateEnter(controller);
         controller.textArea.SetText(text);
+        
+        if (playerGreetUI != null)
+        {
+            playerGreetUI.alpha = 1f;
+        }
     }
 
     public override void OnStateUpdate(UIStateMachineController controller)
@@ -52,13 +71,15 @@ public class TUTORIALMovementState : UITextState
         {
             playerDefaultState.oneTimeMovementCheck = true;
             movementTutorialComplete = true;
-            controller.ChangeState<TUTORIALSprintCheckState>();
+            controller.ChangeState<TUTORIALJumpCheckState>();
         }
     }
 
     public override void OnStateExit(UIStateMachineController controller)
     {
         base.OnStateExit(controller);
+        controller.textArea.SetText(""); 
+        playerGreetUI.alpha = 0f;
         //controller.ChangeState<PLAYERDefaultState>();
     }
 }

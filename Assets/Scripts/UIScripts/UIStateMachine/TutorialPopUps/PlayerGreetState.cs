@@ -20,6 +20,7 @@ public class PlayerGreetState : UIGroupState
     public override void OnStateExit(UIStateMachineController controller)
     {
         Time.timeScale = 1f;
+        controller.textArea.SetText(""); 
         base.OnStateExit(controller);
     }
 }

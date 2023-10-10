@@ -4,12 +4,26 @@ using UnityEngine;
 
 public class TUTORIALSprintCheckState : UITextState
 {
+    public CanvasGroup playerGreetUI;
+    
+    [SerializeField]
+    [Tooltip("This is where you assign the the reference to the player default state. It allows updates to bool checks within it")]
     public PLAYERDefaultState playerDefaultState;
+
+    [SerializeField]
+    [Tooltip("This is the keybind for movement interaction. You can change this here. MAKE SURE TO CHANGE IN CHARACTER CONTROLLER FOR CORRECT REFERENCE")]
+    private KeyCode sprintKey = KeyCode.LeftShift;
+
+    [SerializeField]
+    [Header("BOOL CHECKS")]
+    [Tooltip("This is where your bool checks are logged")]
     public bool hasPressedLShift = false;
+    public bool isSprinting = false;
 
     public override void OnStateEnter(UIStateMachineController controller)
     {
         base.OnStateEnter(controller);
+        playerGreetUI.alpha = 1f;
         controller.textArea.SetText(text);
     }
 
@@ -29,7 +43,9 @@ public class TUTORIALSprintCheckState : UITextState
     public override void OnStateExit(UIStateMachineController controller)
     {
         base.OnStateExit(controller);
-        controller.ChangeState<TUTORIALCrouchCheckState>();
+        controller.textArea.SetText(""); 
+        playerGreetUI.alpha = 0f;
+        //controller.ChangeState<TUTORIALCrouchCheckState>();
         //controller.ChangeState<PLAYERDefaultState>();
     }
 }
