@@ -17,13 +17,15 @@ public class LightPuzzleLights : MonoBehaviour
 
         lightStateChange.Invoke();
 
-        string boolTest;
-        if (lit)
-            boolTest = "lit";
-        else
-            boolTest = "not lit";
+        LightPuzzle.Instance.CheckPuzzleWin();
+
+        //string boolTest;
+        //if (lit)
+        //    boolTest = "lit";
+        //else
+        //    boolTest = "not lit";
          
         
-        Debug.Log(this.gameObject.name + " is " + boolTest);
+        //Debug.Log(this.gameObject.name + " is " + boolTest);
     }
 }

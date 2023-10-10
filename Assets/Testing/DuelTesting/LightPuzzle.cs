@@ -8,6 +8,16 @@ public class LightPuzzle : MonoBehaviour
     public List<GameObject> LightObjects = new List<GameObject>();
     public UnityEvent LightPuzzleCompleted = new UnityEvent();
 
+    public static LightPuzzle Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
+
     public void CheckPuzzleWin()
     {
         bool puzzleCompleted = true;
