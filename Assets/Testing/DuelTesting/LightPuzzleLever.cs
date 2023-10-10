@@ -19,7 +19,7 @@ public class LightPuzzleLever : Interactable
 
         for(int i = 0; i < linkedLights.Count; i++)
         {
-            linkedLights[i].GetComponent<LightPuzzleController>().ChangeLightState();
+            linkedLights[i].GetComponent<LightPuzzleLights>().ChangeLightState();
         }
     }
 
