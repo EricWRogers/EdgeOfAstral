@@ -34,11 +34,12 @@ public class GameStateController : MonoBehaviour
 
     public void ActivateLose()
     {
-        FindObjectOfType<PlayerInput>().enabled = false;
-        FindObjectOfType<MouseLook>().Lock();
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(true, true, true);
+        //FindObjectOfType<PlayerInput>().enabled = false;
+        //FindObjectOfType<MouseLook>().Lock();
         GameObject instance = Instantiate(Resources.Load("UI/LoseUI") as GameObject, canvas.transform);
         instance.GetComponent<CanvasGroup>().FadeIn(.8f);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        //Cursor.lockState = CursorLockMode.None;
+        //Cursor.visible = true;
     }
 }
