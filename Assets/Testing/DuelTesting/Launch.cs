@@ -11,10 +11,13 @@ public class Launch : MonoBehaviour
 
     private Collider col;
     private bool shouldPush = false;
+    private float originalJumpForce;
+    private bool added = false;
 
     private void Start()
     {
         col = GetComponent<Collider>();
+        originalJumpForce = OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce;
     }
 
     private void Update()
@@ -23,23 +26,32 @@ public class Launch : MonoBehaviour
         {
             if (UpgradeManager.Owns(UpgradeIds.MagBoots))
             {
-                shouldPush = true;
+                if (!added)
+                {
+                    OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce *= launchForce;
+                    added = true;
+                }
             }
             else
             {
                 GetComponent<Dialogue>().TriggerDialogue();
             }
         }
-    }
-
-    private void FixedUpdate()
-    {
-        if (shouldPush)
+        else
         {
-            OmnicatLabs.CharacterControllers.CharacterController.Instance.rb.AddForce(new Vector3(0, launchForce, 0), ForceMode.Force);
-            shouldPush = false;
+            OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce = originalJumpForce;
+            added = false;
         }
     }
+
+    //private void FixedUpdate()
+    //{
+    //    if (shouldPush)
+    //    {
+    //        OmnicatLabs.CharacterControllers.CharacterController.Instance.rb.AddForce(new Vector3(0, launchForce, 0), ForceMode.Force);
+    //        shouldPush = false;
+    //    }
+    //}
 
     void OnTriggerEnter(Collider col)
     {

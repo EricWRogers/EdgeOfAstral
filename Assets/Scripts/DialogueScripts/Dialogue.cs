@@ -14,6 +14,12 @@ public class Dialogue : MonoBehaviour
 
     public virtual void TriggerDialogue()
     {
+        if (DialogueManager.Instance == null)
+        {
+            Debug.LogError("Could not find a DialogueManager in the scene");
+            return;
+        }
+
         if (canShow)
         {
             if (oneTime && !hasShown)
