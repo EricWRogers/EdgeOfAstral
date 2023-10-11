@@ -20,6 +20,8 @@ public class TutorialTextTrigger : MonoBehaviour
     public UIStateMachineController tutorialController;
     public TriggerType triggerType;
     public float lingerTime = 1.2f;
+    public bool oneTime = false;
+    public Dialogue exitDialogue;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -57,6 +59,15 @@ public class TutorialTextTrigger : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             TimerManager.Instance.CreateTimer(lingerTime, () => tutorialController.ChangeState(tutorialController.nullState));
+            if (oneTime)
+            {
+                gameObject.SetActive(false);
+            }
+
+            if (exitDialogue != null)
+            {
+                exitDialogue.TriggerDialogue();
+            }
         }
     }
 }

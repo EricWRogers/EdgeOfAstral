@@ -2,6 +2,7 @@ using UnityEngine;
 using TMPro;
 using OmnicatLabs.Timers;
 using OmnicatLabs.Tween;
+using UnityEngine.Events;
 
 public class DialogueManager : MonoBehaviour
 {
@@ -44,15 +45,15 @@ public class DialogueManager : MonoBehaviour
         {
             TimerManager.Instance.Stop(currentTimer);
 
-            textArea.SetText(message);
+            //textArea.SetText(message);
 
-            TimerManager.Instance.CreateTimer(timeOnScreen,
-                () =>
-                {
-                    dialogueArea.FadeOut(dialogueFadeTime);
-                },
-                out currentTimer);
-            return;
+            //TimerManager.Instance.CreateTimer(timeOnScreen,
+            //    () =>
+            //    {
+            //        dialogueArea.FadeOut(dialogueFadeTime);
+            //    },
+            //    out currentTimer);
+            ////return;
         }
 
         textArea.SetText(message);
@@ -62,6 +63,34 @@ public class DialogueManager : MonoBehaviour
                 () => {
                     dialogueArea.FadeOut(dialogueFadeTime);
                 }, out currentTimer); 
+            });
+    }
+
+    public void ShowDialogue(string message, float timeOnScreen, UnityAction onEnd)
+    {
+        if (currentTimer != null)
+        {
+            TimerManager.Instance.Stop(currentTimer);
+
+            textArea.SetText(message);
+
+            TimerManager.Instance.CreateTimer(timeOnScreen,
+                () =>
+                {
+                    dialogueArea.FadeOut(dialogueFadeTime, () => onEnd.Invoke());
+                },
+                out currentTimer);
+            return;
+        }
+
+        textArea.SetText(message);
+
+        dialogueArea.FadeIn(dialogueFadeTime,
+            () => {
+                TimerManager.Instance.CreateTimer(timeOnScreen,
+            () => {
+                dialogueArea.FadeOut(dialogueFadeTime, () => onEnd.Invoke());
+            }, out currentTimer);
             });
     }
 

@@ -39,7 +39,7 @@ public class Launch : MonoBehaviour
         }
         else
         {
-            OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce = originalJumpForce;
+            //OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce = originalJumpForce;
             added = false;
         }
     }

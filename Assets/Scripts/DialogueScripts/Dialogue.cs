@@ -8,6 +8,7 @@ public class Dialogue : MonoBehaviour
     public bool oneTime = false;
     public float timeShown = 5f;
     public float lockoutTime = 5f;
+    public Dialogue followUp;
 
     private bool hasShown = false;
     private bool canShow = true;
@@ -30,7 +31,15 @@ public class Dialogue : MonoBehaviour
                 }
                 else
                 {
-                    DialogueManager.Instance.ShowDialogue(message, timeShown);
+                    if (followUp != null)
+                    {
+                        DialogueManager.Instance.ShowDialogue(message, timeShown, () => followUp.TriggerDialogue());
+                    }
+                    else
+                    {
+                        DialogueManager.Instance.ShowDialogue(message, timeShown);
+                    }
+                    
                 }
                 hasShown = true;
             }
@@ -42,7 +51,14 @@ public class Dialogue : MonoBehaviour
                 }
                 else
                 {
-                    DialogueManager.Instance.ShowDialogue(message, timeShown);
+                    if (followUp != null)
+                    {
+                       DialogueManager.Instance.ShowDialogue(message, timeShown, () => followUp.TriggerDialogue());
+                    }
+                    else
+                    {
+                        DialogueManager.Instance.ShowDialogue(message, timeShown);
+                    }
                 }
             }
             canShow = false;

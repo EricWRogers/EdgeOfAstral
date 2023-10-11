@@ -12,13 +12,14 @@ public class KeypadUIController : MonoBehaviour
     private string input;
     private float buttonCount = 0;
     private float guesses;
-    private string correctPass;
+    [HideInInspector]
+    public string correctPass;
     public GameObject keypadUI;
 
     private void Start()
     {
         //correctPass = "123";
-        correctPass = FindObjectOfType<RandNumGen>().RandNum.ToString();
+        //correctPass = FindObjectOfType<RandNumGen>().RandNum.ToString();
         guesses = correctPass.Length;
     }
 
@@ -50,7 +51,7 @@ public class KeypadUIController : MonoBehaviour
     {
         input = "";
         displayText.text = input.ToString();
-        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, OmnicatLabs.CharacterControllers.CharacterController.Instance.playerIsHidden, false);
         Destroy(gameObject);
     }
 

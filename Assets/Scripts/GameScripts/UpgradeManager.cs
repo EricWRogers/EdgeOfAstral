@@ -17,6 +17,7 @@ public class UpgradeManager : MonoBehaviour
     public static void AddToOwned(UpgradeIds upgrade)
     {
         ownedUpgrades.Add(upgrade);
+        Debug.Log(ownedUpgrades.Count);
     }
 
     public static bool Owns(UpgradeIds upgradeToQuery)
