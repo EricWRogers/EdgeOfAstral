@@ -12,7 +12,8 @@ public interface IEnemyState //Make the states inherit from this. Basically will
 
 public class AIStateMachine : MonoBehaviour //Dont touch this script.
 {
-    private IEnemyState currentState;
+    [HideInInspector]
+    public IEnemyState currentState; //DONT TOUCH 
 
     private void Start()
     {
