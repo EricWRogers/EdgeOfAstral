@@ -18,7 +18,6 @@ public class CustomTutorialTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(hasDestroyed);
         if (other.CompareTag("Player"))
         {
             if (hasDestroyed)

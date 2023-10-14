@@ -15,6 +15,7 @@ public class KeypadUIController : MonoBehaviour
     [HideInInspector]
     public string correctPass;
     public GameObject keypadUI;
+    public UIStateMachineController controller;
 
     private void Start()
     {
@@ -48,11 +49,8 @@ public class KeypadUIController : MonoBehaviour
     }
 
     public void Quit()
-    {
-        input = "";
-        displayText.text = input.ToString();
-        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, OmnicatLabs.CharacterControllers.CharacterController.Instance.playerIsHidden, false);
-        Destroy(gameObject);
+    {       
+        controller.ChangeState(controller.nullState);
     }
 
     public void Clear()
@@ -67,8 +65,8 @@ public class KeypadUIController : MonoBehaviour
         if (input == correctPass)
         {
             displayText.text = "<color=#15F00B>" + input.ToString();
-            TimerManager.Instance.CreateTimer(timeAfterSubmit, () => { Quit(); });
             onCorrectPassword.Invoke();
+            TimerManager.Instance.CreateTimer(timeAfterSubmit, () => { Quit(); });
         }
         else
         {

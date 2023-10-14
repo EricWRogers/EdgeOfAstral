@@ -21,6 +21,7 @@ public class Keypad : Interactable
         {
             go.GetComponent<KeypadUIController>().onCorrectPassword.AddListener(() => door.SetInteractable(true));
             go.GetComponent<KeypadUIController>().correctPass = codeGenerator.RandNum.ToString();
+            go.GetComponent<KeypadUIController>().controller = uiController;
         }
 
         uiController.ChangeState<HUDKeypadState>();

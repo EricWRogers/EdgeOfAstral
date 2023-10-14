@@ -11,4 +11,9 @@ public class MonsterResetter : MonoBehaviour
         startingPos = transform.position;
         SaveManager.Instance.onReset.AddListener(() => transform.position = startingPos);
     }
+
+    public void Move()
+    {
+
+    }
 }

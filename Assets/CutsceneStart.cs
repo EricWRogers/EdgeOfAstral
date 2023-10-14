@@ -14,6 +14,7 @@ public class CutsceneStart : MonoBehaviour
             FindObjectOfType<PlayableDirector>().Play();
             started = true;
             OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(true, true, true);
+            OmnicatLabs.CharacterControllers.CharacterController.Instance.ChangeState(OmnicatLabs.CharacterControllers.CharacterStates.Idle);
         }
     }
 
