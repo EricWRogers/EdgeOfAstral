@@ -56,6 +56,8 @@ public class ObjectInteraction : MonoBehaviour
             }
             else
             {
+                SetInteractTextVisibility(false);
+                interactText.SetText("");
                 interactableObject = null;
             }
         }

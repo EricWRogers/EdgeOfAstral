@@ -15,10 +15,12 @@ public class UIFunctions : MonoBehaviour
     public void Retry()
     {
         Player = GameObject.Find("Player");
-        Spawnpoint = GameObject.Find("Spawnpoint");
+        //Spawnpoint = GameObject.Find("Spawnpoint");
         LoseUI.SetActive(false);
         OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
-        Player.transform.position = Spawnpoint.transform.position;
+        SaveManager.Instance.ResetTracked();
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.transform.position = Checkpoint.spawnpoint.position;
+        //Player.transform.position = Spawnpoint.transform.position;
 
     }
 
