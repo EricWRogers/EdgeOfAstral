@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-[CreateAssetMenu(menuName = "Inventory Item Data")]
+[CreateAssetMenu(fileName = "New Item", menuName = "Inventory/Item")]
 public class InventoryItemData : ScriptableObject
 {
     public string id;
@@ -11,4 +11,5 @@ public class InventoryItemData : ScriptableObject
     public Sprite icon;
     public GameObject prefab;
     public UnityEvent onAddToInventory = new UnityEvent();
+    public bool isDefaultItem = false;
 }
