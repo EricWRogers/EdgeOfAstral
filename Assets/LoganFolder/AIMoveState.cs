@@ -1,4 +1,3 @@
-using OmnicatLabs.DebugUtils;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -10,7 +9,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     private NavMeshAgent agent;
     public GameObject target;
 
-    public bool checkPoint = true;
+    public bool checkPoint = false;
 
     private int currentPatrolIndex = 0;
 
@@ -21,59 +20,35 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Enter() //First thing the state does.
     {
-        //agent = GetComponentInParent<NavMeshAgent>();
         agent = FindAnyObjectByType<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
-
     }
 
     public void Run() //Good ol update
     {
-        //Debug.Log("Path Valid is: " + PathValid(target.transform));
-
-       
-
-        MoveAgent(target.transform);
-
-        if(target.transform.position != agent.path.corners.Last()) //Corners, for whatever reason, is the name of the waypoint array for pathfinding.
+        if (PathValid(target.transform))
         {
-            agent.ResetPath();
-            MoveAgent(target.transform);
+            // No need to use MoveAgent, setting destination directly
+            agent.SetDestination(target.transform.position);
+
+            if (Vector3.Distance(agent.transform.position, target.transform.position) <= 2)
+            {
+                stateMachine.SetState(new AIIdleState(stateMachine)); // Sends us back to idle.
+            }
         }
-        
-        if (Vector3.Distance(agent.transform.position, target.transform.position) <= 2)
+        else if (checkPoint) // If there's no valid path and the checkpoint boolean is true, execute transition
         {
-            stateMachine.SetState(new AIIdleState(stateMachine)); //Sends us back to idle.
-
-        }
-
-        if (checkPoint == false && !PathValid(target.transform)  /* && OmnicatLabs.CharacterControllers.CharacterController.Instance.isGrounded*/ )
-        {
-            agent.ResetPath();
-            //Debug.Log("Doing a patrol");
-            Patrol();
-            
-            
-        }
-
-        if(!PathValid(target.transform) && checkPoint == true)
-        {
-            agent.ResetPath();
-            //Debug.Log("Doing a transition");
             Transition();
         }
-
-        if(agent.isStopped == true)
+        else // If there's no valid path and the checkpoint boolean is false, execute the patrol function
         {
             Patrol();
         }
-        
-
     }
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
-      
+
 
     }
 
@@ -164,24 +139,17 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public bool PathValid(Transform _target)
     {
-        //Debug.Log("Path is: " + agent.CalculatePath(_target.position, agent.path));
-       
         NavMeshPath path = new NavMeshPath();
         agent.CalculatePath(_target.position, path);
 
-        if(!agent.CalculatePath(_target.position, path) || path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
+        if (path.status == NavMeshPathStatus.PathComplete)
         {
-            return false;
-        }
-
-        if (agent.CalculatePath(_target.position, path) || path.status == NavMeshPathStatus.PathComplete)
-        {
+            Debug.Log("Path is good.");
             return true;
         }
-
         else
         {
-            //Debug.Log("PathValid Failed");
+            Debug.Log("Path is bad.");
             return false;
         }
     }
@@ -194,7 +162,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
             //Validate the path
             NavMeshPath path = new NavMeshPath();
             agent.CalculatePath(destination.position, path);
-           
+
             if (path.status == NavMeshPathStatus.PathComplete)
             {
                 //Debug.Log("Path Set");
@@ -202,12 +170,13 @@ public class AIMoveState : MonoBehaviour, IEnemyState
             }
             else
             {
-               // Debug.Log("Bad Path.");
+                agent.ResetPath();
+                // Debug.Log("Bad Path.");
             }
         }
         else
         {
-           // Debug.Log("No need for a path.");
+            // Debug.Log("No need for a path.");
             return;
         }
     }
