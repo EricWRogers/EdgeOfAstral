@@ -9,7 +9,7 @@ public class SpawnPointManager : MonoBehaviour
 {
     public GameObject staminaItemPrefab;
     public int numberOfItemsToSpawn;
-    public float rotationSpeed = 45f;
+    
 
      
     // EXPOSING THE LISTS IN THE EDITOR CAUSES 'ObjectDisposedException' ERRORS. MAYBE I'M
@@ -18,22 +18,23 @@ public class SpawnPointManager : MonoBehaviour
     [Header("Spawn Points Variables")]
     //[SerializeField] private List<Transform> spawnPoints = new List<Transform>();
     //[SerializeField] private List<GameObject> spawnedItems = new List<GameObject>();
-    [SerializeField] public int totalSpawnPoints;
-    [SerializeField] private int remainingStaminaItems;
+    public int totalSpawnPoints;
+    public int remainingStaminaItems;
 
-    private List<GameObject> spawnedItems = new List<GameObject>();
-    private List<Transform> spawnPoints = new List<Transform>();
+    public List<GameObject> spawnedItems = new List<GameObject>();
+    public List<Transform> spawnPoints = new List<Transform>();
 
     // Start is called before the first frame update
     void Start()
     {
         //SaveManager.Instance.onReset.AddListener(SpawnPointManager);
-        //spawnPoints.Clear();
-
+        
+        /*
         foreach (Transform child in transform)
         {
             spawnPoints.Add(child);
         }
+        */
 
         totalSpawnPoints = spawnPoints.Count;
         remainingStaminaItems = numberOfItemsToSpawn;
@@ -44,22 +45,6 @@ public class SpawnPointManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        List<GameObject> itemsToRemove = new List<GameObject>();
-
-        foreach (GameObject item in spawnedItems)
-        {
-            if (item == null)
-            {
-                itemsToRemove.Add(item);
-            }
-            else
-            {
-                // Rotates the spawned items
-                item.transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime);
-            }
-        }
-
-        spawnedItems.RemoveAll(item => itemsToRemove.Contains(item));
         GameObject[] staminaItems = GameObject.FindGameObjectsWithTag("StaminaItem");
         remainingStaminaItems = staminaItems.Length;
     }
@@ -80,7 +65,7 @@ public class SpawnPointManager : MonoBehaviour
         // Rotates the spawned item for a notiable visual effect to help the player
         Quaternion rotation = Quaternion.Euler(0f, 90f, 0f);
 
-        while (itemsSpawned < numberOfItemsToSpawn && spawnPoints.Count > 0)
+        while (itemsSpawned < numberOfItemsToSpawn) // && spawnPoints.Count > 0)
         {
             int randomIndex = Random.Range(0, spawnPoints.Count);
             Transform spawnPoint = spawnPoints[randomIndex];
