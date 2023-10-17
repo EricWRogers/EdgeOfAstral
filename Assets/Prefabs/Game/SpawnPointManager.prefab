@@ -118,7 +118,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   staminaItemPrefab: {fileID: 1160386464719550353, guid: a86041bd4bc7b694698238c9316d5167,
     type: 3}
-  numberOfStaminaItems: 4
+  numberOfItemsToSpawn: 0
+  rotationSpeed: 45
+  spawnPoints: []
+  spawnedItems: []
   totalSpawnPoints: 0
   remainingStaminaItems: 0
 --- !u!1 &2266873243727957761
