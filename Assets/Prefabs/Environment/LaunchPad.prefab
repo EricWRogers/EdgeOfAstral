@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.516503, y: 0.05, z: 4.2091765}
-  m_LocalScale: {x: 3, y: 0.2, z: 3}
+  m_LocalScale: {x: 2.9500802, y: 0.45502776, z: 2.9500802}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: edfc3dff76c5cff449ea64b9e6c30d73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,12 +101,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 1.4799622, z: 1}
+  m_Center: {x: 0, y: 0.23998156, z: 0}
 --- !u!114 &7053560264374700840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,7 +120,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
-  launchForce: 700
+  launchForce: 2.1
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!114 &5509938590228798481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,3 +141,4 @@ MonoBehaviour:
   oneTime: 0
   timeShown: 5
   lockoutTime: 5
+  followUp: {fileID: 0}
