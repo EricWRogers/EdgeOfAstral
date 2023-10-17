@@ -29,7 +29,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Run() //Good ol update
     {
-        Debug.Log("Path Valid is: " + PathValid(target.transform));
+        //Debug.Log("Path Valid is: " + PathValid(target.transform));
 
        
 
@@ -50,7 +50,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         if (checkPoint == false && !PathValid(target.transform)  /* && OmnicatLabs.CharacterControllers.CharacterController.Instance.isGrounded*/ )
         {
             agent.ResetPath();
-            Debug.Log("Doing a patrol");
+            //Debug.Log("Doing a patrol");
             Patrol();
             
             
@@ -59,7 +59,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         if(!PathValid(target.transform) && checkPoint == true)
         {
             agent.ResetPath();
-            Debug.Log("Doing a transition");
+            //Debug.Log("Doing a transition");
             Transition();
         }
 
@@ -154,7 +154,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
                 MoveAgent(closestTrans.transform);
                 if (agent.isPathStale)
                 {
-                    Debug.Log("Stale");
+                    //Debug.Log("Stale");
                     stateMachine.SetState(new AIIdleState(stateMachine));
                 }
             }
@@ -181,7 +181,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         else
         {
-            Debug.Log("PathValid Failed");
+            //Debug.Log("PathValid Failed");
             return false;
         }
     }
@@ -190,24 +190,24 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     {
         if (!agent.hasPath)
         {
-            Debug.Log("No Path");
+            //Debug.Log("No Path");
             //Validate the path
             NavMeshPath path = new NavMeshPath();
             agent.CalculatePath(destination.position, path);
            
             if (path.status == NavMeshPathStatus.PathComplete)
             {
-                Debug.Log("Path Set");
+                //Debug.Log("Path Set");
                 agent.SetPath(path);
             }
             else
             {
-                Debug.Log("Bad Path.");
+               // Debug.Log("Bad Path.");
             }
         }
         else
         {
-            Debug.Log("No need for a path.");
+           // Debug.Log("No need for a path.");
             return;
         }
     }

@@ -12,13 +12,15 @@ public class KeypadUIController : MonoBehaviour
     private string input;
     private float buttonCount = 0;
     private float guesses;
-    private string correctPass;
+    [HideInInspector]
+    public string correctPass;
     public GameObject keypadUI;
+    public UIStateMachineController controller;
 
     private void Start()
     {
         //correctPass = "123";
-        correctPass = FindObjectOfType<RandNumGen>().RandNum.ToString();
+        //correctPass = FindObjectOfType<RandNumGen>().RandNum.ToString();
         guesses = correctPass.Length;
     }
 
@@ -47,11 +49,8 @@ public class KeypadUIController : MonoBehaviour
     }
 
     public void Quit()
-    {
-        input = "";
-        displayText.text = input.ToString();
-        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
-        Destroy(gameObject);
+    {       
+        controller.ChangeState(controller.nullState);
     }
 
     public void Clear()
@@ -66,8 +65,8 @@ public class KeypadUIController : MonoBehaviour
         if (input == correctPass)
         {
             displayText.text = "<color=#15F00B>" + input.ToString();
-            TimerManager.Instance.CreateTimer(timeAfterSubmit, () => { Quit(); });
             onCorrectPassword.Invoke();
+            TimerManager.Instance.CreateTimer(timeAfterSubmit, () => { Quit(); });
         }
         else
         {
