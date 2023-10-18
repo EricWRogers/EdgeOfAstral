@@ -23,7 +23,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Run() //Good ol update
     {
-
+        
         if(checkPoint == true) {    
             Debug.Log("CHeckpoint");
         }
