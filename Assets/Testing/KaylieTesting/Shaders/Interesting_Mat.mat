@@ -25,14 +25,19 @@ Material:
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ALPHAPREMULTIPLY_ON
+  - _ALPHATEST_ON
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - DepthOnly
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -51,31 +56,50 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Alpha: 0.087
+    - _Alpha: 0.204
+    - _AlphaClip: 1
+    - _AlphaToMask: 0
     - _AngleOffset: 0
     - _BaseColor: 0
+    - _Blend: 0
+    - _BlendModePreserveSpecular: 1
+    - _CastShadows: 1
     - _CloudBrightness: 0.5
     - _CloudPower: 0
     - _CloudScale: 50
+    - _Cull: 2
     - _Density: 0
-    - _Distance: 0.13
+    - _Distance: 0
+    - _DstBlend: 10
     - _EdgeAmount: 0.5
     - _EdgeWidth: 0
+    - _ModNum: 2
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Scale: 134
-    - _ScanlineSpeed: 1
-    - _ScanlineStrength: 1
-    - _ScanlineThickness: 0.009
-    - _ScrollSpeed: 0.376
+    - _ReceiveShadows: 1
+    - _Scale: 43
+    - _ScanlineSpeed: 2
+    - _ScanlineStrength: 0.646
+    - _ScanlineThickness: 0.007
+    - _ScrollSpeed: 1
+    - _Size: 10
+    - _SrcBlend: 1
     - _StepScale: 0.5
+    - _Surface: 1
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZWrite: 0
+    - _ZWriteControl: 0
     - _alpha: 0.19
     m_Colors:
     - _BaseColor: {r: 0.6792453, g: 0.105731584, b: 0.105731584, a: 0}
     - _CloudColor: {r: 1, g: 1, b: 1, a: 0}
     - _CloudDirection: {r: 1, g: 1, b: 0, a: 0}
     - _CloudTiling: {r: 25, g: 25, b: 0, a: 0}
-    - _Color: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 1}
+    - _Color: {r: 0.9339623, g: 0.9110538, b: 0.9110538, a: 1}
     - _Direction: {r: 0.1, g: 0.1, b: 0.1, a: 0}
-    - _ScanlineColor: {r: 0.5188679, g: 0.011747938, b: 0.4239638, a: 1}
+    - _MinMaxX: {r: -1, g: 1, b: 0, a: 0}
+    - _MinMaxY: {r: 0, g: 0, b: 0, a: 0}
+    - _RemapNum: {r: 0.27, g: 1.26, b: 0, a: 0}
+    - _ScanlineColor: {r: 0.09967959, g: 0.67455876, b: 0.8490566, a: 1}
   m_BuildTextureStacks: []

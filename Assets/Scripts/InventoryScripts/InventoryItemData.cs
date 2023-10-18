@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [CreateAssetMenu(menuName = "Inventory Item Data")]
 public class InventoryItemData : ScriptableObject
@@ -9,4 +10,5 @@ public class InventoryItemData : ScriptableObject
     public string displayName;
     public Sprite icon;
     public GameObject prefab;
+    public UnityEvent onAddToInventory = new UnityEvent();
 }

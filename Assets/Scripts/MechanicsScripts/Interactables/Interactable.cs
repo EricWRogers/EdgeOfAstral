@@ -7,7 +7,7 @@ using UnityEngine.Events;
 	to be used as a base class.
 */
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour, ISaveable
 {
     public enum InteractType
     {
@@ -17,15 +17,20 @@ public class Interactable : MonoBehaviour
     }
     public InteractType type;
     public float contactRadius = 3f;
+    public string interactText = "to Interact";
+    public string uninteractableText = "";
     public UnityEvent onInteract = new UnityEvent();
+    public UnityEvent onHover = new UnityEvent();
 
     private Transform player;
+    public bool canInteract { get; protected set; } = true;
 
-    private void Start()
+    protected virtual void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         onInteract.AddListener(OnInteract);
+        onHover.AddListener(OnHover);
     }
 
     void Update()
@@ -33,7 +38,7 @@ public class Interactable : MonoBehaviour
         if (type == InteractType.Radius)
         {
             //Debug.Log(Vector3.Distance(player.position, transform.position));
-            if (Vector3.Distance(transform.position, player.position) <= contactRadius)
+            if (Vector3.Distance(transform.position, player.position) <= contactRadius && canInteract)
             {
                 onInteract.Invoke();
             }
@@ -44,7 +49,7 @@ public class Interactable : MonoBehaviour
     {
         if (type == InteractType.Collision)
         {
-            if (other.CompareTag("Player"))
+            if (other.CompareTag("Player") && canInteract)
             {
                 onInteract.Invoke();
             }
@@ -54,7 +59,26 @@ public class Interactable : MonoBehaviour
     // Code for whatever each interactable needs to do
     public virtual void OnInteract()
     {
+        
+    }
 
+    public void Interact()
+    {
+        if (canInteract)
+        {
+            onInteract.Invoke();
+            SaveManager.Instance.Track(this);
+        }
+    }
+
+    protected virtual void OnHover()
+    {
+
+    }
+
+    public void SetInteractable(bool value)
+    {
+        canInteract = value;
     }
 
     void OnDrawGizmosSelected()
@@ -66,4 +90,20 @@ public class Interactable : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Behavior for when the SaveManager adds this item to the list it is tracking
+    /// </summary>
+    public virtual void OnTrack()
+    {
+        
+    }
+
+    /// <summary>
+    /// Behavior for when the SaveManager resets this interactable from the tracking list. Use this to reset this interactable to its default state on a reload
+    /// </summary>
+    public virtual void OnReset()
+    {
+        
+    }
 }

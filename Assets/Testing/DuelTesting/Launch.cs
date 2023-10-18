@@ -6,14 +6,80 @@ public class Launch : MonoBehaviour
 {
     public string playerTag;
     public float launchForce;
+    public LayerMask playerLayer;
 
-    void OnCollisionEnter(Collision collision)
+    private float originalJumpForce;
+
+    private void Start()
     {
-        if(collision.gameObject.CompareTag(playerTag))
+        originalJumpForce = OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce;
+    }
+
+    //private void Update()
+    //{
+    //    if (Physics.CheckBox(new Vector3(col.bounds.center.x, col.bounds.center.y + offset, col.bounds.center.z), col.bounds.extents, Quaternion.identity, playerLayer))
+    //    {
+    //        if (UpgradeManager.Owns(UpgradeIds.MagBoots))
+    //        {
+    //            if (!added)
+    //            {
+    //                OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce *= launchForce;
+    //                added = true;
+    //                OmnicatLabs.CharacterControllers.CharacterController.Instance.onGrounded.AddListener(() => OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce = originalJumpForce);
+    //            }
+    //        }
+    //        else
+    //        {
+    //            GetComponent<Dialogue>().TriggerDialogue();
+    //        }
+    //    }
+    //    else
+    //    {
+    //        Debug.Log("exited");
+    //        //OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce = originalJumpForce;
+    //        added = false;
+    //    }
+    //}
+
+    //private void FixedUpdate()
+    //{
+    //    if (shouldPush)
+    //    {
+    //        OmnicatLabs.CharacterControllers.CharacterController.Instance.rb.AddForce(new Vector3(0, launchForce, 0), ForceMode.Force);
+    //        shouldPush = false;
+    //    }
+    //}
+
+    private void OnTriggerEnter(Collider col)
+    {
+        if (col.CompareTag(playerTag))
         {
-            collision.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0, launchForce, 0));
+            if (UpgradeManager.Owns(UpgradeIds.MagBoots))
+            {
+                OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce *= launchForce;
+                OmnicatLabs.CharacterControllers.CharacterController.Instance.onGrounded.AddListener(() => OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce = originalJumpForce);
+            }
+            else
+            {
+                GetComponent<Dialogue>().TriggerDialogue();
+            }
         }
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (col.CompareTag("Player"))
+    //    {
+    //        Debug.Log("exit");
+    //        OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce = originalJumpForce;
+    //    }
+    //}
+
+    //private void OnDrawGizmosSelected()
+    //{
+    //    Gizmos.color = Color.green;
+    //    Gizmos.DrawWireCube(new Vector3(GetComponent<Collider>().bounds.center.x, GetComponent<Collider>().bounds.center.y +offset, GetComponent<Collider>().bounds.center.z), GetComponent<Collider>().bounds.extents * 2);
+    //}
 
     // Commented out code is designed to work when attached to the player; unused
     /*
