@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class AIMoveState : MonoBehaviour, IEnemyState
 {
-    public bool checkPointExceptItWorks = true;
+    public bool checkPoint = true;
 
     private AIStateMachine stateMachine;
     private NavMeshAgent agent;
@@ -24,11 +24,11 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     public void Run() //Good ol update
     {
 
-        if(checkPointExceptItWorks == true) {    
+        if(checkPoint == true) {    
             Debug.Log("CHeckpoint");
         }
 
-        if (checkPointExceptItWorks == false)
+        if (checkPoint == false)
         {
             Debug.Log("No CHeckpoint");
         }
@@ -43,12 +43,12 @@ public class AIMoveState : MonoBehaviour, IEnemyState
                 stateMachine.SetState(gameObject.GetComponent<AIIdleState>()); // Sends us back to idle.
             }
         }
-        if (checkPointExceptItWorks == true) 
+        if (checkPoint == true) 
         {
             Debug.Log("Doing A transition");
             Transition();
         }
-        if(!PathValid(target.transform) && checkPointExceptItWorks == false) 
+        if(!PathValid(target.transform) && checkPoint == false) 
         {
             Debug.Log("Doing a patrol");
             Patrol();
@@ -136,7 +136,8 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
             if (closestTrans != null)
             {
-                MoveAgent(closestTrans.transform);
+                agent.SetDestination(closestTrans.transform.position);
+                //MoveAgent(closestTrans.transform);
                 if (agent.isPathStale)
                 {
                     //Debug.Log("Stale");
@@ -193,6 +194,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Enable()
     {
-        checkPointExceptItWorks = !checkPointExceptItWorks;
+        checkPoint = !checkPoint;
     }
 }

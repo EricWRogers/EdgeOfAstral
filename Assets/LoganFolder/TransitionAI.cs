@@ -17,6 +17,7 @@ public class TransitionAI : MonoBehaviour
             temp.SetActive(false);
             temp.transform.position = exitTrans.position;
             temp.SetActive(true);
+            temp.GetComponentInChildren<AIMoveState>().checkPoint = false;
         }
     }
 }
