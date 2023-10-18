@@ -1,3 +1,4 @@
+using OmnicatLabs.DebugUtils;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -5,11 +6,11 @@ using UnityEngine.AI;
 
 public class AIMoveState : MonoBehaviour, IEnemyState
 {
+    public bool checkPointExceptItWorks;
+
     private AIStateMachine stateMachine;
     private NavMeshAgent agent;
     public GameObject target;
-
-    public bool checkPoint = false;
 
     private int currentPatrolIndex = 0;
 
@@ -26,9 +27,19 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Run() //Good ol update
     {
+
+        if(this.checkPointExceptItWorks == true) {    
+            Debug.Log("CHeckpoint");
+        }
+
+        if (this.checkPointExceptItWorks == false)
+        {
+            Debug.Log("No CHeckpoint");
+        }
         if (PathValid(target.transform))
         {
-            // No need to use MoveAgent, setting destination directly
+            Debug.Log("Moving. .");
+            
             agent.SetDestination(target.transform.position);
 
             if (Vector3.Distance(agent.transform.position, target.transform.position) <= 2)
@@ -36,13 +47,16 @@ public class AIMoveState : MonoBehaviour, IEnemyState
                 stateMachine.SetState(new AIIdleState(stateMachine)); // Sends us back to idle.
             }
         }
-        else if (checkPoint) // If there's no valid path and the checkpoint boolean is true, execute transition
+        if (checkPointExceptItWorks == true) 
         {
+            Debug.Log("Doing A transition");
             Transition();
         }
-        else // If there's no valid path and the checkpoint boolean is false, execute the patrol function
+        if(!PathValid(target.transform) && checkPointExceptItWorks == false) 
         {
+            Debug.Log("Doing a patrol");
             Patrol();
+           
         }
     }
 
@@ -181,4 +195,8 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         }
     }
 
+    public void Enable()
+    {
+        this.checkPointExceptItWorks = !this.checkPointExceptItWorks;
+    }
 }
