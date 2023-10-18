@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class AIMoveState : MonoBehaviour, IEnemyState
 {
-    public bool checkPointExceptItWorks;
+    public bool checkPointExceptItWorks = true;
 
     private AIStateMachine stateMachine;
     private NavMeshAgent agent;
@@ -14,13 +14,9 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     private int currentPatrolIndex = 0;
 
-    public AIMoveState(AIStateMachine stateMachine)
+    public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
         this.stateMachine = stateMachine;
-    }
-
-    public void Enter() //First thing the state does.
-    {
         agent = FindAnyObjectByType<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
     }
@@ -28,11 +24,11 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     public void Run() //Good ol update
     {
 
-        if(this.checkPointExceptItWorks == true) {    
+        if(checkPointExceptItWorks == true) {    
             Debug.Log("CHeckpoint");
         }
 
-        if (this.checkPointExceptItWorks == false)
+        if (checkPointExceptItWorks == false)
         {
             Debug.Log("No CHeckpoint");
         }
@@ -44,7 +40,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
             if (Vector3.Distance(agent.transform.position, target.transform.position) <= 2)
             {
-                stateMachine.SetState(new AIIdleState(stateMachine)); // Sends us back to idle.
+                stateMachine.SetState(gameObject.GetComponent<AIIdleState>()); // Sends us back to idle.
             }
         }
         if (checkPointExceptItWorks == true) 
@@ -144,7 +140,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
                 if (agent.isPathStale)
                 {
                     //Debug.Log("Stale");
-                    stateMachine.SetState(new AIIdleState(stateMachine));
+                    stateMachine.SetState(gameObject.GetComponent<AIIdleState>());
                 }
             }
         }
@@ -197,6 +193,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Enable()
     {
-        this.checkPointExceptItWorks = !this.checkPointExceptItWorks;
+        checkPointExceptItWorks = !checkPointExceptItWorks;
     }
 }
