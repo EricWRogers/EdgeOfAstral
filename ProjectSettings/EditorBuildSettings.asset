@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
-    path: Assets/Testing/ColbyTesting/Scenes/ColbyFirstPlayable.unity
+    path: Assets/Testing/ColbyTesting/Scenes/MainScene.unity
     guid: 0e1c230ac363e4044b45a6278c1a9141
   m_configObjects: {}
