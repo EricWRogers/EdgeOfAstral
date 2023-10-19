@@ -10,20 +10,31 @@ public class DoorSensor : MonoBehaviour
     public float directionalForce = -50f;
     public UnityEvent onDoorClose = new UnityEvent();
     public bool isOpen = false;
+    public DoorSensor otherSensor;
+    private bool canInteract = true;
+
+    private void Start()
+    {
+        onDoorClose.AddListener(() => canInteract = true);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
-            if (isOpen == true)
+            if (isOpen && !otherSensor.isOpen && canInteract)
             {
                 isOpen = false;
                 doorPivot.TweenYRot(-directionalForce, 2f, () => onDoorClose.Invoke());
             }
             else
-            {
-                isOpen = true;
-                doorPivot.TweenYRot(directionalForce, 2f, () => onDoorClose.Invoke());
+            {   
+                if (canInteract)
+                {
+                    isOpen = true;
+                    doorPivot.TweenYRot(directionalForce, 2f, () => onDoorClose.Invoke());
+                }
+                    
             }
         }
     }
