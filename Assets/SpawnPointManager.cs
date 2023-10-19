@@ -16,37 +16,18 @@ public class SpawnPointManager : MonoBehaviour
     // NOT CLEARING THE LIST RIGHT. IDK.
     
     [Header("Spawn Points Variables")]
-    //[SerializeField] private List<Transform> spawnPoints = new List<Transform>();
-    //[SerializeField] private List<GameObject> spawnedItems = new List<GameObject>();
-    public int totalSpawnPoints;
-    public int remainingStaminaItems;
+    private int totalSpawnPoints;
+    private List<GameObject> spawnedItems = new List<GameObject>();
 
-    public List<GameObject> spawnedItems = new List<GameObject>();
     public List<Transform> spawnPoints = new List<Transform>();
 
-    // Start is called before the first frame update
     void Start()
     {
-        //SaveManager.Instance.onReset.AddListener(SpawnPointManager);
-        
-        /*
-        foreach (Transform child in transform)
-        {
-            spawnPoints.Add(child);
-        }
-        */
+        //SaveManager.Instance.onReset.AddListener(ResetPickups);
 
         totalSpawnPoints = spawnPoints.Count;
-        remainingStaminaItems = numberOfItemsToSpawn;
 
         SpawnStaminaItems();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        GameObject[] staminaItems = GameObject.FindGameObjectsWithTag("StaminaItem");
-        remainingStaminaItems = staminaItems.Length;
     }
 
     void SpawnStaminaItems()
@@ -59,27 +40,25 @@ public class SpawnPointManager : MonoBehaviour
             numberOfItemsToSpawn = totalSpawnPoints;
         }
 
-        //numberOfItemsToSpawn = Mathf.Min(numberOfItemsToSpawn, spawnPoints.Count);
-
         int itemsSpawned = 0;
-        // Rotates the spawned item for a notiable visual effect to help the player
-        Quaternion rotation = Quaternion.Euler(0f, 90f, 0f);
 
-        while (itemsSpawned < numberOfItemsToSpawn) // && spawnPoints.Count > 0)
+        while (itemsSpawned < numberOfItemsToSpawn)
         {
             int randomIndex = Random.Range(0, spawnPoints.Count);
             Transform spawnPoint = spawnPoints[randomIndex];
 
-            GameObject staminaItem = Instantiate(staminaItemPrefab, spawnPoint.position, Quaternion.identity);
-
-            staminaItem.tag = "StaminaItem";
+            GameObject staminaItem = Instantiate(staminaItemPrefab, spawnPoint.position, Quaternion.Euler(0f, Random.Range(0f, 90f), 0f));
 
             spawnPoints.RemoveAt(randomIndex);
-
-            itemsSpawned++;
             spawnedItems.Add(staminaItem);
+            itemsSpawned++;
         }
     }
 
-    //SaveManager.Instance.onReset.AddListener(SpawnPointManager);
+    private void ResetPickups()
+    {
+        spawnedItems.ForEach(item => Destroy(item));
+        spawnedItems.Clear();
+        SpawnStaminaItems();
+    }
 }
