@@ -11,27 +11,27 @@ public class PauseMenu : MonoBehaviour
 
     void Update()
     {
-        //if (Input.GetKeyDown(KeyCode.Escape))
-        //{
-        //    if (GameIsPaused)
-        //    {
-        //        Resume();
-        //    }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (GameIsPaused)
+            {
+                Resume();
+            }
 
-        //    else
-        //    {
-        //        Pause();
-        //    }
-        //}
+            else
+            {
+                Pause();
+            }
+        }
     }
 
     public void Resume()
     {
-        //Time.timeScale = 1f;
-        //pauseMenuUI.FadeOut(fadeTime, null, EasingFunctions.Ease.EaseOutQuart);
-        //GameIsPaused = false;
-        //Cursor.lockState = CursorLockMode.Locked;
-        //Cursor.visible = false;
+        
+        pauseMenuUI.FadeOut(fadeTime, null, EasingFunctions.Ease.EaseOutQuart);
+        GameIsPaused = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
 
         Time.timeScale = 1f;
         controller.ChangeState<HUDIdleState>();
