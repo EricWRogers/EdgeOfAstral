@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
 using OmnicatLabs.CharacterControllers;
+using Unity.VisualScripting;
 
 public class AIMoveState : MonoBehaviour, IEnemyState
 {
@@ -45,6 +46,12 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         else if (characterController.isGrounded == true) //Prevent the AI from randomly patrolling while I am b hopping thru da club
         {
             Patrol();
+        }
+
+        if(Vector3.Distance(agent.transform.position, target.transform.position) >= 100)
+        {
+            checkPoint = true;
+            
         }
 
     }
@@ -116,9 +123,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Transition()
     {
-
-
-
         if (transitions.Length > 0)
         {
             GameObject closestTrans = null;
@@ -200,5 +204,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
          }
      } */
 
+    
 
 }
