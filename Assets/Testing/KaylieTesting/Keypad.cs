@@ -26,7 +26,7 @@ public class Keypad : Interactable
 
         uiController.ChangeState<HUDKeypadState>();
 
-        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(true, true, true);
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(true, OmnicatLabs.CharacterControllers.CharacterController.Instance.playerIsHidden, true);
     }
 
     protected override void OnHover()
