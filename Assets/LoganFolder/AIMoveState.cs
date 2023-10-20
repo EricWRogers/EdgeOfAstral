@@ -25,16 +25,16 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     {
         
         if(checkPoint == true) {    
-            Debug.Log("CHeckpoint");
+            //Debug.Log("CHeckpoint");
         }
 
         if (checkPoint == false)
         {
-            Debug.Log("No CHeckpoint");
+            //Debug.Log("No CHeckpoint");
         }
         if (PathValid(target.transform))
         {
-            Debug.Log("Moving. .");
+           // Debug.Log("Moving. .");
             
             agent.SetDestination(target.transform.position);
 
@@ -45,12 +45,12 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         }
         if (checkPoint == true) 
         {
-            Debug.Log("Doing A transition");
+            //Debug.Log("Doing A transition");
             Transition();
         }
         if(!PathValid(target.transform) && checkPoint == false) 
         {
-            Debug.Log("Doing a patrol");
+            //Debug.Log("Doing a patrol");
             Patrol();
            
         }
@@ -155,12 +155,12 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         if (path.status == NavMeshPathStatus.PathComplete)
         {
-            Debug.Log("Path is good.");
+            //Debug.Log("Path is good.");
             return true;
         }
         else
         {
-            Debug.Log("Path is bad.");
+            //Debug.Log("Path is bad.");
             return false;
         }
     }
