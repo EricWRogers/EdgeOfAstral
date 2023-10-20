@@ -6,7 +6,8 @@ using UnityEngine;
 //find pickup script and put "bool wasPickedUp = Inventory.instance.Add(item);" in the Pickup() function
 
 //if (wasPickedUp)
-//    Destroy(gameObject); 
+//    Destroy(gameObject);
+
 public class Inventory : MonoBehaviour
 {
 

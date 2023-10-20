@@ -5,14 +5,14 @@ public class InventoryUI : MonoBehaviour
     public Transform itemsParent;
     public GameObject inventoryUI;
 
-    Inventory inventory;
+    InventorySystem inventory;
     
     InventorySlot[] slots;
 
     // Start is called before the first frame update
     void Start()
     {
-        inventory = Inventory.instance;
+        inventory = InventorySystem.Instance;
         inventory.onItemChangedCallBack += UpdateUI;
 
         slots = itemsParent.GetComponentsInChildren<InventorySlot>();
