@@ -1,8 +1,9 @@
-using OmnicatLabs.DebugUtils;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
+
 
 public class AIMoveState : MonoBehaviour, IEnemyState
 {
@@ -14,46 +15,36 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     private int currentPatrolIndex = 0;
 
+    public GameObject[] patrolRoutes;
+    public GameObject[] transitions;
+
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
         this.stateMachine = stateMachine;
         agent = FindAnyObjectByType<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
+
+        patrolRoutes = GameObject.FindGameObjectsWithTag("PatrolRoute");
+        transitions = GameObject.FindGameObjectsWithTag("Transition");
+
+        Debug.Log("Bruh");
     }
 
     public void Run() //Good ol update
     {
-        
-        if(checkPoint == true) {    
-            Debug.Log("CHeckpoint");
-        }
-
-        if (checkPoint == false)
+        if (ValidatePath(target))
         {
-            Debug.Log("No CHeckpoint");
-        }
-        if (PathValid(target.transform))
-        {
-            Debug.Log("Moving. .");
-            
             agent.SetDestination(target.transform.position);
-
-            if (Vector3.Distance(agent.transform.position, target.transform.position) <= 2)
-            {
-                stateMachine.SetState(gameObject.GetComponent<AIIdleState>()); // Sends us back to idle.
-            }
         }
-        if (checkPoint == true) 
+        else if (checkPoint == true)
         {
-            Debug.Log("Doing A transition");
             Transition();
         }
-        if(!PathValid(target.transform) && checkPoint == false) 
+        else
         {
-            Debug.Log("Doing a patrol");
             Patrol();
-           
         }
+
     }
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
@@ -64,19 +55,23 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Patrol()
     {
-        GameObject[] patrolRoutes = GameObject.FindGameObjectsWithTag("PatrolRoute");
+        Debug.Log("Patroling. .");
 
+       
         if (patrolRoutes.Length > 0)
         {
+           
             GameObject closestPatrolRoute = null;
             float closestDistance = float.MaxValue;
 
             foreach (GameObject route in patrolRoutes)
             {
+               
                 float distanceToRoute = Vector3.Distance(target.transform.position, route.transform.position);
 
                 if (distanceToRoute < closestDistance)
                 {
+                   
                     closestDistance = distanceToRoute;
                     closestPatrolRoute = route;
                 }
@@ -84,6 +79,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
             if (closestPatrolRoute != null)
             {
+               
                 Transform[] patrolPoints = closestPatrolRoute.GetComponentsInChildren<Transform>();
 
 
@@ -91,12 +87,14 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
                 if (validPatrolPoints.Count > 0)
                 {
+                   
                     if (Vector3.Distance(agent.transform.position, validPatrolPoints[currentPatrolIndex].position) <= 2)
                     {
                         currentPatrolIndex = (currentPatrolIndex + 1) % validPatrolPoints.Count;
                     }
 
                     agent.SetDestination(validPatrolPoints[currentPatrolIndex].position);
+                    
                 }
                 else
                 {
@@ -116,7 +114,8 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Transition()
     {
-        GameObject[] transitions = GameObject.FindGameObjectsWithTag("Transition");
+        
+       
 
         if (transitions.Length > 0)
         {
@@ -148,52 +147,56 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     }
 
-    public bool PathValid(Transform _target)
+    public bool ValidatePath(GameObject _target)
     {
+        if (agent.hasPath == true && agent.path.corners.Last() == _target.transform.position)
+        {
+            return true;
+        }
+
         NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(_target.position, path);
+        agent.CalculatePath(_target.transform.position, path);
 
         if (path.status == NavMeshPathStatus.PathComplete)
         {
+            agent.SetPath(path);
             Debug.Log("Path is good.");
             return true;
         }
         else
         {
             Debug.Log("Path is bad.");
+            // agent.ResetPath();
             return false;
         }
     }
 
-    public void MoveAgent(Transform destination)
-    {
-        if (!agent.hasPath)
-        {
-            //Debug.Log("No Path");
-            //Validate the path
-            NavMeshPath path = new NavMeshPath();
-            agent.CalculatePath(destination.position, path);
+    /* public void MoveAgent(Transform destination)
+     {
+         if (!agent.hasPath)
+         {
+             //Debug.Log("No Path");
+             //Validate the path
+             NavMeshPath path = new NavMeshPath();
+             agent.CalculatePath(destination.position, path);
 
-            if (path.status == NavMeshPathStatus.PathComplete)
-            {
-                //Debug.Log("Path Set");
-                agent.SetPath(path);
-            }
-            else
-            {
-                agent.ResetPath();
-                // Debug.Log("Bad Path.");
-            }
-        }
-        else
-        {
-            // Debug.Log("No need for a path.");
-            return;
-        }
-    }
+             if (path.status == NavMeshPathStatus.PathComplete)
+             {
+                 //Debug.Log("Path Set");
+                 agent.SetPath(path);
+             }
+             else
+             {
+                 agent.ResetPath();
+                 // Debug.Log("Bad Path.");
+             }
+         }
+         else
+         {
+             // Debug.Log("No need for a path.");
+             return;
+         }
+     } */
 
-    public void Enable()
-    {
-        checkPoint = !checkPoint;
-    }
+
 }
