@@ -24,11 +24,11 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     {
         this.stateMachine = stateMachine;
         agent = FindAnyObjectByType<NavMeshAgent>();
-        target = GameObject.FindGameObjectWithTag("Player");
+        target = GameObject.FindAnyObjectByType<OmnicatLabs.CharacterControllers.CharacterController>().gameObject;
 
         patrolRoutes = GameObject.FindGameObjectsWithTag("PatrolRoute");
         transitions = GameObject.FindGameObjectsWithTag("Transition");
-
+        Debug.Log(target);
         characterController = target.GetComponent<OmnicatLabs.CharacterControllers.CharacterController>();
     }
 
