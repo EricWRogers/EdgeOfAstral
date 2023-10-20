@@ -475,7 +475,7 @@ MonoBehaviour:
     onSoundComplete:
       m_PersistentCalls:
         m_Calls: []
-  - name: Footstep1
+  - name: Footstep
     clip: {fileID: 8300000, guid: c43f8dde9e24a7c428c992856f1996b1, type: 3}
     volume: 0.6
     priority: 0
@@ -725,96 +725,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreen: 0
---- !u!1 &4247316374902413965
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3052602998978271692}
-  - component: {fileID: 2547278902460522558}
-  m_Layer: 0
-  m_Name: AudioManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3052602998978271692
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4247316374902413965}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3853652187672823983}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2547278902460522558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4247316374902413965}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a004165d9d4992d4e95144c90ad056b3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sounds:
-  - name: Footstep
-    clip: {fileID: 8300000, guid: faa60e450855fb34b8b429d7fd980dd4, type: 3}
-    volume: 0.254
-    priority: 0
-    pitch: 1
-    spatialBlend: 0
-    panStereo: 0
-    reverbZoneMix: 0
-    loop: 0
-    playOnAwake: 0
-    dopplerLevel: 0
-    spread: 0
-    rolloffMode: 0
-    minDistance: 0
-    maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
-    reverbPreset: 0
-    reverb:
-      dryLevel: 0
-      room: 0
-      roomHF: 0
-      roomLF: 0
-      decayTime: 0
-      decayHFRatio: 0
-      reflectionsLevel: 0
-      reflectionsDelay: 0
-      hfReference: 0
-      lfReference: 0
-      diffusion: 0
-      density: 0
-      reverbDelay: 0
-    useEcho: 0
-    echo:
-      delay: 0
-      decayRatio: 0
-      dryMix: 0
-      wetMix: 0
-    useDistortion: 0
-    distortion:
-      distortionLevel: 0
-    onSoundComplete:
-      m_PersistentCalls:
-        m_Calls: []
-  mixer: {fileID: 0}
-  sources: []
 --- !u!1 &7561090201023249777
 GameObject:
   m_ObjectHideFlags: 0
