@@ -18,6 +18,7 @@ public class UIFunctions : MonoBehaviour
         //Spawnpoint = GameObject.Find("Spawnpoint");
         LoseUI.SetActive(false);
         OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.rb.velocity = Vector3.zero;
         SaveManager.Instance.ResetTracked();
         OmnicatLabs.CharacterControllers.CharacterController.Instance.transform.position = Checkpoint.spawnpoint.position;
         //Player.transform.position = Spawnpoint.transform.position;
