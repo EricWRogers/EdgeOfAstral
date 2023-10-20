@@ -92,7 +92,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 99a6628f3fc45b84e83d9dbbe982ec66, type: 3}
     volume: 0.75
     priority: 0
-    pitch: 0
+    pitch: 1
     spatialBlend: 0
     panStereo: 0
     reverbZoneMix: 0
@@ -133,9 +133,9 @@ MonoBehaviour:
         m_Calls: []
   - name: OpeningExplosion
     clip: {fileID: 8300000, guid: ab4e92d420f0d8348aab2db92bd63f29, type: 3}
-    volume: 1
+    volume: 0.731
     priority: 0
-    pitch: 0
+    pitch: 1
     spatialBlend: 0
     panStereo: 0
     reverbZoneMix: 0
@@ -262,9 +262,9 @@ MonoBehaviour:
         m_Calls: []
   - name: Destruction
     clip: {fileID: 8300000, guid: 2c97cd3906b780948afd2fe7861c0b13, type: 3}
-    volume: 1
+    volume: 0.761
     priority: 0
-    pitch: 0
+    pitch: 1
     spatialBlend: 0
     panStereo: 0
     reverbZoneMix: 0
@@ -307,7 +307,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d22333a4a6f00ce43b8bcad79b250988, type: 3}
     volume: 1
     priority: 0
-    pitch: 0
+    pitch: 1
     spatialBlend: 0
     panStereo: 0
     reverbZoneMix: 0
@@ -348,9 +348,9 @@ MonoBehaviour:
         m_Calls: []
   - name: Lever
     clip: {fileID: 8300000, guid: a7ef0925f593ed14693515a2797f072b, type: 3}
-    volume: 1
+    volume: 0.727
     priority: 0
-    pitch: 0
+    pitch: 1
     spatialBlend: 0
     panStereo: 0
     reverbZoneMix: 0
@@ -391,9 +391,9 @@ MonoBehaviour:
         m_Calls: []
   - name: Door
     clip: {fileID: 8300000, guid: c3cffe72aebf5d14aa324d1c5899cf96, type: 3}
-    volume: 1
+    volume: 0.727
     priority: 0
-    pitch: 0
+    pitch: 1
     spatialBlend: 0
     panStereo: 0
     reverbZoneMix: 0
