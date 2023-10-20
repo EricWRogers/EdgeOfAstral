@@ -11,10 +11,11 @@ public class CutsceneStart : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            var controller = OmnicatLabs.CharacterControllers.CharacterController.Instance;
+            controller.SetControllerLocked(true, true, true);
+            controller.ChangeState(OmnicatLabs.CharacterControllers.CharacterStates.Idle);
             FindObjectOfType<PlayableDirector>().Play();
             started = true;
-            OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(true, true, true);
-            OmnicatLabs.CharacterControllers.CharacterController.Instance.ChangeState(OmnicatLabs.CharacterControllers.CharacterStates.Idle);
         }
     }
 
