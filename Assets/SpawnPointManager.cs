@@ -10,11 +10,6 @@ public class SpawnPointManager : MonoBehaviour
     public GameObject staminaItemPrefab;
     public int numberOfItemsToSpawn;
     
-
-     
-    // EXPOSING THE LISTS IN THE EDITOR CAUSES 'ObjectDisposedException' ERRORS. MAYBE I'M
-    // NOT CLEARING THE LIST RIGHT. IDK.
-    
     [Header("Spawn Points Variables")]
     private int totalSpawnPoints;
     private List<GameObject> spawnedItems = new List<GameObject>();
@@ -23,7 +18,7 @@ public class SpawnPointManager : MonoBehaviour
 
     void Start()
     {
-        //SaveManager.Instance.onReset.AddListener(ResetPickups);
+        SaveManager.Instance.onReset.AddListener(ResetPickups);
 
         totalSpawnPoints = spawnPoints.Count;
 
