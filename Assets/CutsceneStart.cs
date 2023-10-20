@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using OmnicatLabs.Audio;
 
 public class CutsceneStart : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class CutsceneStart : MonoBehaviour
         if (FindObjectOfType<PlayableDirector>().state != PlayState.Playing && started)
         {
             OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
+            AudioManager.Instance.Play("BGM");
             Destroy(gameObject);
         }
     }
