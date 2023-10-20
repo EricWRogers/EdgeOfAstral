@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using OmnicatLabs.Tween;
 using UnityEngine.Events;
+using OmnicatLabs.Timers;
+using OmnicatLabs.Audio;
 
 public class AirlockDoorButton : Interactable
 {
@@ -24,6 +26,8 @@ public class AirlockDoorButton : Interactable
     public override void OnInteract()
     {
         base.OnInteract();
+
+        AudioManager.Instance.Play("Door");
 
         doorPivot.TweenYRot(directionalForce, 2f, () => onDoorClose.Invoke());
         SetInteractable(false);
