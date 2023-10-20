@@ -1,6 +1,8 @@
 using UnityEngine;
 using OmnicatLabs.Tween;
 using UnityEngine.Events;
+using OmnicatLabs.Timers;
+using OmnicatLabs.Audio;
 
 public class AirlockDoorButton : Interactable
 {
