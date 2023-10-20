@@ -161,7 +161,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         if (path.status == NavMeshPathStatus.PathComplete)
         {
-            agent.SetPath(path);
+            //agent.SetPath(path);
             Debug.Log("Path is good.");
             return true;
         }
