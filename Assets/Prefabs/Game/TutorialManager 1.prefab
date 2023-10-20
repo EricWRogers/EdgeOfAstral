@@ -65,7 +65,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreen: 0
-  text: WASD to move around
+  text: 'WASD to move around
+
+    Use the mouse to look'
   lingerTime: 2
   trigger: {fileID: 0}
 --- !u!114 &8493892918870138474
@@ -109,7 +111,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreen: 0
-  text: You can use your weapon to destroy various parts of the environment
+  text: Left click to use your weapon. You can use it destroy various parts of the
+    environment
 --- !u!114 &6182804885305753489
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,7 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreen: 0
-  text: Left Shift to toggle sprint
+  text: Left Shift to toggle sprint. Sprinting consumes Stamina that needs to be
+    replenished
 --- !u!114 &6607744090834656941
 MonoBehaviour:
   m_ObjectHideFlags: 0
