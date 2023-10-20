@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using OmnicatLabs.Tween;
 using UnityEngine.Events;
@@ -10,6 +8,10 @@ public class AirlockDoorButton : Interactable
     public bool startInteractable = true;
     public float directionalForce = -50f;
     public UnityEvent onDoorClose = new UnityEvent();
+    public UnityEvent onDoorOpen = new UnityEvent();
+    public AirlockDoorButton buttonForOtherDoor;
+    public MotionScanner doorToOpen;
+    public MotionScanner doorBehind;
 
     protected override void Start()
     {
@@ -19,13 +21,34 @@ public class AirlockDoorButton : Interactable
         {
             SetInteractable(false);
         }
+
+        onDoorOpen.AddListener(DoorOpen);
+        onDoorClose.AddListener(DoorClose);
     }
 
     public override void OnInteract()
     {
         base.OnInteract();
 
-        doorPivot.TweenYRot(directionalForce, 2f, () => onDoorClose.Invoke());
-        SetInteractable(false);
+        if (doorToOpen.doorClosed && doorBehind.doorClosed)
+        {
+            doorPivot.TweenYRot(directionalForce, 2f, () => onDoorOpen.Invoke());
+            doorToOpen.doorOpening = true;
+            doorToOpen.doorClosed = false;
+            SetInteractable(false);
+        }
+    }
+
+    void DoorOpen()
+    {
+        doorPivot.TweenYRot(-directionalForce, 2f, () => onDoorClose.Invoke());
+    }
+
+    void DoorClose()
+    {
+        doorToOpen.doorClosed = true;
+        doorToOpen.doorOpening = false;
+        SetInteractable(true);
+        buttonForOtherDoor.SetInteractable(true);
     }
 }
