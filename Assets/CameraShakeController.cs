@@ -3,21 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using OmnicatLabs.Timers;
-
+using UnityEngine.Events;
 public class CameraShakeController : MonoBehaviour
 {
     public float shakeDuration;
     public float intensity;
 
+    public UnityEvent onShakeFinish = new UnityEvent();
+
     private CinemachineVirtualCamera vCam;
     private CinemachineBasicMultiChannelPerlin noise;
-    private bool canShake = true;
 
     private void Start()
     {
         vCam = GetComponent<CinemachineVirtualCamera>();
         noise = vCam.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
-        ResetIntensity();
     }
 
     /// <summary>
@@ -43,5 +43,7 @@ public class CameraShakeController : MonoBehaviour
     public void ResetIntensity()
     {
         noise.m_AmplitudeGain = 0f;
+        onShakeFinish.Invoke();
+        onShakeFinish.RemoveAllListeners();
     }
 }

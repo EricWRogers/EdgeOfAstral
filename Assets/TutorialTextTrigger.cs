@@ -23,7 +23,7 @@ public class TutorialTextTrigger : MonoBehaviour
     public bool oneTime = false;
     public Dialogue exitDialogue;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
