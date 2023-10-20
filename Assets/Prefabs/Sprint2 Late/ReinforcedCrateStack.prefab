@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8920166947903708130, guid: 7e9697bc5ef98214d9ff767f282d1245,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: -8679921383154817045, guid: 7e9697bc5ef98214d9ff767f282d1245,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -58,11 +63,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 7e9697bc5ef98214d9ff767f282d1245,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 919132149155446097, guid: 7e9697bc5ef98214d9ff767f282d1245,
         type: 3}
       propertyPath: m_Name
       value: ReinforcedCrateStack
       objectReference: {fileID: 0}
+    - target: {fileID: 2185557273456418978, guid: 7e9697bc5ef98214d9ff767f282d1245,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
