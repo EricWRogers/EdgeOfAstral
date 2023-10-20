@@ -15,10 +15,13 @@ public class SpawnPointManager : MonoBehaviour
     private List<GameObject> spawnedItems = new List<GameObject>();
 
     public List<Transform> spawnPoints = new List<Transform>();
+    private List<Transform> managedSpawnPoints = new List<Transform>();
 
     void Start()
     {
         SaveManager.Instance.onReset.AddListener(ResetPickups);
+
+        managedSpawnPoints.AddRange(spawnPoints);
 
         totalSpawnPoints = spawnPoints.Count;
 
@@ -39,12 +42,12 @@ public class SpawnPointManager : MonoBehaviour
 
         while (itemsSpawned < numberOfItemsToSpawn)
         {
-            int randomIndex = Random.Range(0, spawnPoints.Count);
-            Transform spawnPoint = spawnPoints[randomIndex];
+            int randomIndex = Random.Range(0, managedSpawnPoints.Count);
+            Transform spawnPoint = managedSpawnPoints[randomIndex];
 
             GameObject staminaItem = Instantiate(staminaItemPrefab, spawnPoint.position, Quaternion.Euler(0f, Random.Range(0f, 90f), 0f));
 
-            spawnPoints.RemoveAt(randomIndex);
+            managedSpawnPoints.RemoveAt(randomIndex);
             spawnedItems.Add(staminaItem);
             itemsSpawned++;
         }
@@ -54,6 +57,8 @@ public class SpawnPointManager : MonoBehaviour
     {
         spawnedItems.ForEach(item => Destroy(item));
         spawnedItems.Clear();
+        managedSpawnPoints.Clear();
+        managedSpawnPoints.AddRange(spawnPoints);
         SpawnStaminaItems();
     }
 }
