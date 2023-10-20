@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using System.Linq;
-
+using OmnicatLabs.CharacterControllers;
 
 public class AIMoveState : MonoBehaviour, IEnemyState
 {
@@ -15,8 +15,10 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     private int currentPatrolIndex = 0;
 
-    public GameObject[] patrolRoutes;
-    public GameObject[] transitions;
+    private GameObject[] patrolRoutes;
+    private GameObject[] transitions;
+
+    public OmnicatLabs.CharacterControllers.CharacterController characterController;
 
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
@@ -27,7 +29,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         patrolRoutes = GameObject.FindGameObjectsWithTag("PatrolRoute");
         transitions = GameObject.FindGameObjectsWithTag("Transition");
 
-        Debug.Log("Bruh");
+        characterController = target.GetComponent<OmnicatLabs.CharacterControllers.CharacterController>();
     }
 
     public void Run() //Good ol update
@@ -40,7 +42,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         {
             Transition();
         }
-        else
+        else if (characterController.isGrounded == true) //Prevent the AI from randomly patrolling while I am b hopping thru da club
         {
             Patrol();
         }
@@ -57,21 +59,21 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     {
         Debug.Log("Patroling. .");
 
-       
+
         if (patrolRoutes.Length > 0)
         {
-           
+
             GameObject closestPatrolRoute = null;
             float closestDistance = float.MaxValue;
 
             foreach (GameObject route in patrolRoutes)
             {
-               
+
                 float distanceToRoute = Vector3.Distance(target.transform.position, route.transform.position);
 
                 if (distanceToRoute < closestDistance)
                 {
-                   
+
                     closestDistance = distanceToRoute;
                     closestPatrolRoute = route;
                 }
@@ -79,7 +81,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
             if (closestPatrolRoute != null)
             {
-               
+
                 Transform[] patrolPoints = closestPatrolRoute.GetComponentsInChildren<Transform>();
 
 
@@ -87,14 +89,14 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
                 if (validPatrolPoints.Count > 0)
                 {
-                   
+
                     if (Vector3.Distance(agent.transform.position, validPatrolPoints[currentPatrolIndex].position) <= 2)
                     {
                         currentPatrolIndex = (currentPatrolIndex + 1) % validPatrolPoints.Count;
                     }
 
                     agent.SetDestination(validPatrolPoints[currentPatrolIndex].position);
-                    
+
                 }
                 else
                 {
@@ -114,8 +116,8 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Transition()
     {
-        
-       
+
+
 
         if (transitions.Length > 0)
         {
