@@ -48,6 +48,7 @@ MonoBehaviour:
   type: 1
   contactRadius: 3
   interactText: to Open
+  uninteractableText: 
   onInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -168,6 +169,12 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: edfc3dff76c5cff449ea64b9e6c30d73, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 305f9b59c4dc4aa48a500b1a0dc6a7ea,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 198806007812188201, guid: a3ac3d7e3e535864d8809c1b033cc258,
+        type: 3}
     - target: {fileID: 919132149155446097, guid: 305f9b59c4dc4aa48a500b1a0dc6a7ea,
         type: 3}
       propertyPath: m_Name
