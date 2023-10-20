@@ -8,7 +8,7 @@ public class OpeningCutscene : MonoBehaviour
 {
     public CameraShakeController shaker;
 
-    private void Start()
+    public void StartCutscene()
     {
         OmnicatLabs.CharacterControllers.CharacterController.Instance.GetComponent<PlayerInput>().enabled = false;
         shaker.CauseShake();

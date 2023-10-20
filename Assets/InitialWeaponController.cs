@@ -10,7 +10,7 @@ public class InitialWeaponController : MonoBehaviour
     {
         controller = OmnicatLabs.CharacterControllers.CharacterController.Instance;
 
-        controller.SetControllerLocked(false, true, false);
+        //controller.SetControllerLocked(false, true, false);
     }
 
     public void OnWeaponPickup()

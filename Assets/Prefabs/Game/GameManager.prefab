@@ -738,7 +738,6 @@ GameObject:
   - component: {fileID: 938405648312880400}
   - component: {fileID: 6750250712418728642}
   - component: {fileID: 6502811978659885647}
-  - component: {fileID: 4100809177109265479}
   - component: {fileID: 2663900214268015334}
   - component: {fileID: 8399224915719807006}
   - component: {fileID: 2993984963616570827}
@@ -817,23 +816,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueArea: {fileID: 0}
   dialogueFadeTime: 0.3
---- !u!114 &4100809177109265479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7561090201023249777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ab5d83f396c96047921672a1669f452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: What was that noise!? I need to get out there and see what happened!
-  oneTime: 1
-  timeShown: 7
-  lockoutTime: 5
-  followUp: {fileID: 0}
 --- !u!114 &2663900214268015334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -882,8 +864,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   winWaitTime: 1
   LightObjects:
-  - {fileID: 0}
-  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
