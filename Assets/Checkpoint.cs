@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Checkpoint : MonoBehaviour
 {
+    public bool shouldAITransition = true;
     public static Transform spawnpoint;
     private AIMoveState agent;
     private void Start()
@@ -17,7 +18,8 @@ public class Checkpoint : MonoBehaviour
         SaveManager.Instance.Save();
         spawnpoint = transform;
 
-        agent.checkPoint = true;
+        if (shouldAITransition)
+            agent.checkPoint = true;
     }
 
   
