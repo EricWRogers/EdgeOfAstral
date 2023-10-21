@@ -25,10 +25,10 @@ public class HeadbobController : MonoBehaviour
         startPos = cam.localPosition;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (!enable) return;
-        if (!controller.isGrounded) return;
+        if (!controller.isGrounded || controller.isCrouching) return;
 
         CheckMotion();
         ResetPosition();
