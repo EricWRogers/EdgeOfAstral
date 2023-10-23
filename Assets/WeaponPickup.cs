@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using OmnicatLabs.Audio;
 
 public class WeaponPickup : Interactable
 {
@@ -13,6 +14,8 @@ public class WeaponPickup : Interactable
 
     public override void OnInteract()
     {
+        AudioManager.Instance.Play("PickUp");
+
         base.OnInteract();
 
         Destroy(gameObject);

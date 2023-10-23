@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 8880047568603676031}
   - component: {fileID: 376165714893314931}
   - component: {fileID: 1335638920370627830}
+  - component: {fileID: 3097602553161260720}
   m_Layer: 0
   m_Name: Destructable Wall
   m_TagString: Untagged
@@ -190,7 +191,19 @@ MonoBehaviour:
   callbackOptions:
     onFracture:
       m_PersistentCalls:
-        m_Calls: []
+        m_Calls:
+        - m_Target: {fileID: 3097602553161260720}
+          m_TargetAssemblyTypeName: DestructionAudio, Assembly-CSharp
+          m_MethodName: PlaySound
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
     onCompleted:
       m_PersistentCalls:
         m_Calls: []
@@ -205,5 +218,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 33b368dafb7bbc54ea736df3dc17ed5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3097602553161260720
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5679268365632499557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15ce884b8e5ad8445aa47629c1417c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
