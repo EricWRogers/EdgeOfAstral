@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 
 public class AIMoveState : MonoBehaviour, IEnemyState
 {
-    public bool checkPoint = true;
+    
 
     private AIStateMachine stateMachine;
     private NavMeshAgent agent;
@@ -19,6 +19,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     private GameObject[] patrolRoutes;
     private GameObject[] transitions;
 
+    public Transform exitTrans;
     public OmnicatLabs.CharacterControllers.CharacterController characterController;
 
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
@@ -39,18 +40,15 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         {
             agent.SetDestination(target.transform.position);
         }
-        else if (checkPoint == true)
-        {
-            Transition();
-        }
+        
         else if (characterController.isGrounded == true) //Prevent the AI from randomly patrolling while I am b hopping thru da club
         {
             Patrol();
         }
 
-        if(Vector3.Distance(agent.transform.position, target.transform.position) >= 100)
+        if(Vector3.Distance(agent.transform.position, target.transform.position) >= 20)
         {
-            checkPoint = true;
+            
             
         }
 
@@ -121,7 +119,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         }
     }
 
-    public void Transition()
+   /* public void Transition()
     {
         if (transitions.Length > 0)
         {
@@ -151,7 +149,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
             }
         }
 
-    }
+    }*/
 
     public bool ValidatePath(GameObject _target)
     {
@@ -209,6 +207,19 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         agent.isStopped = _value;
         Debug.Log("The AI is set to: " + _value);
     }
-    
+
+    public void TransitionAI()
+    {
+
+        Debug.Log("Crossed");
+        // GameObject temp = GetComponentInParent<NavMeshAgent>().gameObject;
+
+        agent.gameObject.SetActive(false);
+        agent.transform.position = exitTrans.position;
+        agent.gameObject.SetActive(true);
+        agent.GetComponentInChildren<AIMoveState>().checkPoint = false;
+
+    }
+
 
 }
