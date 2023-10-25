@@ -35,7 +35,7 @@ public class PauseMenu : MonoBehaviour
 
         Time.timeScale = 1f;
         controller.ChangeState<HUDIdleState>();
-        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, !OmnicatLabs.CharacterControllers.CharacterController.Instance.playerIsHidden, false);
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, OmnicatLabs.CharacterControllers.CharacterController.Instance.playerIsHidden, false);
     }
 
     void Pause()

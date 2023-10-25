@@ -11,7 +11,8 @@ public class MonsterAudio : MonoBehaviour
     public float growlIntervalMax = 45f;
 
     private int previousTimer;
-    private void Start()
+
+    private void PostPlay()
     {
         var rand = RandTime();
         Debug.Log(rand);
