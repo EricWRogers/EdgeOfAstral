@@ -9,13 +9,10 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
     private AIStateMachine stateMachine;
     private NavMeshAgent agent;
     private GameObject target;
-    public AIIdleState(AIStateMachine stateMachine)
+
+    public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
         this.stateMachine = stateMachine;
-    }
-
-    public void Enter() //First thing the state does.
-    {
         //Debug.Log("Entering Idle State");
         //agent = GetComponentInParent<NavMeshAgent>();
         agent = FindAnyObjectByType<NavMeshAgent>();
@@ -30,7 +27,7 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
        
         if (Vector3.Distance(agent.transform.position, target.transform.position) >= 2)
         {
-            stateMachine.SetState(new AIMoveState(stateMachine)); //Sends us to move.
+            stateMachine.SetState(gameObject.GetComponent<AIMoveState>()); //Sends us to move.
         }
     }
 

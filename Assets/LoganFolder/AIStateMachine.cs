@@ -5,7 +5,7 @@ using UnityEngine;
 
 public interface IEnemyState //Make the states inherit from this. Basically will force that script to have these functions. If it dont it dont work.
 {
-    void Enter();
+    void Enter(AIStateMachine stateMachine);
     void Run();
     void Exit();
 }
@@ -17,7 +17,7 @@ public class AIStateMachine : MonoBehaviour //Dont touch this script.
 
     private void Start()
     {
-        SetState(new AIIdleState(this));
+        SetState(gameObject.GetComponent<AIIdleState>());
     }
 
     private void Update()
@@ -33,7 +33,7 @@ public class AIStateMachine : MonoBehaviour //Dont touch this script.
         }
 
         currentState = newState;
-        currentState.Enter();
+        currentState.Enter(this);
     }
 
 }

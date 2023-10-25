@@ -262,7 +262,7 @@ public static class Fragmenter
             fragment.transform.localScale = sourceObject.transform.localScale;
 
             //Added Code
-            fragment.GetComponent<Rigidbody>().AddForce(impactDirection * 50f, ForceMode.Impulse);
+            fragment.GetComponent<Rigidbody>().AddForce(impactDirection * 10f, ForceMode.Impulse);
 
             meshes[k].name = System.Guid.NewGuid().ToString();
 
