@@ -217,9 +217,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         agent.gameObject.SetActive(false);
         agent.transform.position = exitTrans.position;
         agent.gameObject.SetActive(true);
-        agent.GetComponentInChildren<AIMoveState>().checkPoint = false;
+        //agent.GetComponentInChildren<AIMoveState>().checkPoint = false;
 
     }
-
-
 }
