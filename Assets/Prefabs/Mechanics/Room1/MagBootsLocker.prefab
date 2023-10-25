@@ -8,6 +8,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3491484027203004187, guid: 256050b16c03ba74c8a0a0b56bbef040,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 55c731196a0b22e4d9c33d5f5502c7d8, type: 2}
     - target: {fileID: 4284660685080036811, guid: 256050b16c03ba74c8a0a0b56bbef040,
         type: 3}
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.size
@@ -43,6 +48,11 @@ PrefabInstance:
       propertyPath: onInteract.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 4620127884526740472, guid: 256050b16c03ba74c8a0a0b56bbef040,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 55c731196a0b22e4d9c33d5f5502c7d8, type: 2}
     - target: {fileID: 5199900276352237225, guid: 256050b16c03ba74c8a0a0b56bbef040,
         type: 3}
       propertyPath: m_LocalPosition.x

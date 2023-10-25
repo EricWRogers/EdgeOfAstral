@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using OmnicatLabs.Tween;
+using OmnicatLabs.Audio;
 
 public class MotionScanner : MonoBehaviour
 {
@@ -24,8 +25,9 @@ public class MotionScanner : MonoBehaviour
     private void OnTriggerEnter(Collider collider)
     {
         //If the player is within the collider, open the door
-        if (collider.gameObject == player && !doorOpening)
+        if (collider.CompareTag("Player") && !doorOpening)
         {
+            Debug.Log("Found");
             doorPivot.TweenYRot(directionalForce, 2f, () => onDoorOpen.Invoke());
             doorOpening = true;
             doorClosed = false;

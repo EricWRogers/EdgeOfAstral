@@ -7,10 +7,17 @@ public class MainMenu : MonoBehaviour
     public OpeningCutscene cutscene;
     public CanvasGroup settingsMenu;
     public float menuCloseTime = 2f;
+    public GameObject crosshair;
+
+    private void Awake()
+    {
+        Application.runInBackground = true;
+    }
 
     private void Start()
     {
         OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(true, true, true);
+        crosshair.SetActive(false);
     }
 
     public void Play()
@@ -22,7 +29,7 @@ public class MainMenu : MonoBehaviour
     private void StartGame()
     {
         GetComponent<Dialogue>().TriggerDialogue();
-        //Play explosion sound
+        crosshair.SetActive(true);
         OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, true, false);
         cutscene.StartCutscene();
     }
