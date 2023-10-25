@@ -204,6 +204,11 @@ public class AIMoveState : MonoBehaviour, IEnemyState
          }
      } */
 
+    public void ToggleAI(bool _value)
+    {
+        agent.isStopped = _value;
+        Debug.Log("The AI is set to: " + _value);
+    }
     
 
 }

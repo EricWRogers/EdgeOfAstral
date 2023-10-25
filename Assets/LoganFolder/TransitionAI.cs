@@ -22,7 +22,7 @@ public class TransitionAI : MonoBehaviour
             agent.SetActive(false);
             agent.transform.position = exitTrans.position;
             agent.SetActive(true);
-            agent.GetComponentInChildren<AIMoveState>().checkPoint = false;
+            //agent.GetComponentInChildren<AIMoveState>().checkPoint = false;
         }
     }
 }
