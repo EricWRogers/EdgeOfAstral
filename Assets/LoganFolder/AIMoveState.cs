@@ -1,97 +1,86 @@
-using OmnicatLabs.DebugUtils;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using System.Linq;
+using OmnicatLabs.CharacterControllers;
+using Unity.VisualScripting;
 
 public class AIMoveState : MonoBehaviour, IEnemyState
 {
+    public bool checkPoint = true;
+
     private AIStateMachine stateMachine;
     private NavMeshAgent agent;
     public GameObject target;
 
-    public bool checkPoint = true;
-
     private int currentPatrolIndex = 0;
 
-    public AIMoveState(AIStateMachine stateMachine)
+    private GameObject[] patrolRoutes;
+    private GameObject[] transitions;
+
+    public OmnicatLabs.CharacterControllers.CharacterController characterController;
+
+    public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
         this.stateMachine = stateMachine;
-    }
-
-    public void Enter() //First thing the state does.
-    {
-        //agent = GetComponentInParent<NavMeshAgent>();
         agent = FindAnyObjectByType<NavMeshAgent>();
-        target = GameObject.FindGameObjectWithTag("Player");
+        target = GameObject.FindAnyObjectByType<OmnicatLabs.CharacterControllers.CharacterController>().gameObject;
 
+        patrolRoutes = GameObject.FindGameObjectsWithTag("PatrolRoute");
+        transitions = GameObject.FindGameObjectsWithTag("Transition");
+        Debug.Log(target);
+        characterController = target.GetComponent<OmnicatLabs.CharacterControllers.CharacterController>();
     }
 
     public void Run() //Good ol update
     {
-        //Debug.Log("Path Valid is: " + PathValid(target.transform));
-
-       
-
-        MoveAgent(target.transform);
-
-        if(target.transform.position != agent.path.corners.Last()) //Corners, for whatever reason, is the name of the waypoint array for pathfinding.
+        if (ValidatePath(target))
         {
-            agent.ResetPath();
-            MoveAgent(target.transform);
+            agent.SetDestination(target.transform.position);
         }
-        
-        if (Vector3.Distance(agent.transform.position, target.transform.position) <= 2)
+        else if (checkPoint == true)
         {
-            stateMachine.SetState(new AIIdleState(stateMachine)); //Sends us back to idle.
-
-        }
-
-        if (checkPoint == false && !PathValid(target.transform)  /* && OmnicatLabs.CharacterControllers.CharacterController.Instance.isGrounded*/ )
-        {
-            agent.ResetPath();
-            //Debug.Log("Doing a patrol");
-            Patrol();
-            
-            
-        }
-
-        if(!PathValid(target.transform) && checkPoint == true)
-        {
-            agent.ResetPath();
-            //Debug.Log("Doing a transition");
             Transition();
         }
-
-        if(agent.isStopped == true)
+        else if (characterController.isGrounded == true) //Prevent the AI from randomly patrolling while I am b hopping thru da club
         {
             Patrol();
         }
-        
+
+        if(Vector3.Distance(agent.transform.position, target.transform.position) >= 100)
+        {
+            checkPoint = true;
+            
+        }
 
     }
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
-      
+
 
     }
 
     public void Patrol()
     {
-        GameObject[] patrolRoutes = GameObject.FindGameObjectsWithTag("PatrolRoute");
+        Debug.Log("Patroling. .");
+
 
         if (patrolRoutes.Length > 0)
         {
+
             GameObject closestPatrolRoute = null;
             float closestDistance = float.MaxValue;
 
             foreach (GameObject route in patrolRoutes)
             {
+
                 float distanceToRoute = Vector3.Distance(target.transform.position, route.transform.position);
 
                 if (distanceToRoute < closestDistance)
                 {
+
                     closestDistance = distanceToRoute;
                     closestPatrolRoute = route;
                 }
@@ -99,6 +88,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
             if (closestPatrolRoute != null)
             {
+
                 Transform[] patrolPoints = closestPatrolRoute.GetComponentsInChildren<Transform>();
 
 
@@ -106,12 +96,14 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
                 if (validPatrolPoints.Count > 0)
                 {
+
                     if (Vector3.Distance(agent.transform.position, validPatrolPoints[currentPatrolIndex].position) <= 2)
                     {
                         currentPatrolIndex = (currentPatrolIndex + 1) % validPatrolPoints.Count;
                     }
 
                     agent.SetDestination(validPatrolPoints[currentPatrolIndex].position);
+
                 }
                 else
                 {
@@ -131,8 +123,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Transition()
     {
-        GameObject[] transitions = GameObject.FindGameObjectsWithTag("Transition");
-
         if (transitions.Length > 0)
         {
             GameObject closestTrans = null;
@@ -151,65 +141,69 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
             if (closestTrans != null)
             {
-                MoveAgent(closestTrans.transform);
+                agent.SetDestination(closestTrans.transform.position);
+                //MoveAgent(closestTrans.transform);
                 if (agent.isPathStale)
                 {
                     //Debug.Log("Stale");
-                    stateMachine.SetState(new AIIdleState(stateMachine));
+                    stateMachine.SetState(gameObject.GetComponent<AIIdleState>());
                 }
             }
         }
 
     }
 
-    public bool PathValid(Transform _target)
+    public bool ValidatePath(GameObject _target)
     {
-        //Debug.Log("Path is: " + agent.CalculatePath(_target.position, agent.path));
-       
-        NavMeshPath path = new NavMeshPath();
-        agent.CalculatePath(_target.position, path);
-
-        if(!agent.CalculatePath(_target.position, path) || path.status == NavMeshPathStatus.PathPartial || path.status == NavMeshPathStatus.PathInvalid)
-        {
-            return false;
-        }
-
-        if (agent.CalculatePath(_target.position, path) || path.status == NavMeshPathStatus.PathComplete)
+        if (agent.hasPath == true && agent.path.corners.Last() == _target.transform.position)
         {
             return true;
         }
 
+        NavMeshPath path = new NavMeshPath();
+        agent.CalculatePath(_target.transform.position, path);
+
+        if (path.status == NavMeshPathStatus.PathComplete)
+        {
+            //agent.SetPath(path);
+            Debug.Log("Path is good.");
+            return true;
+        }
         else
         {
-            //Debug.Log("PathValid Failed");
+            Debug.Log("Path is bad.");
+            // agent.ResetPath();
             return false;
         }
     }
 
-    public void MoveAgent(Transform destination)
-    {
-        if (!agent.hasPath)
-        {
-            //Debug.Log("No Path");
-            //Validate the path
-            NavMeshPath path = new NavMeshPath();
-            agent.CalculatePath(destination.position, path);
-           
-            if (path.status == NavMeshPathStatus.PathComplete)
-            {
-                //Debug.Log("Path Set");
-                agent.SetPath(path);
-            }
-            else
-            {
-               // Debug.Log("Bad Path.");
-            }
-        }
-        else
-        {
-           // Debug.Log("No need for a path.");
-            return;
-        }
-    }
+    /* public void MoveAgent(Transform destination)
+     {
+         if (!agent.hasPath)
+         {
+             //Debug.Log("No Path");
+             //Validate the path
+             NavMeshPath path = new NavMeshPath();
+             agent.CalculatePath(destination.position, path);
+
+             if (path.status == NavMeshPathStatus.PathComplete)
+             {
+                 //Debug.Log("Path Set");
+                 agent.SetPath(path);
+             }
+             else
+             {
+                 agent.ResetPath();
+                 // Debug.Log("Bad Path.");
+             }
+         }
+         else
+         {
+             // Debug.Log("No need for a path.");
+             return;
+         }
+     } */
+
+    
 
 }

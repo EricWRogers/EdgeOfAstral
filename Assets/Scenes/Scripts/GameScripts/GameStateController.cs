@@ -17,11 +17,6 @@ public class GameStateController : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        GetComponent<Dialogue>().TriggerDialogue();
-    }
-
     public void ActivateWin()
     {
         FindObjectOfType<PlayerInput>().enabled = false;

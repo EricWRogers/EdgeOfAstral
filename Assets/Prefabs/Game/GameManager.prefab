@@ -1,5 +1,654 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2117621805701032960
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9199364488653899484}
+  - component: {fileID: 4492826484704617136}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9199364488653899484
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117621805701032960}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3853652187672823983}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4492826484704617136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2117621805701032960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a004165d9d4992d4e95144c90ad056b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: MonsterGrowl
+    clip: {fileID: 8300000, guid: b2750ec48f3209d4e8f35d56047b044c, type: 3}
+    volume: 1
+    priority: 0
+    pitch: 0
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: BGM
+    clip: {fileID: 8300000, guid: 99a6628f3fc45b84e83d9dbbe982ec66, type: 3}
+    volume: 0.75
+    priority: 0
+    pitch: 1
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 1
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: OpeningExplosion
+    clip: {fileID: 8300000, guid: ab4e92d420f0d8348aab2db92bd63f29, type: 3}
+    volume: 0.731
+    priority: 0
+    pitch: 1
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: MonsterFootstep
+    clip: {fileID: 8300000, guid: 2519c34b38680d94c8372809335830fe, type: 3}
+    volume: 0.8
+    priority: 0
+    pitch: 0
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: PlayerBreath
+    clip: {fileID: 8300000, guid: e5406f8e10572e941bab5b13a29e643d, type: 3}
+    volume: 0.6
+    priority: 0
+    pitch: 0
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 1
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Destruction
+    clip: {fileID: 8300000, guid: 2c97cd3906b780948afd2fe7861c0b13, type: 3}
+    volume: 0.761
+    priority: 0
+    pitch: 1
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: PickUp
+    clip: {fileID: 8300000, guid: d22333a4a6f00ce43b8bcad79b250988, type: 3}
+    volume: 1
+    priority: 0
+    pitch: 1
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Lever
+    clip: {fileID: 8300000, guid: a7ef0925f593ed14693515a2797f072b, type: 3}
+    volume: 0.727
+    priority: 0
+    pitch: 1
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Door
+    clip: {fileID: 8300000, guid: c3cffe72aebf5d14aa324d1c5899cf96, type: 3}
+    volume: 0.727
+    priority: 0
+    pitch: 1
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: PlayerSlide
+    clip: {fileID: 8300000, guid: d46782186e821204dba123b9261b936f, type: 3}
+    volume: 0.8
+    priority: 0
+    pitch: 0
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 1
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Footstep
+    clip: {fileID: 8300000, guid: c43f8dde9e24a7c428c992856f1996b1, type: 3}
+    volume: 0.6
+    priority: 0
+    pitch: 0
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Footstep2
+    clip: {fileID: 8300000, guid: faa60e450855fb34b8b429d7fd980dd4, type: 3}
+    volume: 0.6
+    priority: 0
+    pitch: 0
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Footstep3
+    clip: {fileID: 8300000, guid: c9962fdbfbb46014f875e5eec6f4e5ce, type: 3}
+    volume: 0.6
+    priority: 0
+    pitch: 0
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Footstep4
+    clip: {fileID: 8300000, guid: 45a667214cbe24544aa51b05ebb6cf46, type: 3}
+    volume: 0.6
+    priority: 0
+    pitch: 0
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  mixer: {fileID: 0}
+  sources: []
 --- !u!1 &3896616874456746816
 GameObject:
   m_ObjectHideFlags: 0
@@ -11,6 +660,7 @@ GameObject:
   - component: {fileID: 574529755979326773}
   - component: {fileID: 5201668233867565183}
   - component: {fileID: 4122449916723547077}
+  - component: {fileID: 3857399500190098189}
   m_Layer: 0
   m_Name: UIStates
   m_TagString: Untagged
@@ -62,6 +712,19 @@ MonoBehaviour:
   group: {fileID: 0}
   fadeTime: 0.1
   easing: 7
+--- !u!114 &3857399500190098189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3896616874456746816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51122639521e86a4ebe2185a9b7e93f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullscreen: 0
 --- !u!1 &7561090201023249777
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,9 +738,9 @@ GameObject:
   - component: {fileID: 938405648312880400}
   - component: {fileID: 6750250712418728642}
   - component: {fileID: 6502811978659885647}
-  - component: {fileID: 4100809177109265479}
   - component: {fileID: 2663900214268015334}
   - component: {fileID: 8399224915719807006}
+  - component: {fileID: 2993984963616570827}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -99,6 +762,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 574529755979326773}
+  - {fileID: 9199364488653899484}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6722474163989950095
@@ -152,23 +816,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogueArea: {fileID: 0}
   dialogueFadeTime: 0.3
---- !u!114 &4100809177109265479
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7561090201023249777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ab5d83f396c96047921672a1669f452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: What happened here?! I have to get out of here but I'll need to find my
-    Mag Boots to make that jump.
-  oneTime: 1
-  timeShown: 7
-  lockoutTime: 5
 --- !u!114 &2663900214268015334
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,3 +850,52 @@ MonoBehaviour:
   onReset:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &2993984963616570827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7561090201023249777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acaac724894db9d44bdccf719bf6e2ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  winWaitTime: 1
+  LightObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  LightPuzzleCompleted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LightsPuzzleFinalDoor, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: LightsPuzzleFinalDoor, Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

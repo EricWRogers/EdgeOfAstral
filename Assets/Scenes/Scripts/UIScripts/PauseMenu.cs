@@ -46,6 +46,11 @@ public class PauseMenu : MonoBehaviour
         Cursor.visible = true;
     }
 
+    public void Settings()
+    {
+        controller.ChangeState<HUDSettingsMenu>();
+    }
+
     public void LoadMenu()
     {
         Time.timeScale = 1f;

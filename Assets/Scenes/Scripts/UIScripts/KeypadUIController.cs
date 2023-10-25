@@ -62,17 +62,20 @@ public class KeypadUIController : MonoBehaviour
 
     public void Submit()
     {
-        if (input == correctPass)
+        if (input != null)
         {
-            displayText.text = "<color=#15F00B>" + input.ToString();
-            onCorrectPassword.Invoke();
-            TimerManager.Instance.CreateTimer(timeAfterSubmit, () => { Quit(); });
-        }
-        else
-        {
-            displayText.text = "<color=#F00B0B>" + input.ToString();
-            onIncorrectPassword.Invoke();
-            TimerManager.Instance.CreateTimer(timeAfterSubmit, () => { Clear(); });
+            if (input == correctPass)
+            {
+                displayText.text = "<color=#15F00B>" + input.ToString();
+                onCorrectPassword.Invoke();
+                TimerManager.Instance.CreateTimer(timeAfterSubmit, () => { Quit(); });
+            }
+            else
+            {
+                displayText.text = "<color=#F00B0B>" + input.ToString();
+                onIncorrectPassword.Invoke();
+                TimerManager.Instance.CreateTimer(timeAfterSubmit, () => { Clear(); });
+            }
         }
     }
 
