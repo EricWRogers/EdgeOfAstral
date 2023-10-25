@@ -15,12 +15,15 @@ public class HUDSettingsMenu : UIGroupState
         mainMenu.interactable = false;
         group.interactable = true;
         group.blocksRaycasts = true;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
     }
 
     public override void OnStateExit(UIStateMachineController controller)
     {
         Time.timeScale = 1f;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
         base.OnStateExit(controller);
-        Time.timeScale = 1f;
     }
 }

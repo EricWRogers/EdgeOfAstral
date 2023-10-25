@@ -3,7 +3,6 @@ using UnityEngine.SceneManagement;
 
 public class UIFunctions : MonoBehaviour
 {
-    private GameObject Player;
     private GameObject Spawnpoint;
     public GameObject LoseUI;
 
@@ -14,11 +13,15 @@ public class UIFunctions : MonoBehaviour
 
     public void Retry()
     {
-        Player = GameObject.Find("Player");
+        var player = OmnicatLabs.CharacterControllers.CharacterController.Instance;
         //Spawnpoint = GameObject.Find("Spawnpoint");
         LoseUI.SetActive(false);
-        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
-        OmnicatLabs.CharacterControllers.CharacterController.Instance.rb.velocity = Vector3.zero;
+        player.SetControllerLocked(false, false, false);
+        player.rb.velocity = Vector3.zero;
+        //better fix this later
+        player.modelCollider.height = 2f;
+        player.camHolder.localPosition = new Vector3(player.camHolder.localPosition.x, player.originalHeight, player.camHolder.localPosition.z);
+        player.ChangeState(OmnicatLabs.CharacterControllers.CharacterStates.Idle);
         SaveManager.Instance.ResetTracked();
         OmnicatLabs.CharacterControllers.CharacterController.Instance.transform.position = Checkpoint.spawnpoint.position;
         //Player.transform.position = Spawnpoint.transform.position;
