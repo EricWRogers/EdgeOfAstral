@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using OmnicatLabs.Extensions;
+using OmnicatLabs.Audio;
 
 public class Launch : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class Launch : MonoBehaviour
         {
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
             rb.AddForce(new Vector3(0f, launchForce, 0f));
+            AudioManager.Instance.Play("Launch");
         }
     }
 

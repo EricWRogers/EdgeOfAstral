@@ -16,6 +16,7 @@ public class MonsterAudio : MonoBehaviour
     {
         var rand = RandTime();
         previousTimer = TimerManager.Instance.CreateTimer(rand, PlaySound);
+        AudioManager.Instance.Play("MonsterFootstep", gameObject);
     }
 
     private float RandTime()

@@ -50,16 +50,16 @@ MonoBehaviour:
     volume: 1
     priority: 0
     pitch: 1
-    spatialBlend: 0
+    spatialBlend: 1
     panStereo: 0
     reverbZoneMix: 0
     loop: 0
     playOnAwake: 0
-    dopplerLevel: 0
+    dopplerLevel: 1
     spread: 0
     rolloffMode: 0
-    minDistance: 0
-    maxDistance: 0
+    minDistance: 5
+    maxDistance: 18
     outputAudioMixerGroup: {fileID: 0}
     reverbPreset: 0
     reverb:
@@ -90,8 +90,8 @@ MonoBehaviour:
         m_Calls: []
   - name: BGM
     clip: {fileID: 8300000, guid: 99a6628f3fc45b84e83d9dbbe982ec66, type: 3}
-    volume: 0.5
-    priority: 10
+    volume: 0.2
+    priority: 0
     pitch: 1
     spatialBlend: 0
     panStereo: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
         m_Calls: []
   - name: OpeningExplosion
     clip: {fileID: 8300000, guid: ab4e92d420f0d8348aab2db92bd63f29, type: 3}
-    volume: 0.731
+    volume: 0.2
     priority: 0
     pitch: 1
     spatialBlend: 0
@@ -176,19 +176,19 @@ MonoBehaviour:
         m_Calls: []
   - name: MonsterFootstep
     clip: {fileID: 8300000, guid: 2519c34b38680d94c8372809335830fe, type: 3}
-    volume: 0.8
+    volume: 0.2
     priority: 0
-    pitch: 0
-    spatialBlend: 0
+    pitch: 1
+    spatialBlend: 1
     panStereo: 0
     reverbZoneMix: 0
-    loop: 0
+    loop: 1
     playOnAwake: 0
-    dopplerLevel: 0
+    dopplerLevel: 1
     spread: 0
     rolloffMode: 0
-    minDistance: 0
-    maxDistance: 0
+    minDistance: 4
+    maxDistance: 10
     outputAudioMixerGroup: {fileID: 0}
     reverbPreset: 0
     reverb:
@@ -262,7 +262,7 @@ MonoBehaviour:
         m_Calls: []
   - name: Destruction
     clip: {fileID: 8300000, guid: 2c97cd3906b780948afd2fe7861c0b13, type: 3}
-    volume: 0.761
+    volume: 0.787
     priority: 0
     pitch: 1
     spatialBlend: 0
@@ -434,9 +434,9 @@ MonoBehaviour:
         m_Calls: []
   - name: PlayerSlide
     clip: {fileID: 8300000, guid: d46782186e821204dba123b9261b936f, type: 3}
-    volume: 0.8
+    volume: 0.1
     priority: 0
-    pitch: 1
+    pitch: 1.3
     spatialBlend: 0
     panStereo: 0
     reverbZoneMix: 0
@@ -649,9 +649,9 @@ MonoBehaviour:
         m_Calls: []
   - name: Launch
     clip: {fileID: 8300000, guid: c36235126aaee30468f34931275fd08f, type: 3}
-    volume: 0.6
+    volume: 0.8
     priority: 0
-    pitch: 0
+    pitch: 1
     spatialBlend: 0
     panStereo: 0
     reverbZoneMix: 0
@@ -791,6 +791,49 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: PowerOn
+    clip: {fileID: 8300000, guid: f0a39092e4240ac4b88187e4f9e1d775, type: 3}
+    volume: 1
+    priority: 0
+    pitch: 1
+    spatialBlend: 1
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 1
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 1
+    maxDistance: 10
     outputAudioMixerGroup: {fileID: 0}
     reverbPreset: 0
     reverb:

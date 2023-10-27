@@ -28,7 +28,7 @@ public class CutsceneStart : MonoBehaviour
         if (FindObjectOfType<PlayableDirector>().state != PlayState.Playing && started)
         {
             OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
-            AudioManager.Instance.Play("BGM");
+            //AudioManager.Instance.Play("BGM");
             onFinish.Invoke();
             Destroy(gameObject);
         }
