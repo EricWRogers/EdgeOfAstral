@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5957529509745559602}
-  - component: {fileID: 3231092631397809802}
+  - component: {fileID: 3247155590333904376}
   m_Layer: 13
   m_Name: Door
   m_TagString: Untagged
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 4433280111679137937}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3231092631397809802
+--- !u!114 &3247155590333904376
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,23 +42,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 2570176306390025743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7af0077a6a36f8643a402a6a16ecea5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b0d08dd4c051c7459051bd15cb921eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 1
-  contactRadius: 3
-  interactText: to Open
-  uninteractableText: 
-  onInteract:
-    m_PersistentCalls:
-      m_Calls: []
-  onHover:
-    m_PersistentCalls:
-      m_Calls: []
   doorPivot: {fileID: 4433280111679137937}
-  unlockItem: {fileID: 0}
-  startInteractable: 0
-  useKeypad: 1
 --- !u!1 &3126034712337448516
 GameObject:
   m_ObjectHideFlags: 0
