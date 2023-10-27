@@ -129,7 +129,7 @@ MonoBehaviour:
   onHover:
     m_PersistentCalls:
       m_Calls: []
-  staminaValue: 10
+  staminaValue: 30
 --- !u!54 &1908647442083477006
 Rigidbody:
   m_ObjectHideFlags: 0
