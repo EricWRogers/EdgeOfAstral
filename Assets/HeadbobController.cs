@@ -10,6 +10,7 @@ public class HeadbobController : MonoBehaviour
     public float amplitude = 0.015f;
     [Tooltip("Controls the speed of the bob")]
     public float frequency = 10.0f;
+    public float sprintModifier = 1.7f;
     [Tooltip("The speed at which the camera focus snaps back to center screen when not moving")]
     public float snapSpeed = 10f;
     public Transform cam;
@@ -28,7 +29,7 @@ public class HeadbobController : MonoBehaviour
     private void FixedUpdate()
     {
         if (!enable) return;
-        if (!controller.isGrounded || controller.isCrouching) return;
+        if (!controller.isGrounded || controller.isCrouching || controller.slideKeyDown) return;
 
         CheckMotion();
         ResetPosition();
@@ -38,8 +39,17 @@ public class HeadbobController : MonoBehaviour
     private Vector3 FootstepMotion()
     {
         Vector3 pos = Vector3.zero;
-        pos.y += Mathf.Sin(Time.time * frequency) * amplitude;
-        pos.x += Mathf.Cos(Time.time * frequency / 2) * amplitude * 2;
+        if (controller.sprinting)
+        {
+            pos.y += Mathf.Sin(Time.time * frequency * sprintModifier) * amplitude * sprintModifier;
+            pos.x += Mathf.Cos(Time.time * frequency * sprintModifier / 2) * amplitude * sprintModifier * 2;
+        }
+        else
+        {
+            pos.y += Mathf.Sin(Time.time * frequency) * amplitude;
+            pos.x += Mathf.Cos(Time.time * frequency / 2) * amplitude * 2;
+        }
+        
         return pos;
     }
 
