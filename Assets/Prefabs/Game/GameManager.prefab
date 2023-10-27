@@ -47,7 +47,7 @@ MonoBehaviour:
   sounds:
   - name: MonsterGrowl
     clip: {fileID: 8300000, guid: b2750ec48f3209d4e8f35d56047b044c, type: 3}
-    volume: 1
+    volume: 0.18
     priority: 0
     pitch: 1
     spatialBlend: 1
@@ -90,14 +90,14 @@ MonoBehaviour:
         m_Calls: []
   - name: BGM
     clip: {fileID: 8300000, guid: 99a6628f3fc45b84e83d9dbbe982ec66, type: 3}
-    volume: 0.2
+    volume: 0.06
     priority: 0
     pitch: 1
     spatialBlend: 0
     panStereo: 0
     reverbZoneMix: 0
     loop: 1
-    playOnAwake: 0
+    playOnAwake: 1
     dopplerLevel: 0
     spread: 0
     rolloffMode: 0
@@ -133,7 +133,7 @@ MonoBehaviour:
         m_Calls: []
   - name: OpeningExplosion
     clip: {fileID: 8300000, guid: ab4e92d420f0d8348aab2db92bd63f29, type: 3}
-    volume: 0.2
+    volume: 0.06
     priority: 0
     pitch: 1
     spatialBlend: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
         m_Calls: []
   - name: MonsterFootstep
     clip: {fileID: 8300000, guid: 2519c34b38680d94c8372809335830fe, type: 3}
-    volume: 0.2
+    volume: 0.1
     priority: 0
     pitch: 1
     spatialBlend: 1
@@ -188,7 +188,7 @@ MonoBehaviour:
     spread: 0
     rolloffMode: 0
     minDistance: 4
-    maxDistance: 10
+    maxDistance: 8
     outputAudioMixerGroup: {fileID: 0}
     reverbPreset: 0
     reverb:
@@ -219,7 +219,7 @@ MonoBehaviour:
         m_Calls: []
   - name: PlayerBreath
     clip: {fileID: 8300000, guid: e5406f8e10572e941bab5b13a29e643d, type: 3}
-    volume: 0.6
+    volume: 0.4
     priority: 47
     pitch: 1
     spatialBlend: 0
@@ -305,7 +305,7 @@ MonoBehaviour:
         m_Calls: []
   - name: PickUp
     clip: {fileID: 8300000, guid: d22333a4a6f00ce43b8bcad79b250988, type: 3}
-    volume: 1
+    volume: 0.2
     priority: 0
     pitch: 1
     spatialBlend: 0
@@ -391,7 +391,7 @@ MonoBehaviour:
         m_Calls: []
   - name: Door
     clip: {fileID: 8300000, guid: c3cffe72aebf5d14aa324d1c5899cf96, type: 3}
-    volume: 1
+    volume: 0.5
     priority: 0
     pitch: 1
     spatialBlend: 1
@@ -649,7 +649,7 @@ MonoBehaviour:
         m_Calls: []
   - name: Launch
     clip: {fileID: 8300000, guid: c36235126aaee30468f34931275fd08f, type: 3}
-    volume: 0.8
+    volume: 0.5
     priority: 0
     pitch: 1
     spatialBlend: 0
@@ -692,7 +692,7 @@ MonoBehaviour:
         m_Calls: []
   - name: Keypress
     clip: {fileID: 8300000, guid: 003febd3cdc08e24896bba747f3fd76c, type: 3}
-    volume: 0.6
+    volume: 0.3
     priority: 0
     pitch: 1
     spatialBlend: 0
@@ -735,7 +735,7 @@ MonoBehaviour:
         m_Calls: []
   - name: Keypadfail
     clip: {fileID: 8300000, guid: 5f6678eb849ec9a4f9a9126394475107, type: 3}
-    volume: 0.6
+    volume: 0.3
     priority: 0
     pitch: 1
     spatialBlend: 0
@@ -778,7 +778,7 @@ MonoBehaviour:
         m_Calls: []
   - name: Keypadsuccess
     clip: {fileID: 8300000, guid: 779bbbf190dc49b47b274e3fe3c79ded, type: 3}
-    volume: 0.6
+    volume: 0.3
     priority: 0
     pitch: 1
     spatialBlend: 0
