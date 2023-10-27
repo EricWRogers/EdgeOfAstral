@@ -64,8 +64,10 @@ public class Locker : Interactable
                 SetInteractable(false);
             }
         }
-
-
-
+        
+        if (TryGetComponent( out ChangeObjective changeObjective))
+        {
+            changeObjective.Change();
+        }
     }
 }
