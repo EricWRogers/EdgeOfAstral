@@ -5,10 +5,12 @@ using UnityEngine.AI;
 using System.Linq;
 using OmnicatLabs.CharacterControllers;
 using Unity.VisualScripting;
+using OmnicatLabs.Extensions;
 
 public class AIMoveState : MonoBehaviour, IEnemyState
 {
-    public bool checkPoint = true;
+    [SerializeField]
+    private bool checkPoint = true;
 
     private AIStateMachine stateMachine;
     private NavMeshAgent agent;
@@ -18,6 +20,8 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     private GameObject[] patrolRoutes;
     private GameObject[] transitions;
+
+    public List<GameObject> resetPoints = new List<GameObject>();
 
     public OmnicatLabs.CharacterControllers.CharacterController characterController;
 
@@ -41,18 +45,20 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         }
         else if (checkPoint == true)
         {
-            Transition();
+            Debug.Log("Checkpoint");
+            ResetAI(agent.gameObject, target, 5, resetPoints[0].transform);
+            ResetAI(agent.gameObject, target, 4, resetPoints[1].transform);
         }
         else if (characterController.isGrounded == true) //Prevent the AI from randomly patrolling while I am b hopping thru da club
         {
             Patrol();
         }
 
-        if(Vector3.Distance(agent.transform.position, target.transform.position) >= 100)
+        /*if (Vector3.Distance(agent.transform.position, target.transform.position) >= 100)
         {
             checkPoint = true;
-            
-        }
+
+        }*/
 
     }
 
@@ -204,6 +210,20 @@ public class AIMoveState : MonoBehaviour, IEnemyState
          }
      } */
 
-    
+    public void ResetAI(GameObject _aI, GameObject _player, int _areaBitMask, Transform _restPos)
+    {
+        NavMeshHit ai;
+        NavMeshHit player;
+        Debug.Log("Checkpoint1");
+        if (NavMesh.SamplePosition(_aI.transform.position, out ai, 0.1f, _areaBitMask) == NavMesh.SamplePosition(_player.transform.position, out player, 0.1f, _areaBitMask)) //If the area the raycast hit is the TrainYardArea
+        {
+            Debug.Log("Checkpoint2");
+            _aI.GetComponent<NavMeshAgent>().Warp(_restPos.transform.position);
+        }
+
+        Debug.Log(ai);
+        Debug.Log(player);
+    }
+
 
 }
