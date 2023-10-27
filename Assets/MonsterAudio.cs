@@ -11,10 +11,10 @@ public class MonsterAudio : MonoBehaviour
     public float growlIntervalMax = 45f;
 
     private int previousTimer;
-    private void Start()
+
+    private void PostPlay()
     {
         var rand = RandTime();
-        Debug.Log(rand);
         previousTimer = TimerManager.Instance.CreateTimer(rand, PlaySound);
     }
 
@@ -26,7 +26,6 @@ public class MonsterAudio : MonoBehaviour
     public void PlaySound()
     {
         var rand = RandTime();
-        Debug.Log(rand);
         AudioManager.Instance.Play("MonsterGrowl", gameObject);
         TimerManager.Instance.CreateTimer(rand, PlaySound);
     }

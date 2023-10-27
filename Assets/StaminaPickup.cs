@@ -8,8 +8,12 @@ public class StaminaPickup : Interactable
     public override void OnInteract()
     {
         base.OnInteract();
+        var player = OmnicatLabs.CharacterControllers.CharacterController.Instance;
+        if (player.currentStamina + staminaValue < player.maxStamina)
+        {
+            player.ChangeStamina(staminaValue);
+        }
 
-        OmnicatLabs.CharacterControllers.CharacterController.Instance.ChangeStamina(staminaValue);
         Destroy(gameObject);
     }
 }
