@@ -224,8 +224,8 @@ public class AIMoveState : MonoBehaviour, IEnemyState
             _aI.GetComponent<NavMeshAgent>().Warp(_restPos.transform.position);
         }
 
-        Debug.Log(ai);
-        Debug.Log(player);
+        Debug.Log(ai.mask);
+        Debug.Log(player.mask);
     }
 
 

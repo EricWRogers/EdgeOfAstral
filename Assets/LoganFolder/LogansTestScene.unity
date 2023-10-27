@@ -2540,7 +2540,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPoint: 0
   target: {fileID: 1984759349}
-  resetPoints: []
+  resetPoints:
+  - {fileID: 795177051}
   characterController: {fileID: 0}
 --- !u!114 &1218116436
 MonoBehaviour:
