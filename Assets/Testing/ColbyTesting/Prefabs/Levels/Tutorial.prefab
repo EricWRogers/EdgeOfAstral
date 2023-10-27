@@ -81221,19 +81221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashCan
       objectReference: {fileID: 0}
-    - target: {fileID: 8595426899787335132, guid: b0e3fc2bd0db73c4d92a98da9e2f298d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7803026531248694281, guid: b0e3fc2bd0db73c4d92a98da9e2f298d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1351163344199812137}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0e3fc2bd0db73c4d92a98da9e2f298d, type: 3}
 --- !u!4 &7352537895364092120 stripped
 Transform:
@@ -81241,34 +81232,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 75239200725720683}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7873038640542530146 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7803026531248694281, guid: b0e3fc2bd0db73c4d92a98da9e2f298d,
-    type: 3}
-  m_PrefabInstance: {fileID: 75239200725720683}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &1351163344199812137
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7873038640542530146}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -771363136371477993, guid: b9dc19e5a01684a4e9262d7856f686b4, type: 3}
 --- !u!1001 &153516455044904335
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81520,11 +81483,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenPipe (6)
       objectReference: {fileID: 0}
-    - target: {fileID: 5848946047510240957, guid: 968f97496e72b0c4a9883139373ccee2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -81614,11 +81572,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenPipe (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 5848946047510240957, guid: 968f97496e72b0c4a9883139373ccee2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -82428,11 +82381,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReinforcedCrate
       objectReference: {fileID: 0}
-    - target: {fileID: 8483039044450540888, guid: 48bb4fb387535c3469c2bf10063d4a29,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -82718,11 +82666,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenPipe (9)
       objectReference: {fileID: 0}
-    - target: {fileID: 5848946047510240957, guid: 968f97496e72b0c4a9883139373ccee2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -82906,11 +82849,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReinforcedCrate (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 8483039044450540888, guid: 48bb4fb387535c3469c2bf10063d4a29,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -83000,11 +82938,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenPipe (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 5848946047510240957, guid: 968f97496e72b0c4a9883139373ccee2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -83094,11 +83027,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReinforcedCrate (5)
       objectReference: {fileID: 0}
-    - target: {fileID: 8483039044450540888, guid: 48bb4fb387535c3469c2bf10063d4a29,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -83188,11 +83116,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenPipe (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 5848946047510240957, guid: 968f97496e72b0c4a9883139373ccee2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -83477,48 +83400,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashCan (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8595426899787335132, guid: b0e3fc2bd0db73c4d92a98da9e2f298d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7803026531248694281, guid: b0e3fc2bd0db73c4d92a98da9e2f298d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4764103836997340289}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0e3fc2bd0db73c4d92a98da9e2f298d, type: 3}
---- !u!1 &5001299426169090941 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7803026531248694281, guid: b0e3fc2bd0db73c4d92a98da9e2f298d,
-    type: 3}
-  m_PrefabInstance: {fileID: 2963865659561908084}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &4764103836997340289
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5001299426169090941}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -771363136371477993, guid: b9dc19e5a01684a4e9262d7856f686b4, type: 3}
 --- !u!4 &5630625400206666183 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7422560991175950003, guid: b0e3fc2bd0db73c4d92a98da9e2f298d,
@@ -83598,26 +83484,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5172683541487651356, guid: 1171bffd296084f419000de055967a1d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 5709802346635613011, guid: 1171bffd296084f419000de055967a1d,
         type: 3}
       propertyPath: m_Name
       value: ReinforcedCrateStack
       objectReference: {fileID: 0}
-    - target: {fileID: 6070208583940174470, guid: 1171bffd296084f419000de055967a1d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
-    - target: {fileID: 6748797873858629280, guid: 1171bffd296084f419000de055967a1d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -83836,11 +83707,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 4766430437655656514, guid: 8db47ab5a7c02484a9cac3048c94bc56,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 5939948730056491821, guid: 8db47ab5a7c02484a9cac3048c94bc56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -84068,11 +83934,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 4664908378830632293, guid: a4998bd32df1e1d4e85dd611b4b6ce8b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 5833913764275981834, guid: a4998bd32df1e1d4e85dd611b4b6ce8b,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -84232,11 +84093,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenPipe (11)
       objectReference: {fileID: 0}
-    - target: {fileID: 5848946047510240957, guid: 968f97496e72b0c4a9883139373ccee2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -84256,11 +84112,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 4664908378830632293, guid: a4998bd32df1e1d4e85dd611b4b6ce8b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 5833913764275981834, guid: a4998bd32df1e1d4e85dd611b4b6ce8b,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -84350,11 +84201,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 4766430437655656514, guid: 8db47ab5a7c02484a9cac3048c94bc56,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 5939948730056491821, guid: 8db47ab5a7c02484a9cac3048c94bc56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -84672,11 +84518,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenPipe (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 5848946047510240957, guid: 968f97496e72b0c4a9883139373ccee2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -84766,11 +84607,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenPipe
       objectReference: {fileID: 0}
-    - target: {fileID: 5848946047510240957, guid: 968f97496e72b0c4a9883139373ccee2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -84860,11 +84696,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReinforcedCrate (4)
       objectReference: {fileID: 0}
-    - target: {fileID: 8483039044450540888, guid: 48bb4fb387535c3469c2bf10063d4a29,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -84954,11 +84785,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenPipe (10)
       objectReference: {fileID: 0}
-    - target: {fileID: 5848946047510240957, guid: 968f97496e72b0c4a9883139373ccee2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -85142,11 +84968,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenPipe (8)
       objectReference: {fileID: 0}
-    - target: {fileID: 5848946047510240957, guid: 968f97496e72b0c4a9883139373ccee2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -85510,11 +85331,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 2389654860891156108, guid: f66f6529e88054846bd03b6bb84dda9b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 3558669112222422499, guid: f66f6529e88054846bd03b6bb84dda9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -85659,11 +85475,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReinforcedCrate (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 8483039044450540888, guid: 48bb4fb387535c3469c2bf10063d4a29,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -85683,11 +85494,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 4766430437655656514, guid: 8db47ab5a7c02484a9cac3048c94bc56,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 5939948730056491821, guid: 8db47ab5a7c02484a9cac3048c94bc56,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -85861,11 +85667,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 2389654860891156108, guid: f66f6529e88054846bd03b6bb84dda9b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 3558669112222422499, guid: f66f6529e88054846bd03b6bb84dda9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -85995,11 +85796,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: OilDrum
       objectReference: {fileID: 0}
-    - target: {fileID: 6090896324579100506, guid: a0e5265ee706f8548b76edcba18d325a,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: bb665d0772f78754c8cbf6283e4c03aa, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -86089,11 +85885,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReinforcedCrate (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 8483039044450540888, guid: 48bb4fb387535c3469c2bf10063d4a29,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -86387,19 +86178,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: TrashCan (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 8595426899787335132, guid: b0e3fc2bd0db73c4d92a98da9e2f298d,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 7803026531248694281, guid: b0e3fc2bd0db73c4d92a98da9e2f298d,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8800086021230661218}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0e3fc2bd0db73c4d92a98da9e2f298d, type: 3}
 --- !u!4 &330372761952986255 stripped
 Transform:
@@ -86407,34 +86189,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7176349271319026236}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1143466711058251317 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7803026531248694281, guid: b0e3fc2bd0db73c4d92a98da9e2f298d,
-    type: 3}
-  m_PrefabInstance: {fileID: 7176349271319026236}
-  m_PrefabAsset: {fileID: 0}
---- !u!64 &8800086021230661218
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1143466711058251317}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -771363136371477993, guid: b9dc19e5a01684a4e9262d7856f686b4, type: 3}
 --- !u!1001 &7219992099415073803
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -86587,11 +86341,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenPipe (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 5848946047510240957, guid: 968f97496e72b0c4a9883139373ccee2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -86611,11 +86360,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 4766430437655656514, guid: 8db47ab5a7c02484a9cac3048c94bc56,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 5939948730056491821, guid: 8db47ab5a7c02484a9cac3048c94bc56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -86769,11 +86513,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 4766430437655656514, guid: 8db47ab5a7c02484a9cac3048c94bc56,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 5939948730056491821, guid: 8db47ab5a7c02484a9cac3048c94bc56,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -86853,11 +86592,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 4766430437655656514, guid: 8db47ab5a7c02484a9cac3048c94bc56,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 5939948730056491821, guid: 8db47ab5a7c02484a9cac3048c94bc56,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -87249,11 +86983,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenPipe (7)
       objectReference: {fileID: 0}
-    - target: {fileID: 5848946047510240957, guid: 968f97496e72b0c4a9883139373ccee2,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -87367,11 +87096,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 4766430437655656514, guid: 8db47ab5a7c02484a9cac3048c94bc56,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 5939948730056491821, guid: 8db47ab5a7c02484a9cac3048c94bc56,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -87446,11 +87170,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 2389654860891156108, guid: f66f6529e88054846bd03b6bb84dda9b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 3558669112222422499, guid: f66f6529e88054846bd03b6bb84dda9b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -87646,11 +87365,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3528776495234387534}
     m_Modifications:
-    - target: {fileID: 2389654860891156108, guid: f66f6529e88054846bd03b6bb84dda9b,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: d145069e2a62c15419d6ac764d2f5567, type: 2}
     - target: {fileID: 3558669112222422499, guid: f66f6529e88054846bd03b6bb84dda9b,
         type: 3}
       propertyPath: m_LocalPosition.x

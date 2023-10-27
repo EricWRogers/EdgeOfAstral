@@ -22,6 +22,7 @@ public class KeypadUIController : MonoBehaviour
         //correctPass = "123";
         //correctPass = FindObjectOfType<RandNumGen>().RandNum.ToString();
         guesses = correctPass.Length;
+        Time.timeScale = .7f;
     }
 
     public void ValueEntered(string valueEntered)
@@ -51,6 +52,7 @@ public class KeypadUIController : MonoBehaviour
     public void Quit()
     {       
         controller.ChangeState(controller.nullState);
+        Time.timeScale = 1f;
     }
 
     public void Clear()

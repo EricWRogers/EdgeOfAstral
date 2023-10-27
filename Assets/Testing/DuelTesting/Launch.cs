@@ -16,7 +16,7 @@ public class Launch : MonoBehaviour
         if (other.CompareTag(playerTag) && rb.velocity.y < 0f)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-            rb.AddForce(new Vector3(0f, launchForce, 0f));
+            rb.AddForce(new Vector3(0f, launchForce, 0f), ForceMode.Impulse);
         }
     }
 
