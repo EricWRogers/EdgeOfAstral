@@ -11,16 +11,34 @@ public class ObjectiveText : MonoBehaviour
     public TextMeshProUGUI objText;
     public CanvasGroup objArea;
     public float fadeTime = 2f;
-
+    [TextArea]
+    public string startingObjective;
+    public string currObjective;
+    
     private Timer currentTimer;
 
-    public void FirstCurrObjective(string task)
-    {                 
-        objArea.FadeIn(fadeTime);
-        objText.SetText(task);
+    public static ObjectiveText instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
     }
 
-    public void SetCurrObjective(string task)
+    private void PostPlay()
+    {
+        FirstCurrObjective();
+    }
+
+    public void FirstCurrObjective()
+    {                 
+        objArea.FadeIn(fadeTime);
+        objText.SetText(startingObjective);
+    }
+
+    public void SetCurrObjective()
     {
 
         if (currentTimer != null)
@@ -28,14 +46,14 @@ public class ObjectiveText : MonoBehaviour
             TimerManager.Instance.Stop(currentTimer);
         }
 
-        Debug.Log("Task is " + task);
+        Debug.Log("Task is " + currObjective);
 
         objArea.FadeOut(fadeTime,
            () => {
                TimerManager.Instance.CreateTimer(0.1f,
                () => {
                    Debug.Log("In the timer ");
-                   objText.SetText(task);
+                   objText.SetText(currObjective);
                    objArea.FadeIn(fadeTime);
                }, out currentTimer);
            }
