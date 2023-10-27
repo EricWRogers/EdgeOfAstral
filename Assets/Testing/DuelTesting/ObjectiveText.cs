@@ -14,18 +14,10 @@ public class ObjectiveText : MonoBehaviour
 
     private Timer currentTimer;
 
-    private void Start()
-    {
-        SetCurrObjective("it works now");
-        TimerManager.Instance.CreateTimer(5.0f,
-               () => {
-                   SetCurrObjective("it works again");
-               }, out currentTimer);
-    }
-
-    public void SetCurrObjectiveWrapper(string task)
-    {
-        SetCurrObjective(task);
+    public void FirstCurrObjective(string task)
+    {                 
+        objArea.FadeIn(fadeTime);
+        objText.SetText(task);
     }
 
     public void SetCurrObjective(string task)
@@ -48,6 +40,5 @@ public class ObjectiveText : MonoBehaviour
                }, out currentTimer);
            }
         );
-        return;
     }
 }
