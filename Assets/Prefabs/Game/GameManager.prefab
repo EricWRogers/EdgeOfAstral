@@ -49,7 +49,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: b2750ec48f3209d4e8f35d56047b044c, type: 3}
     volume: 1
     priority: 0
-    pitch: 0
+    pitch: 1
     spatialBlend: 0
     panStereo: 0
     reverbZoneMix: 0
@@ -90,8 +90,8 @@ MonoBehaviour:
         m_Calls: []
   - name: BGM
     clip: {fileID: 8300000, guid: 99a6628f3fc45b84e83d9dbbe982ec66, type: 3}
-    volume: 0.75
-    priority: 0
+    volume: 0.5
+    priority: 10
     pitch: 1
     spatialBlend: 0
     panStereo: 0
@@ -220,12 +220,12 @@ MonoBehaviour:
   - name: PlayerBreath
     clip: {fileID: 8300000, guid: e5406f8e10572e941bab5b13a29e643d, type: 3}
     volume: 0.6
-    priority: 0
-    pitch: 0
+    priority: 47
+    pitch: 1
     spatialBlend: 0
     panStereo: 0
     reverbZoneMix: 0
-    loop: 1
+    loop: 0
     playOnAwake: 0
     dopplerLevel: 0
     spread: 0
@@ -391,19 +391,19 @@ MonoBehaviour:
         m_Calls: []
   - name: Door
     clip: {fileID: 8300000, guid: c3cffe72aebf5d14aa324d1c5899cf96, type: 3}
-    volume: 0.727
+    volume: 1
     priority: 0
     pitch: 1
-    spatialBlend: 0
+    spatialBlend: 1
     panStereo: 0
     reverbZoneMix: 0
     loop: 0
     playOnAwake: 0
-    dopplerLevel: 0
+    dopplerLevel: 1
     spread: 0
     rolloffMode: 0
-    minDistance: 0
-    maxDistance: 0
+    minDistance: 1
+    maxDistance: 10
     outputAudioMixerGroup: {fileID: 0}
     reverbPreset: 0
     reverb:
@@ -436,11 +436,11 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d46782186e821204dba123b9261b936f, type: 3}
     volume: 0.8
     priority: 0
-    pitch: 0
+    pitch: 1
     spatialBlend: 0
     panStereo: 0
     reverbZoneMix: 0
-    loop: 1
+    loop: 0
     playOnAwake: 0
     dopplerLevel: 0
     spread: 0
@@ -647,7 +647,180 @@ MonoBehaviour:
     onSoundComplete:
       m_PersistentCalls:
         m_Calls: []
+  - name: Launch
+    clip: {fileID: 8300000, guid: c36235126aaee30468f34931275fd08f, type: 3}
+    volume: 0.6
+    priority: 0
+    pitch: 0
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Keypress
+    clip: {fileID: 8300000, guid: 003febd3cdc08e24896bba747f3fd76c, type: 3}
+    volume: 0.6
+    priority: 0
+    pitch: 1
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Keypadfail
+    clip: {fileID: 8300000, guid: 5f6678eb849ec9a4f9a9126394475107, type: 3}
+    volume: 0.6
+    priority: 0
+    pitch: 1
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
+  - name: Keypadsuccess
+    clip: {fileID: 8300000, guid: 779bbbf190dc49b47b274e3fe3c79ded, type: 3}
+    volume: 0.6
+    priority: 0
+    pitch: 1
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 0
+    minDistance: 0
+    maxDistance: 0
+    outputAudioMixerGroup: {fileID: 0}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
   mixer: {fileID: 0}
+  poolSize: 50
   sources: []
 --- !u!1 &3896616874456746816
 GameObject:
@@ -661,6 +834,7 @@ GameObject:
   - component: {fileID: 5201668233867565183}
   - component: {fileID: 4122449916723547077}
   - component: {fileID: 3857399500190098189}
+  - component: {fileID: 2204562518465624314}
   m_Layer: 0
   m_Name: UIStates
   m_TagString: Untagged
@@ -696,6 +870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreen: 0
+  fullscreenExitState: {fileID: 0}
 --- !u!114 &4122449916723547077
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,9 +884,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreen: 1
-  group: {fileID: 0}
-  fadeTime: 0.1
-  easing: 7
+  fullscreenExitState: {fileID: 0}
+  pauseGroup: {fileID: 0}
 --- !u!114 &3857399500190098189
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -725,6 +899,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fullscreen: 0
+  fullscreenExitState: {fileID: 0}
+--- !u!114 &2204562518465624314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3896616874456746816}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 321f8dcc653fe05499eb3139a0d6e546, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fullscreen: 1
+  fullscreenExitState: {fileID: 4122449916723547077}
+  settingsGroup: {fileID: 0}
 --- !u!1 &7561090201023249777
 GameObject:
   m_ObjectHideFlags: 0
