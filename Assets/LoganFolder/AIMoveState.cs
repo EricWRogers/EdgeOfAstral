@@ -21,8 +21,6 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     private GameObject[] patrolRoutes;
     private GameObject[] transitions;
 
-    public List<GameObject> resetPoints = new List<GameObject>();
-
     public OmnicatLabs.CharacterControllers.CharacterController characterController;
 
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
@@ -47,9 +45,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         {
             Debug.Log("Checkpoint");
            
-               ResetAI(agent.gameObject, target, 4, resetPoints[0].transform);
-           
-               ResetAI(agent.gameObject, target, 5, resetPoints[1].transform);
+              
             
         }
         else if (characterController.isGrounded == true) //Prevent the AI from randomly patrolling while I am b hopping thru da club
@@ -63,6 +59,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         }*/
 
+        ResetAI(agent.gameObject, target);
     }
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
@@ -213,20 +210,59 @@ public class AIMoveState : MonoBehaviour, IEnemyState
          }
      } */
 
-    public void ResetAI(GameObject _aI, GameObject _player, int _areaBitMask, Transform _restPos)
+    /*public void ResetAI(GameObject _aI, GameObject _player, int _areaBitMask, Transform _resetPos)
     {
         NavMeshHit ai;
         NavMeshHit player;
         Debug.Log("Checkpoint1");
-        if (NavMesh.SamplePosition(_aI.transform.position, out ai, 0.1f, _areaBitMask) == NavMesh.SamplePosition(_player.transform.position, out player, 0.1f, _areaBitMask)) //If the area the raycast hit is the TrainYardArea
+        if ((NavMesh.SamplePosition(_aI.transform.position, out ai, 10.0f, _areaBitMask) != NavMesh.SamplePosition(_player.transform.position, out player, 10.0f, _areaBitMask)) 
+            && player.mask == _areaBitMask) //If the area the raycast hit is the TrainYardArea
         {
             Debug.Log("Checkpoint2");
-            _aI.GetComponent<NavMeshAgent>().Warp(_restPos.transform.position);
+            _aI.GetComponent<NavMeshAgent>().Warp(_resetPos.transform.position);
         }
 
         Debug.Log(ai.mask);
         Debug.Log(player.mask);
     }
+    */
 
+    public void ResetAI(GameObject _ai, GameObject _player)
+    {
+        if (transitions.Length > 0)
+        {
+            GameObject closestTrans = null;
+            float closestDistance = float.MaxValue;
+
+            foreach (GameObject trans in transitions)
+            {
+                float distanceToTrans = Vector3.Distance(target.transform.position, trans.transform.position);
+
+                if (distanceToTrans < closestDistance)
+                {
+                    closestDistance = distanceToTrans;
+                    closestTrans = trans;
+                }
+            }
+
+            if (closestTrans != null)
+            {
+                NavMeshHit ai, player, closestTransHit;
+                NavMesh.SamplePosition(_player.transform.position, out player, 10.0f, NavMesh.AllAreas);
+                NavMesh.SamplePosition(_ai.transform.position, out ai, 10.0f, NavMesh.AllAreas);
+                NavMesh.SamplePosition(closestTrans.transform.position, out closestTransHit, 10.0f, NavMesh.AllAreas);
+
+                int currentAreaPlayer = player.mask;
+                int currentAreaAI = ai.mask;
+                int closestTransHitAreaHit = closestTransHit.mask;
+
+                if (currentAreaAI != currentAreaPlayer && closestTransHitAreaHit == currentAreaPlayer)
+                {
+                    _ai.GetComponent<NavMeshAgent>().Warp(closestTrans.transform.position);
+                }
+            }
+        }
+
+    }
 
 }
