@@ -46,8 +46,11 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         else if (checkPoint == true)
         {
             Debug.Log("Checkpoint");
-            ResetAI(agent.gameObject, target, 5, resetPoints[0].transform);
-            ResetAI(agent.gameObject, target, 4, resetPoints[1].transform);
+           
+               ResetAI(agent.gameObject, target, 4, resetPoints[0].transform);
+           
+               ResetAI(agent.gameObject, target, 5, resetPoints[1].transform);
+            
         }
         else if (characterController.isGrounded == true) //Prevent the AI from randomly patrolling while I am b hopping thru da club
         {
