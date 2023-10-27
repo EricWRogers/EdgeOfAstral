@@ -16,7 +16,7 @@ public class SaveManager : MonoBehaviour
 
     public static SaveManager Instance;
 
-    private List<ISaveable> trackList = new List<ISaveable>();
+    public List<ISaveable> trackList = new List<ISaveable>();
     private List<ISaveable> savedList = new List<ISaveable>();
 
     private void Awake()

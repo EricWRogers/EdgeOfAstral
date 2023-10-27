@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using OmnicatLabs.Extensions;
 
 public class Launch : MonoBehaviour
 {
@@ -8,12 +9,23 @@ public class Launch : MonoBehaviour
     public float launchForce;
     public LayerMask playerLayer;
 
-    private float originalJumpForce;
-
-    private void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        originalJumpForce = OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce;
+        other.transform.TryGetComponentInParentAndChildren(out Rigidbody rb);
+
+        if (other.CompareTag(playerTag) && rb.velocity.y < 0f)
+        {
+            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+            rb.AddForce(new Vector3(0f, launchForce, 0f));
+        }
     }
+
+    //private float originalJumpForce;
+
+    //private void Start()
+    //{
+    //    originalJumpForce = OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce;
+    //}
 
     //private void Update()
     //{
@@ -50,21 +62,21 @@ public class Launch : MonoBehaviour
     //    }
     //}
 
-    private void OnTriggerEnter(Collider col)
-    {
-        if (col.CompareTag(playerTag))
-        {
-            if (UpgradeManager.Owns(UpgradeIds.MagBoots))
-            {
-                OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce *= launchForce;
-                OmnicatLabs.CharacterControllers.CharacterController.Instance.onGrounded.AddListener(() => OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce = originalJumpForce);
-            }
-            else
-            {
-                GetComponent<Dialogue>().TriggerDialogue();
-            }
-        }
-    }
+    //private void OnTriggerEnter(Collider col)
+    //{
+    //    if (col.CompareTag(playerTag))
+    //    {
+    //        if (UpgradeManager.Owns(UpgradeIds.MagBoots))
+    //        {
+    //            OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce *= launchForce;
+    //            OmnicatLabs.CharacterControllers.CharacterController.Instance.onGrounded.AddListener(() => OmnicatLabs.CharacterControllers.CharacterController.Instance.baseJumpForce = originalJumpForce);
+    //        }
+    //        else
+    //        {
+    //            GetComponent<Dialogue>().TriggerDialogue();
+    //        }
+    //    }
+    //}
 
     //private void OnTriggerExit(Collider other)
     //{
