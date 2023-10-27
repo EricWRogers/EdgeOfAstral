@@ -8,7 +8,7 @@ public class KeypadUIController : MonoBehaviour
     public TMP_Text displayText;
     public UnityEvent onCorrectPassword;
     public UnityEvent onIncorrectPassword;
-    public float timeAfterSubmit = 1f;
+    private float timeAfterSubmit = .5f;
     private string input;
     private float buttonCount = 0;
     private float guesses;
@@ -29,6 +29,7 @@ public class KeypadUIController : MonoBehaviour
         //correctPass = "123";
         //correctPass = FindObjectOfType<RandNumGen>().RandNum.ToString();
         guesses = correctPass.Length;
+        Debug.Log(correctPass);
     }
 
     public void ValueEntered(string valueEntered)
@@ -50,6 +51,10 @@ public class KeypadUIController : MonoBehaviour
                     buttonCount++;
                     input += valueEntered;
                     displayText.text = input.ToString();
+                }
+                if (buttonCount == 4)
+                {
+                    Submit();
                 }
                 break;
         }
