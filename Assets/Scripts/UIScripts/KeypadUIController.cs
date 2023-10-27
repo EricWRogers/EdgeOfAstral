@@ -2,6 +2,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.Events;
 using OmnicatLabs.Timers;
+using OmnicatLabs.Audio;
+
 
 public class KeypadUIController : MonoBehaviour
 {
@@ -43,6 +45,8 @@ public class KeypadUIController : MonoBehaviour
                     buttonCount++;
                     input += valueEntered;
                     displayText.text = input.ToString();
+                    AudioManager.Instance.Play("Keypress");
+
                 }
                 break;
         }
@@ -69,12 +73,15 @@ public class KeypadUIController : MonoBehaviour
                 displayText.text = "<color=#15F00B>" + input.ToString();
                 onCorrectPassword.Invoke();
                 TimerManager.Instance.CreateTimer(timeAfterSubmit, () => { Quit(); });
+                AudioManager.Instance.Play("Keypadsuccess");
             }
             else
             {
                 displayText.text = "<color=#F00B0B>" + input.ToString();
                 onIncorrectPassword.Invoke();
                 TimerManager.Instance.CreateTimer(timeAfterSubmit, () => { Clear(); });
+                AudioManager.Instance.Play("Keypadfail");
+
             }
         }
     }
