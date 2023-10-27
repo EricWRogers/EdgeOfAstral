@@ -2,19 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HUDSettingsMenu : UIGroupState
+public class HUDSettingsMenu : UIState
 {
-    public CanvasGroup mainMenu;
+    public CanvasGroup settingsGroup;
 
     public override void OnStateEnter(UIStateMachineController controller)
     {
-        SetInCallback(() => { Time.timeScale = 0f; });
         base.OnStateEnter(controller);
-        
-        mainMenu.alpha = 0f;
-        mainMenu.interactable = false;
-        group.interactable = true;
-        group.blocksRaycasts = true;
+        Time.timeScale = 0f;
+        settingsGroup.alpha = 1f;
+        settingsGroup.interactable = true;
+        settingsGroup.blocksRaycasts = true;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
     }
@@ -22,8 +20,11 @@ public class HUDSettingsMenu : UIGroupState
     public override void OnStateExit(UIStateMachineController controller)
     {
         Time.timeScale = 1f;
+        settingsGroup.alpha = 0f;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        settingsGroup.interactable = false;
+        settingsGroup.blocksRaycasts = false;
         base.OnStateExit(controller);
     }
 }

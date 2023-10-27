@@ -46,9 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 735ae7ad75450cb4aa0d6bf134dca001, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 250
+  sensitivity: 5
   body: {fileID: 6849939245129633152}
   weaponCam: {fileID: 9161989325220085820}
+  sensitivitySetting: {fileID: 0}
 --- !u!1 &1209464047585354410
 GameObject:
   m_ObjectHideFlags: 0
@@ -673,7 +674,7 @@ MonoBehaviour:
     m_ActionName: Main/Crouch/Slide[/Keyboard/leftAlt]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4809802171926321205}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: FPSMelee, Assembly-CSharp
         m_MethodName: OnAttack
         m_Mode: 0
@@ -734,7 +735,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 112
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &3673659337973505314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -776,7 +777,7 @@ MonoBehaviour:
   extendJumps: 1
   multipleJumps: 1
   jumpAmount: 2
-  inAirMoveSpeed: 1500
+  inAirMoveSpeed: 1000
   jumpDuration: 0.3
   multiJumpDuration: 0.3
   fallForce: 800
@@ -820,6 +821,7 @@ MonoBehaviour:
   rb: {fileID: 0}
   playerIsHidden: 0
   startingCamHeight: 0
+  savedStamina: 0
 --- !u!114 &8632699134821345708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -833,8 +835,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enable: 1
-  amplitude: 0.02
+  amplitude: 0.04
   frequency: 15
+  sprintModifier: 1.5
   snapSpeed: 10
   cam: {fileID: 1435411795154018899}
   cameraHolder: {fileID: 5265340806474562390}

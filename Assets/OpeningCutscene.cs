@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using OmnicatLabs.Audio;
+using System.Reflection;
+using System.Linq;
 
 public class OpeningCutscene : MonoBehaviour
 {
@@ -17,7 +19,9 @@ public class OpeningCutscene : MonoBehaviour
         AudioManager.Instance.Play("OpeningExplosion");
         firstTutorial.GetComponent<Collider>().enabled = true;
         staminaUI.alpha = 1f;
-        shaker.onShakeFinish.AddListener(() => OmnicatLabs.CharacterControllers.CharacterController.Instance.GetComponent<PlayerInput>().enabled = true);
+        shaker.onShakeFinish.AddListener(() => {
+            OmnicatLabs.CharacterControllers.CharacterController.Instance.GetComponent<PlayerInput>().enabled = true;
+        });
 
     }
 }

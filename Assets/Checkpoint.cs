@@ -17,7 +17,7 @@ public class Checkpoint : MonoBehaviour
         
         SaveManager.Instance.Save();
         spawnpoint = transform;
-
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.savedStamina = OmnicatLabs.CharacterControllers.CharacterController.Instance.currentStamina;
         if (shouldAITransition)
             agent.checkPoint = true;
     }
