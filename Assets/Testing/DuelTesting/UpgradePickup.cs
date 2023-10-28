@@ -49,7 +49,14 @@ public class UpgradePickup : Interactable
                 break;
         }
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+
+    public override void OnReset()
+    {
+        base.OnReset();
+
+        gameObject.SetActive(true);
     }
 
     private void Update()
