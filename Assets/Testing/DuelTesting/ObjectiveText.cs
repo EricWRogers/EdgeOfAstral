@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using OmnicatLabs.Timers;
 using OmnicatLabs.Tween;
-using UnityEngine.Events;
 
 public class ObjectiveText : MonoBehaviour
 {
     public TextMeshProUGUI objText;
     public CanvasGroup objArea;
-    public float fadeTime = 2f;
+    public float fadeTime = 1f;
     [TextArea]
     public string startingObjective;
     public string currObjective;
@@ -38,14 +35,14 @@ public class ObjectiveText : MonoBehaviour
         objText.SetText(startingObjective);
     }
 
-    public void SetCurrObjective()
+    public void SetCurrObjective(string newObjective)
     {
-
         if (currentTimer != null)
         {
             TimerManager.Instance.Stop(currentTimer);
         }
 
+        currObjective = newObjective;
         Debug.Log("Task is " + currObjective);
 
         objArea.FadeOut(fadeTime,

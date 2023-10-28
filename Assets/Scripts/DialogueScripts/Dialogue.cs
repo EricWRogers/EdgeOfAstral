@@ -23,6 +23,10 @@ public class Dialogue : MonoBehaviour
 
         if (canShow)
         {
+            if (TryGetComponent(out ChangeObjective changeObjective))
+            {
+                changeObjective.Change();
+            }
             if (oneTime && !hasShown)
             {
                 if (timeShown == 0f)
