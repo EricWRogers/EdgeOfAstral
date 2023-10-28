@@ -16,6 +16,8 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     private NavMeshAgent agent;
     public GameObject target;
 
+    public int attackRange = 1;
+
     private int currentPatrolIndex = 0;
 
     private GameObject[] patrolRoutes;
@@ -27,7 +29,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     {
         this.stateMachine = stateMachine;
         agent = FindAnyObjectByType<NavMeshAgent>();
-        target = GameObject.FindAnyObjectByType<OmnicatLabs.CharacterControllers.CharacterController>().gameObject;
+       target = GameObject.FindAnyObjectByType<OmnicatLabs.CharacterControllers.CharacterController>().gameObject;
 
         patrolRoutes = GameObject.FindGameObjectsWithTag("PatrolRoute");
         transitions = GameObject.FindGameObjectsWithTag("Transition");
@@ -41,17 +43,19 @@ public class AIMoveState : MonoBehaviour, IEnemyState
         {
             agent.SetDestination(target.transform.position);
         }
-        else if (checkPoint == true)
-        {
-            Debug.Log("Checkpoint");
-           
-              
-            
-        }
+        
+        else if(Vector3.Distance(agent.transform.position, target.transform.position) <= attackRange)
+            {
+                Debug.Log("Lesser");
+                target.transform.position = agent.transform.position;
+            }
+        
         else if (characterController.isGrounded == true) //Prevent the AI from randomly patrolling while I am b hopping thru da club
         {
             Patrol();
         }
+
+        
 
         /*if (Vector3.Distance(agent.transform.position, target.transform.position) >= 100)
         {
@@ -168,7 +172,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         NavMeshPath path = new NavMeshPath();
         agent.CalculatePath(_target.transform.position, path);
-
+        Debug.Log("Path: " + path.status);
         if (path.status == NavMeshPathStatus.PathComplete)
         {
             //agent.SetPath(path);
@@ -210,23 +214,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
          }
      } */
 
-    /*public void ResetAI(GameObject _aI, GameObject _player, int _areaBitMask, Transform _resetPos)
-    {
-        NavMeshHit ai;
-        NavMeshHit player;
-        Debug.Log("Checkpoint1");
-        if ((NavMesh.SamplePosition(_aI.transform.position, out ai, 10.0f, _areaBitMask) != NavMesh.SamplePosition(_player.transform.position, out player, 10.0f, _areaBitMask)) 
-            && player.mask == _areaBitMask) //If the area the raycast hit is the TrainYardArea
-        {
-            Debug.Log("Checkpoint2");
-            _aI.GetComponent<NavMeshAgent>().Warp(_resetPos.transform.position);
-        }
-
-        Debug.Log(ai.mask);
-        Debug.Log(player.mask);
-    }
-    */
-
+   
     public void ResetAI(GameObject _ai, GameObject _player)
     {
         if (transitions.Length > 0)
