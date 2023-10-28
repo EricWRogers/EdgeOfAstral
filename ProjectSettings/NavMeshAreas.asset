@@ -14,7 +14,7 @@ NavMeshProjectSettings:
   - name: 
     cost: 1
   - name: Train Yard
-    cost: 1
+    cost: 5
   - name: Light Puzzle
     cost: 1
   - name: 

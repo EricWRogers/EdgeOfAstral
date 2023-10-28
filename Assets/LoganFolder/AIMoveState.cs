@@ -16,7 +16,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     private NavMeshAgent agent;
     public GameObject target;
 
-    public int attackRange = 1;
+    public int attackRange = 10;
 
     private int currentPatrolIndex = 0;
 
@@ -39,16 +39,27 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Run() //Good ol update
     {
+        NavMeshHit hit;
         if (ValidatePath(target))
         {
             agent.SetDestination(target.transform.position);
         }
-        
-        else if(Vector3.Distance(agent.transform.position, target.transform.position) <= attackRange)
+       
+        else if(NavMesh.FindClosestEdge(target.transform.position, out hit, NavMesh.AllAreas))
+        {
+            Debug.Log("We hit : " + hit);
+            if(Vector3.Distance(hit.position, target.transform.position) <= attackRange)
             {
-                Debug.Log("Lesser");
-                target.transform.position = agent.transform.position;
+                Debug.Log("Test");
+                agent.SetDestination(target.transform.position);
+
+                if(Vector3.Distance(agent.transform.position, target.transform.position) <= attackRange)
+                {
+                    target.transform.position = agent.transform.position;
+                }
             }
+               
+        }
         
         else if (characterController.isGrounded == true) //Prevent the AI from randomly patrolling while I am b hopping thru da club
         {
@@ -172,16 +183,17 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
         NavMeshPath path = new NavMeshPath();
         agent.CalculatePath(_target.transform.position, path);
+
         Debug.Log("Path: " + path.status);
         if (path.status == NavMeshPathStatus.PathComplete)
         {
             //agent.SetPath(path);
-            Debug.Log("Path is good.");
+            //Debug.Log("Path is good.");
             return true;
         }
         else
         {
-            Debug.Log("Path is bad.");
+            //Debug.Log("Path is bad.");
             // agent.ResetPath();
             return false;
         }
