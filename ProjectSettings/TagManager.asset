@@ -6,8 +6,11 @@ TagManager:
   tags:
   - Enemy
   - Floor
+  - PatrolRoute
   - Weapon
   - Destructable
+  - Transition
+  - StaminaItem
   layers:
   - Default
   - TransparentFX
@@ -19,12 +22,12 @@ TagManager:
   - Pickup
   - Ground
   - Weapon
+  - FracturePiece
+  - DestructionFragment
+  - Runnable
   - Interactable
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Props
+  - WalkableProp
   - 
   - 
   - 

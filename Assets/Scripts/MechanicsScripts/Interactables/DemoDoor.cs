@@ -12,7 +12,7 @@ public class DemoDoor : Interactable
 
         if (InventorySystem.Instance.Get(keyName) != null)
         {
-            GameStateController.ActivateWin();
+            GameStateController.Instance.ActivateWin();
         }
     }
 }
