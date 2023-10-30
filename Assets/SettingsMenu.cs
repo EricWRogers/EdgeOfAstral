@@ -27,6 +27,7 @@ public class SettingsMenu : MonoBehaviour
         GetComponent<CanvasGroup>().interactable = false;
         GetComponent<CanvasGroup>().blocksRaycasts = false;
         mainMenu.interactable = true;
+        GetComponentInChildren<Slider>().interactable = false;
     }
 
     public void Exit()
@@ -35,5 +36,6 @@ public class SettingsMenu : MonoBehaviour
         controller.ChangeState<HUDPauseState>();
         GetComponent<CanvasGroup>().interactable = false;
         GetComponent<CanvasGroup>().blocksRaycasts = false;
+        GetComponentInChildren<Slider>().interactable = false;
     }
 }
