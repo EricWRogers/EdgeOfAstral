@@ -73,11 +73,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -453615173548524335, guid: a69db8b13f7dcac428d6016be091c426,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 55c731196a0b22e4d9c33d5f5502c7d8, type: 2}
     - target: {fileID: 919132149155446097, guid: a69db8b13f7dcac428d6016be091c426,
         type: 3}
       propertyPath: m_Name
       value: Locker
       objectReference: {fileID: 0}
+    - target: {fileID: 4210357320963261148, guid: a69db8b13f7dcac428d6016be091c426,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 55c731196a0b22e4d9c33d5f5502c7d8, type: 2}
+    - target: {fileID: 6124318214771875837, guid: a69db8b13f7dcac428d6016be091c426,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 55c731196a0b22e4d9c33d5f5502c7d8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

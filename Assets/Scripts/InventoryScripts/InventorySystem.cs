@@ -93,8 +93,6 @@ public class InventorySystem : MonoBehaviour
             m_itemDictionary.Add(key, value);
         }
         inventory.AddRange(savedInventory);
-
-        Debug.Log(inventory.Count);
     }
 
     private void SaveInventory()

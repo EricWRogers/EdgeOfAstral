@@ -45,7 +45,7 @@ public class SpawnPointManager : MonoBehaviour
             int randomIndex = Random.Range(0, managedSpawnPoints.Count);
             Transform spawnPoint = managedSpawnPoints[randomIndex];
 
-            GameObject staminaItem = Instantiate(staminaItemPrefab, spawnPoint.position, Quaternion.Euler(0f, Random.Range(0f, 90f), 0f));
+            GameObject staminaItem = Instantiate(staminaItemPrefab, spawnPoint.position, Quaternion.Euler(Random.Range(0f, 90f), Random.Range(0f, 90f), Random.Range(0f, 90f)));
 
             managedSpawnPoints.RemoveAt(randomIndex);
             spawnedItems.Add(staminaItem);

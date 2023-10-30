@@ -11,6 +11,7 @@ public class Dialogue : MonoBehaviour
     public Dialogue followUp;
 
     private bool hasShown = false;
+    private bool hasSetObjective = false;
     private bool canShow = true;
 
     public virtual void TriggerDialogue()
@@ -23,28 +24,43 @@ public class Dialogue : MonoBehaviour
 
         if (canShow)
         {
-            if (oneTime && !hasShown)
+            if (oneTime)
             {
-                if (timeShown == 0f)
+                if (!hasShown)
                 {
-                    DialogueManager.Instance.ShowDialogue(message);
-                }
-                else
-                {
-                    if (followUp != null)
+                    if (TryGetComponent(out ChangeObjective changeObjective))
                     {
-                        DialogueManager.Instance.ShowDialogue(message, timeShown, () => followUp.TriggerDialogue());
+                        changeObjective.Change();
+                        hasSetObjective = true;
+                    }
+                    if (timeShown == 0f)
+                    {
+                        DialogueManager.Instance.ShowDialogue(message);
                     }
                     else
                     {
-                        DialogueManager.Instance.ShowDialogue(message, timeShown);
-                    }
+                        if (followUp != null)
+                        {
+                            DialogueManager.Instance.ShowDialogue(message, timeShown, () => followUp.TriggerDialogue());
+                        }
+                        else
+                        {
+                            DialogueManager.Instance.ShowDialogue(message, timeShown);
+                        }
                     
+                    }
+                    hasShown = true;
+                    canShow = false;
                 }
-                hasShown = true;
             }
             else
             {
+                //Even if the dialogue will display more than once, the objective will only get set once
+                if (!hasSetObjective && TryGetComponent(out ChangeObjective changeObjective))
+                {
+                    changeObjective.Change();
+                    hasSetObjective = true;
+                }
                 if (timeShown == 0f)
                 {
                     DialogueManager.Instance.ShowDialogue(message);
