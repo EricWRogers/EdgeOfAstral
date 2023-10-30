@@ -18,6 +18,11 @@ public class WeaponPickup : Interactable
 
         base.OnInteract();
 
+        if (TryGetComponent(out ChangeObjective changeObjective))
+        {
+            changeObjective.Change();
+        }
+
         Destroy(gameObject);
     }
 }

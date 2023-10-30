@@ -27,6 +27,8 @@ public class MainMenu : MonoBehaviour
     {
         GetComponent<CanvasGroup>().FadeOut(menuCloseTime, StartGame, EasingFunctions.Ease.EaseOutQuart);
         controller.ChangeState(controller.nullState);
+        GetComponent<CanvasGroup>().interactable = false;
+        GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
     private void StartGame()

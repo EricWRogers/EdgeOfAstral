@@ -118,7 +118,7 @@ MonoBehaviour:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
-        m_Bits: 128
+        m_Bits: 131072
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: cb6e0c967355c574ebae6fa118b49ab5, type: 2}
     overrideMaterialPassIndex: 0
@@ -160,9 +160,9 @@ MonoBehaviour:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
-        m_Bits: 128
+        m_Bits: 8192
       PassNames: []
-    overrideMaterial: {fileID: 2100000, guid: 8ad7495e9c06f2b4eb13d8d025835e8c, type: 2}
+    overrideMaterial: {fileID: 2100000, guid: b958aa53be8d81b4a893b856cfdcc83f, type: 2}
     overrideMaterialPassIndex: 0
     overrideShader: {fileID: 0}
     overrideShaderPassIndex: 0

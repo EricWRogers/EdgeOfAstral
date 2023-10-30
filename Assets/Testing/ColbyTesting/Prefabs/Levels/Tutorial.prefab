@@ -33114,8 +33114,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 12.387623, y: 2.9954867, z: 4.4484696}
-  m_Center: {x: 5.6938114, y: 0.99774337, z: -0.03952241}
+  m_Size: {x: 14.574404, y: 2.9954867, z: 4.4484696}
+  m_Center: {x: 5.4130297, y: 0.99774337, z: -0.03952241}
 --- !u!114 &5123014844992249289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -33850,6 +33850,7 @@ GameObject:
   - component: {fileID: 9109849792182323722}
   - component: {fileID: 7863395963951307570}
   - component: {fileID: 898861328643444674}
+  - component: {fileID: 6708755979540275217}
   m_Layer: 0
   m_Name: Hit/Break
   m_TagString: Untagged
@@ -33907,6 +33908,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 0}
   wall: {fileID: 264912412955266691}
+--- !u!114 &6708755979540275217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3318845935548943895}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0265506dc7670d48b5f0ef274568dc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newObjective: Find out what caused the explosion
 --- !u!1 &3429272694138924676
 GameObject:
   m_ObjectHideFlags: 0
@@ -54803,6 +54817,8 @@ GameObject:
   - component: {fileID: 5936458608967956759}
   - component: {fileID: 6275276517840286828}
   - component: {fileID: 527477873115921192}
+  - component: {fileID: 6679143535515999907}
+  - component: {fileID: 5828053246083611515}
   m_Layer: 0
   m_Name: CutsceneStart
   m_TagString: Untagged
@@ -54915,6 +54931,37 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.7462349, y: 1, z: 1.574302}
   m_Center: {x: -1.3831806, y: 0, z: 0.8321248}
+--- !u!114 &6679143535515999907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4934122258284379861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0265506dc7670d48b5f0ef274568dc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newObjective: Find a way off the station
+--- !u!114 &5828053246083611515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4934122258284379861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ab5d83f396c96047921672a1669f452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  message: What was that thing!? I need to find a way off this station, no way I'm
+    fighting that!
+  oneTime: 1
+  timeShown: 5
+  lockoutTime: 5
+  followUp: {fileID: 0}
 --- !u!1 &4989312336676145129
 GameObject:
   m_ObjectHideFlags: 0
@@ -73594,7 +73641,6 @@ GameObject:
   - component: {fileID: 8966062342764840098}
   - component: {fileID: 6650125004276981452}
   - component: {fileID: 1004772551044450823}
-  - component: {fileID: 6530399802133096611}
   m_Layer: 0
   m_Name: Move/Camera
   m_TagString: Untagged
@@ -73654,24 +73700,7 @@ MonoBehaviour:
   triggerType: 0
   lingerTime: 1.2
   oneTime: 1
-  exitDialogue: {fileID: 6530399802133096611}
---- !u!114 &6530399802133096611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6541762604052714829}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ab5d83f396c96047921672a1669f452, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  message: I should be able to get back the way I came through that door
-  oneTime: 1
-  timeShown: 5
-  lockoutTime: 5
-  followUp: {fileID: 0}
+  exitDialogue: {fileID: 0}
 --- !u!1 &6554898743634330516
 GameObject:
   m_ObjectHideFlags: 0
@@ -80276,6 +80305,7 @@ GameObject:
   - component: {fileID: 1083930137042503598}
   - component: {fileID: 2308387506498901120}
   - component: {fileID: 2929162137130542332}
+  - component: {fileID: 3149734550969011594}
   m_Layer: 13
   m_Name: WeaponPickup
   m_TagString: Untagged
@@ -80330,6 +80360,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 3149734550969011594}
+        m_TargetAssemblyTypeName: ChangeObjective, Assembly-CSharp
+        m_MethodName: Change
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onHover:
     m_PersistentCalls:
       m_Calls: []
@@ -80350,6 +80392,19 @@ MonoBehaviour:
   timeShown: 5
   lockoutTime: 5
   followUp: {fileID: 0}
+--- !u!114 &3149734550969011594
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8468406330268924471}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0265506dc7670d48b5f0ef274568dc7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  newObjective: Break through the vent
 --- !u!1 &8531759665595576818
 GameObject:
   m_ObjectHideFlags: 0
@@ -84265,6 +84320,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClosetDoor
       objectReference: {fileID: 0}
+    - target: {fileID: 2277507623981458821, guid: 6034a9df776d8494f917d9660c5dcdd9,
+        type: 3}
+      propertyPath: message
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8836859844557098073, guid: 6034a9df776d8494f917d9660c5dcdd9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -84315,7 +84375,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2277507623981458821, guid: 6034a9df776d8494f917d9660c5dcdd9, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -85687,9 +85748,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
         type: 3}
+      propertyPath: startInteractable
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
+        type: 3}
       propertyPath: buttonForOtherDoor
       value: 
       objectReference: {fileID: 6312145911530920050}
+    - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
+        type: 3}
+      propertyPath: uninteractableText
+      value: Waiting On Door
+      objectReference: {fileID: 0}
     - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
         type: 3}
       propertyPath: onDoorClose.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -89330,7 +89401,7 @@ MonoBehaviour:
   type: 1
   contactRadius: 3
   interactText: to Open
-  uninteractableText: Waiting On Other Door
+  uninteractableText: Waiting On Door
   onInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -90054,7 +90125,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3247155590333904376, guid: f12dbed67a5b7274bbccc1328c8d2b4a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -90062,6 +90134,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2997564662362633100}
+    - targetCorrespondingSourceObject: {fileID: 2570176306390025743, guid: f12dbed67a5b7274bbccc1328c8d2b4a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2907683583823196382}
     - targetCorrespondingSourceObject: {fileID: 4290187828638349599, guid: f12dbed67a5b7274bbccc1328c8d2b4a,
         type: 3}
       insertIndex: -1
@@ -90074,6 +90150,12 @@ PrefabInstance:
 --- !u!4 &3176617298946656263 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5957529509745559602, guid: f12dbed67a5b7274bbccc1328c8d2b4a,
+    type: 3}
+  m_PrefabInstance: {fileID: 9131322143355240501}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &4845545381010434212 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4433280111679137937, guid: f12dbed67a5b7274bbccc1328c8d2b4a,
     type: 3}
   m_PrefabInstance: {fileID: 9131322143355240501}
   m_PrefabAsset: {fileID: 0}
@@ -90138,9 +90220,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ab5d83f396c96047921672a1669f452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  message: Shoot! Looks like that explosion earlier did more than just knock out
-    the power. Gotta find another way out.
-  oneTime: 1
-  timeShown: 5
-  lockoutTime: 5
+  message: Shoot! Looks like that explosion did more than just knock out the power.
+    I should get my Grav Hammer out of the supply closet
+  oneTime: 0
+  timeShown: 7
+  lockoutTime: 7
   followUp: {fileID: 0}
+--- !u!114 &2907683583823196382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6706951280983131706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7af0077a6a36f8643a402a6a16ecea5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
+  contactRadius: 3
+  interactText: to Open
+  uninteractableText: 
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2997564662362633100}
+        m_TargetAssemblyTypeName: Dialogue, Assembly-CSharp
+        m_MethodName: TriggerDialogue
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
+  doorPivot: {fileID: 4845545381010434212}
+  unlockItem: {fileID: 0}
+  startInteractable: 1
+  useKeypad: 0
