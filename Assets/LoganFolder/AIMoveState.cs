@@ -6,6 +6,7 @@ using System.Linq;
 using OmnicatLabs.CharacterControllers;
 using Unity.VisualScripting;
 using OmnicatLabs.Extensions;
+using OmnicatLabs.DebugUtils;
 
 public class AIMoveState : MonoBehaviour, IEnemyState
 {
@@ -13,7 +14,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     private bool checkPoint = true;
 
     private AIStateMachine stateMachine;
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     public GameObject target;
 
     public int attackRange = 10;
@@ -23,13 +24,18 @@ public class AIMoveState : MonoBehaviour, IEnemyState
     private GameObject[] patrolRoutes;
     private GameObject[] transitions;
 
+    public float agentSpeed = 9.0f;
+    public float agentPatrolSpeed = 5.0f;
+
     public OmnicatLabs.CharacterControllers.CharacterController characterController;
 
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
+        agent.speed = agentSpeed;
+        
         this.stateMachine = stateMachine;
-        agent = FindAnyObjectByType<NavMeshAgent>();
-       target = GameObject.FindAnyObjectByType<OmnicatLabs.CharacterControllers.CharacterController>().gameObject;
+        agent = GetComponentInParent<NavMeshAgent>();
+        target = GameObject.FindAnyObjectByType<OmnicatLabs.CharacterControllers.CharacterController>().gameObject;
 
         patrolRoutes = GameObject.FindGameObjectsWithTag("PatrolRoute");
         transitions = GameObject.FindGameObjectsWithTag("Transition");
@@ -39,12 +45,16 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Run() //Good ol update
     {
-        NavMeshHit hit;
+        if(agent.speed != agentSpeed)
+        {
+            agent.speed = agentSpeed;
+        }
+       // NavMeshHit hit;
         if (ValidatePath(target))
         {
             agent.SetDestination(target.transform.position);
         }
-       
+       /*
         else if(NavMesh.FindClosestEdge(target.transform.position, out hit, NavMesh.AllAreas))
         {
             Debug.Log("We hit : " + hit);
@@ -59,7 +69,7 @@ public class AIMoveState : MonoBehaviour, IEnemyState
                 }
             }
                
-        }
+        }*/
         
         else if (characterController.isGrounded == true) //Prevent the AI from randomly patrolling while I am b hopping thru da club
         {
@@ -85,6 +95,12 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public void Patrol()
     {
+
+        if(agent.speed != agentPatrolSpeed)
+        {
+            agent.speed = agentPatrolSpeed; 
+        }
+
         Debug.Log("Patroling. .");
 
 
@@ -176,6 +192,13 @@ public class AIMoveState : MonoBehaviour, IEnemyState
 
     public bool ValidatePath(GameObject _target)
     {
+
+        if(target == null || _target == null)
+        {
+            target = GameObject.FindAnyObjectByType<OmnicatLabs.CharacterControllers.CharacterController>().gameObject;
+            _target = GameObject.FindAnyObjectByType<OmnicatLabs.CharacterControllers.CharacterController>().gameObject;
+        }
+        Debug.Log("Target = " + target.name);
         if (agent.hasPath == true && agent.path.corners.Last() == _target.transform.position)
         {
             return true;
