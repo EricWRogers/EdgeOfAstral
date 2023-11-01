@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LightPuzzleLights : MonoBehaviour
+public class LightPuzzleLights : MonoBehaviour, ISaveable
 {
     public bool lit = false;
     public Material litMat;
@@ -12,6 +12,7 @@ public class LightPuzzleLights : MonoBehaviour
 
     private Material offMat;
     private MeshRenderer mesh;
+    private bool tracked = false;
 
     private void Start()
     {
@@ -22,6 +23,11 @@ public class LightPuzzleLights : MonoBehaviour
     //Changing the light state and sending a debug message
     public void ChangeLightState()
     {
+        if (!tracked)
+        {
+            SaveManager.Instance.Track(this);
+        }
+
         lit = !lit;
 
         if (lit)
@@ -46,5 +52,17 @@ public class LightPuzzleLights : MonoBehaviour
          
         
         //Debug.Log(this.gameObject.name + " is " + boolTest);
+    }
+
+    public void OnTrack()
+    {
+        
+    }
+
+    public void OnReset()
+    {
+        tracked = false;
+        mesh.material = offMat;
+        lit = false;
     }
 }

@@ -20,7 +20,15 @@ public class LightPuzzleLever : Interactable
     {
         base.Start();
         if (wires.Count > 0)
-        wireOffMaterial = wires[0].GetComponent<MeshRenderer>().material;
+            wireOffMaterial = wires[0].GetComponent<MeshRenderer>().material;
+    }
+
+    public override void OnReset()
+    {
+        base.OnReset();
+        isFlipped = false;
+        leverPivot.localRotation = Quaternion.identity;
+        wires.ForEach(wire => wire.GetComponent<MeshRenderer>().material = wireOffMaterial);
     }
 
     //changes state of each light

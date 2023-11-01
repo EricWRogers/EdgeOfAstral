@@ -9,11 +9,6 @@ public class MonsterResetter : MonoBehaviour
     private void Start()
     {
         startingPos = transform.position;
-        SaveManager.Instance.onReset.AddListener(() => transform.position = startingPos);
-    }
-
-    public void Move()
-    {
-
+        SaveManager.Instance.onReset.AddListener(() => { GetComponentInChildren<AIStateMachine>().enabled = false; transform.position = startingPos;  });
     }
 }

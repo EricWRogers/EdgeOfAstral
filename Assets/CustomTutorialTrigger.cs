@@ -13,6 +13,10 @@ public class CustomTutorialTrigger : MonoBehaviour
         wall.callbackOptions.onFracture.AddListener((col, obj, vec) => {
             hasDestroyed = true;
             controller.ChangeState<TutorialCrouchState>();
+            if (TryGetComponent(out ChangeObjective changeObjective))
+            {
+                changeObjective.Change();
+            }
         });
     }
 

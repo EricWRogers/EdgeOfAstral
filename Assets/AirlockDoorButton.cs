@@ -38,6 +38,7 @@ public class AirlockDoorButton : Interactable
             doorToOpen.doorOpening = true;
             doorToOpen.doorClosed = false;
             SetInteractable(false);
+            buttonForOtherDoor.SetInteractable(false);
         }
     }
 
