@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using OmnicatLabs.Audio;
@@ -29,6 +27,14 @@ public class CutsceneStart : MonoBehaviour
         {
             OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
             AudioManager.Instance.Play("BGM");
+            if (TryGetComponent(out ChangeObjective changeObjective))
+            {
+                changeObjective.Change();
+            }
+            if (TryGetComponent(out Dialogue dialogue))
+            {
+                dialogue.TriggerDialogue();
+            }
             onFinish.Invoke();
             Destroy(gameObject);
         }

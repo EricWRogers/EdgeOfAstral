@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DialogueArea : Dialogue
@@ -25,9 +23,11 @@ public class DialogueArea : Dialogue
             TriggerDialogue();
     }
 
+    /*
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
             CloseDialogue();
     }
+    */
 }
