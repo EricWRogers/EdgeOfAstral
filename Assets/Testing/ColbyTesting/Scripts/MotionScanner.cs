@@ -18,7 +18,7 @@ public class MotionScanner : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        onDoorOpen.AddListener(DoorOpen);
+        //onDoorOpen.AddListener(DoorOpen);
         onDoorClose.AddListener(DoorClose);
     }
 
@@ -34,6 +34,11 @@ public class MotionScanner : MonoBehaviour
             buttonForOtherDoor.SetInteractable(false);
             buttonForThisDoor.SetInteractable(false);
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        doorPivot.TweenYRot(-directionalForce, 2f, () => onDoorClose.Invoke());
     }
 
     void DoorOpen()
