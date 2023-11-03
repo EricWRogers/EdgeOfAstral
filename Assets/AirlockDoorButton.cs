@@ -24,7 +24,7 @@ public class AirlockDoorButton : Interactable
             SetInteractable(false);
         }
 
-        onDoorOpen.AddListener(DoorOpen);
+        //onDoorOpen.AddListener(DoorOpen);
         onDoorClose.AddListener(DoorClose);
     }
 

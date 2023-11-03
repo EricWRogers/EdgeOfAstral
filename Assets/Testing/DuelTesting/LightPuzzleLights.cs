@@ -61,8 +61,11 @@ public class LightPuzzleLights : MonoBehaviour, ISaveable
 
     public void OnReset()
     {
-        tracked = false;
-        mesh.material = offMat;
-        lit = false;
+        if (!LightPuzzle.isCompleted)
+        {
+            tracked = false;
+            mesh.material = offMat;
+            lit = false;
+        }
     }
 }

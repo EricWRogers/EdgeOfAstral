@@ -9,9 +9,13 @@ public class StaminaPickup : Interactable
     {
         base.OnInteract();
         var player = OmnicatLabs.CharacterControllers.CharacterController.Instance;
-        if (player.currentStamina + staminaValue < player.maxStamina)
+        if (player.currentStamina + staminaValue > player.maxStamina)
         {
-            player.ChangeStamina(staminaValue);
+            player.ChangeStamina(player.maxStamina);
+        }
+        else
+        {
+            player.ChangeStamina(player.currentStamina + staminaValue);
         }
 
         Destroy(gameObject);
