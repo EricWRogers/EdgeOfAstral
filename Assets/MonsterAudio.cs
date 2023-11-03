@@ -10,18 +10,26 @@ public class MonsterAudio : MonoBehaviour
     public float growlIntervalMin = 20f;
     public float growlIntervalMax = 45f;
 
+    public float stepInterval = .3f;
+
     private int previousTimer;
 
     private void PostPlay()
     {
         var rand = RandTime();
         previousTimer = TimerManager.Instance.CreateTimer(rand, PlaySound);
-        AudioManager.Instance.Play("MonsterFootstep", gameObject);
+        TimerManager.Instance.CreateTimer(stepInterval, PlayFootstep);
     }
 
     private float RandTime()
     {
         return Random.Range(growlIntervalMin, growlIntervalMax);
+    }
+
+    private void PlayFootstep()
+    {
+        AudioManager.Instance.Play("MonsterFootstep", gameObject);
+        TimerManager.Instance.CreateTimer(stepInterval, PlayFootstep);
     }
 
     public void PlaySound()
