@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using OmnicatLabs.StatefulObject;
 using OmnicatLabs.Tween;
+using OmnicatLabs.Audio;
 
 public class LeverController : MonoBehaviour
 {
@@ -17,6 +18,8 @@ public class LeverController : MonoBehaviour
 
     private void OnMouseDown()
     {
+        AudioManager.Instance.Play("Lever");
+
         if (!isForward)
         {
             // Move the lever forward smoothly using the Tween library

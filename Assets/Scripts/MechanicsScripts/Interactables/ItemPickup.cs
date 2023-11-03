@@ -1,3 +1,5 @@
+using OmnicatLabs.Audio;
+
 public class ItemPickup : Interactable
 {
 
@@ -19,8 +21,17 @@ public class ItemPickup : Interactable
     // Pick up the item
     void PickUp()
     {
+        AudioManager.Instance.Play("PickUp");
+
         InventorySystem.Instance.Add(item);   // Add to inventory
 
-        Destroy(gameObject);    // Destroy item from scene
+        gameObject.SetActive(false);    // Destroy item from scene
+    }
+
+    public override void OnReset()
+    {
+        base.OnReset();
+
+        gameObject.SetActive(true);
     }
 }

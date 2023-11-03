@@ -7,19 +7,42 @@ public class Locker : Interactable
     public bool startInteractable = false;
     public bool useKeypad = false;
 
+    private Quaternion originalOrientation;
+
     protected override void Start()
     {
         base.Start();
 
+        originalOrientation = transform.rotation;
+
         if (unlockItem != null)
         {
             SetInteractable(false);
-            unlockItem.onAddToInventory.AddListener(() => { SetInteractable(true); });
+            //unlockItem.onAddToInventory.AddListener(() => { SetInteractable(true); });
         }
         if (!startInteractable)
         {
             SetInteractable(false);
         }
+    }
+
+    protected override void OnHover()
+    {
+        base.OnHover();
+
+        if (unlockItem != null)
+            if (InventorySystem.Instance.Get(unlockItem) != null)
+            {
+                SetInteractable(true);
+            }
+            else SetInteractable(false);
+    }
+
+    public override void OnReset()
+    {
+        base.OnReset();
+
+        doorPivot.rotation = originalOrientation;
     }
 
     public override void OnInteract()
@@ -41,8 +64,10 @@ public class Locker : Interactable
                 SetInteractable(false);
             }
         }
-
-
-
+        
+        if (TryGetComponent( out ChangeObjective changeObjective))
+        {
+            changeObjective.Change();
+        }
     }
 }

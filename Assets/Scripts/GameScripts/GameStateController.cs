@@ -17,11 +17,6 @@ public class GameStateController : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-        GetComponent<Dialogue>().TriggerDialogue();
-    }
-
     public void ActivateWin()
     {
         FindObjectOfType<PlayerInput>().enabled = false;
@@ -35,8 +30,12 @@ public class GameStateController : MonoBehaviour
     public void ActivateLose()
     {
         OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(true, true, true);
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.movementDir = Vector3.zero;
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.ChangeState(OmnicatLabs.CharacterControllers.CharacterStates.Idle);
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.sprinting = false;
         //FindObjectOfType<PlayerInput>().enabled = false;
         //FindObjectOfType<MouseLook>().Lock();
+        Debug.Log("Called Lose");
         GameObject instance = Instantiate(Resources.Load("UI/LoseUI") as GameObject, canvas.transform);
         instance.GetComponent<CanvasGroup>().FadeIn(.8f);
         //Cursor.lockState = CursorLockMode.None;

@@ -11,17 +11,15 @@ public class RandNumGen : MonoBehaviour
 
     public float test = 10f;
 
-    
     void Start()
+    {
+        Generate();
+    }
+
+    public void Generate()
     {
         RandNum = Random.Range(1111, 9999);
         Debug.Log(RandNum);
-        numText.text = RandNum.ToString();
-    }
-
-   
-    void Update()
-    {
-     
+        numText.SetText(RandNum.ToString());
     }
 }

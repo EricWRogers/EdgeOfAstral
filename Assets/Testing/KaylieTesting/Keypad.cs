@@ -6,7 +6,9 @@ public class Keypad : Interactable
 {
     public GameObject keypadUI;
     public Canvas canvas;
-    public Locker door;
+    public KeypadDoor door;
+    public RandNumGen codeGenerator;
+    public UIStateMachineController uiController;
 
     public override void OnInteract()
     {
@@ -15,12 +17,17 @@ public class Keypad : Interactable
         var go = Instantiate(keypadUI, canvas.transform);
         go.transform.SetAsLastSibling();
 
-        if (door != null && door.useKeypad)
+        if (door != null)
         {
-            go.GetComponent<KeypadUIController>().onCorrectPassword.AddListener(() => door.SetInteractable(true));
+            door.StartTracking();
+            go.GetComponent<KeypadUIController>().correctPass = codeGenerator.RandNum.ToString();
+            go.GetComponent<KeypadUIController>().controller = uiController;
+            go.GetComponent<KeypadUIController>().onCorrectPassword.AddListener(door.Open);
         }
 
-        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(true, true, true);
+        uiController.ChangeState<HUDKeypadState>();
+
+        OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(true, OmnicatLabs.CharacterControllers.CharacterController.Instance.playerIsHidden, true);
     }
 
     protected override void OnHover()

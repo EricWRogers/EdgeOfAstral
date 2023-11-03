@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5957529509745559602}
-  - component: {fileID: 3231092631397809802}
-  m_Layer: 13
+  - component: {fileID: 6089742293991154590}
+  m_Layer: 16
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 4433280111679137937}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3231092631397809802
+--- !u!114 &6089742293991154590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -47,7 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: 1
   contactRadius: 3
-  interactText: to Open
+  interactText: to Interact
+  uninteractableText: 
   onInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -56,8 +57,8 @@ MonoBehaviour:
       m_Calls: []
   doorPivot: {fileID: 4433280111679137937}
   unlockItem: {fileID: 0}
-  startInteractable: 0
-  useKeypad: 1
+  startInteractable: 1
+  useKeypad: 0
 --- !u!1 &3126034712337448516
 GameObject:
   m_ObjectHideFlags: 0
@@ -67,7 +68,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4433280111679137937}
-  m_Layer: 13
+  m_Layer: 16
   m_Name: DoorPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,10 +169,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: edfc3dff76c5cff449ea64b9e6c30d73, type: 2}
+    - target: {fileID: -5754084199372789682, guid: 305f9b59c4dc4aa48a500b1a0dc6a7ea,
+        type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 198806007812188201, guid: a3ac3d7e3e535864d8809c1b033cc258,
+        type: 3}
     - target: {fileID: 919132149155446097, guid: 305f9b59c4dc4aa48a500b1a0dc6a7ea,
         type: 3}
       propertyPath: m_Name
       value: Door1_DS
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 305f9b59c4dc4aa48a500b1a0dc6a7ea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

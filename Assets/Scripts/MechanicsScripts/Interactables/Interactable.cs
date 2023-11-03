@@ -7,7 +7,7 @@ using UnityEngine.Events;
 	to be used as a base class.
 */
 
-public class Interactable : MonoBehaviour
+public class Interactable : MonoBehaviour, ISaveable
 {
     public enum InteractType
     {
@@ -23,7 +23,7 @@ public class Interactable : MonoBehaviour
     public UnityEvent onHover = new UnityEvent();
 
     private Transform player;
-    public bool canInteract { get; protected set; } = true;
+    public bool canInteract  = true;
 
     protected virtual void Start()
     {
@@ -65,7 +65,10 @@ public class Interactable : MonoBehaviour
     public void Interact()
     {
         if (canInteract)
+        {
             onInteract.Invoke();
+            SaveManager.Instance.Track(this);
+        }
     }
 
     protected virtual void OnHover()
@@ -87,4 +90,20 @@ public class Interactable : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Behavior for when the SaveManager adds this item to the list it is tracking
+    /// </summary>
+    public virtual void OnTrack()
+    {
+        
+    }
+
+    /// <summary>
+    /// Behavior for when the SaveManager resets this interactable from the tracking list. Use this to reset this interactable to its default state on a reload
+    /// </summary>
+    public virtual void OnReset()
+    {
+        
+    }
 }
