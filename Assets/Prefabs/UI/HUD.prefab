@@ -3878,6 +3878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeTime: 0.3
   pauseMenuUI: {fileID: 7317173882818200295}
+  sensitivitySlider: {fileID: 6901107693389169589}
   controller: {fileID: 0}
 --- !u!225 &7317173882818200295
 CanvasGroup:

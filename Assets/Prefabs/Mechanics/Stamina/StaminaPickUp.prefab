@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8567442110481877267}
   - component: {fileID: 7628096845565573987}
   - component: {fileID: 1908647442083477006}
-  m_Layer: 13
+  m_Layer: 16
   m_Name: StaminaPickUp
   m_TagString: StaminaItem
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ MonoBehaviour:
   onHover:
     m_PersistentCalls:
       m_Calls: []
-  staminaValue: 30
+  staminaValue: 50
 --- !u!54 &1908647442083477006
 Rigidbody:
   m_ObjectHideFlags: 0

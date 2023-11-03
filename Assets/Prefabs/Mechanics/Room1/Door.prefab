@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5957529509745559602}
-  - component: {fileID: 3247155590333904376}
-  m_Layer: 13
+  - component: {fileID: 6089742293991154590}
+  m_Layer: 16
   m_Name: Door
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ Transform:
   - {fileID: 4433280111679137937}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3247155590333904376
+--- !u!114 &6089742293991154590
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -42,10 +42,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 2570176306390025743}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b0d08dd4c051c7459051bd15cb921eb, type: 3}
+  m_Script: {fileID: 11500000, guid: 7af0077a6a36f8643a402a6a16ecea5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 1
+  contactRadius: 3
+  interactText: to Interact
+  uninteractableText: 
+  onInteract:
+    m_PersistentCalls:
+      m_Calls: []
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
   doorPivot: {fileID: 4433280111679137937}
+  unlockItem: {fileID: 0}
+  startInteractable: 1
+  useKeypad: 0
 --- !u!1 &3126034712337448516
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,7 +68,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4433280111679137937}
-  m_Layer: 13
+  m_Layer: 16
   m_Name: DoorPivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,6 +179,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Door1_DS
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 305f9b59c4dc4aa48a500b1a0dc6a7ea,
+        type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

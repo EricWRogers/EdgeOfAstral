@@ -12,7 +12,7 @@ public class Checkpoint : MonoBehaviour
     {
          agent = FindAnyObjectByType<AIMoveState>();
     }
-    private void OnTriggerEnter(Collider other)
+   /* private void OnTriggerEnter(Collider other)
     {
         
         SaveManager.Instance.Save();
@@ -23,5 +23,5 @@ public class Checkpoint : MonoBehaviour
     }
 
   
-
+    */
 }

@@ -12,6 +12,7 @@ public class LightPuzzle : MonoBehaviour
 
     public static LightPuzzle Instance;
     private Timer timer;
+    public static bool isCompleted = false;
 
     private void Awake()
     {
@@ -50,6 +51,7 @@ public class LightPuzzle : MonoBehaviour
         if (puzzleCompleted == true)
         {
             LightPuzzleCompleted.Invoke();
+            isCompleted = true;
         }
     }
 }

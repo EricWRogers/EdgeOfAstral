@@ -12,7 +12,7 @@ public class TransitionAI : MonoBehaviour
     {
          agent = FindAnyObjectByType<NavMeshAgent>().gameObject;
     }
-    private void OnTriggerEnter(Collider other)
+   /* private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Enemy") && agent.GetComponentInChildren<AIMoveState>().checkPoint == true)
         {
@@ -24,5 +24,5 @@ public class TransitionAI : MonoBehaviour
             agent.SetActive(true);
             agent.GetComponentInChildren<AIMoveState>().checkPoint = false;
         }
-    }
+    }*/
 }

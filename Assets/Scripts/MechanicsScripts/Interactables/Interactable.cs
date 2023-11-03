@@ -23,7 +23,7 @@ public class Interactable : MonoBehaviour, ISaveable
     public UnityEvent onHover = new UnityEvent();
 
     private Transform player;
-    public bool canInteract { get; protected set; } = true;
+    public bool canInteract  = true;
 
     protected virtual void Start()
     {
