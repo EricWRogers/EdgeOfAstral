@@ -43,13 +43,11 @@ public class ObjectiveText : MonoBehaviour
         }
 
         currObjective = newObjective;
-        Debug.Log("Task is " + currObjective);
 
         objArea.FadeOut(fadeTime,
            () => {
                TimerManager.Instance.CreateTimer(0.1f,
                () => {
-                   Debug.Log("In the timer ");
                    objText.SetText(currObjective);
                    objArea.FadeIn(fadeTime);
                }, out currentTimer);
