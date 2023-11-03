@@ -26,10 +26,13 @@ public class LightPuzzleLever : Interactable
 
     public override void OnReset()
     {
-        base.OnReset();
-        isFlipped = false;
-        leverPivot.localRotation = Quaternion.identity;
-        wires.ForEach(wire => wire.GetComponent<MeshRenderer>().material = wireOffMaterial);
+        if (!LightPuzzle.isCompleted)
+        {
+            base.OnReset();
+            isFlipped = false;
+            leverPivot.localRotation = Quaternion.identity;
+            wires.ForEach(wire => wire.GetComponent<MeshRenderer>().material = wireOffMaterial);
+        }
     }
 
     //changes state of each light

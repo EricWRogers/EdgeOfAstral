@@ -71,7 +71,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   checkPoint: 0
+  agent: {fileID: 6018464776103979435}
   target: {fileID: 0}
+  attackRange: 10
+  agentSpeed: 9
+  agentPatrolSpeed: 5
   characterController: {fileID: 0}
 --- !u!1 &8882990262443472028
 GameObject:

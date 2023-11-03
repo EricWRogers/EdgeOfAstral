@@ -2,6 +2,7 @@ using UnityEngine;
 using OmnicatLabs.Tween;
 using System.Reflection;
 using System.Linq;
+using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class MainMenu : MonoBehaviour
     {
         GetComponent<CanvasGroup>().FadeOut(menuCloseTime, StartGame, EasingFunctions.Ease.EaseOutQuart);
         controller.ChangeState(controller.nullState);
+        GetComponent<CanvasGroup>().interactable = false;
+        GetComponent<CanvasGroup>().blocksRaycasts = false;
     }
 
     private void StartGame()
@@ -58,6 +61,7 @@ public class MainMenu : MonoBehaviour
         settingsMenu.alpha = 1f;
         settingsMenu.interactable = true;
         settingsMenu.blocksRaycasts = true;
+        settingsMenu.GetComponentInChildren<Slider>().interactable = true;
         GetComponent<CanvasGroup>().interactable = false;
     }
 

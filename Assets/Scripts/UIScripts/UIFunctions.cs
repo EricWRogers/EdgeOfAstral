@@ -14,7 +14,7 @@ public class UIFunctions : MonoBehaviour
     public void Retry()
     {
         var player = OmnicatLabs.CharacterControllers.CharacterController.Instance;
-        LoseUI.SetActive(false);
+        Destroy(LoseUI);
         player.SetControllerLocked(false, false, false);
         player.rb.velocity = Vector3.zero;
         player.modelCollider.height = 2f;

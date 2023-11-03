@@ -25,11 +25,11 @@ TagManager:
   - FracturePiece
   - DestructionFragment
   - Runnable
-  - Interactable
+  - InteractableH
   - Props
   - WalkableProp
-  - 
-  - 
+  - InteractableNoShader
+  - InteractableV
   - 
   - 
   - 
