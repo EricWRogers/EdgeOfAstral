@@ -176,7 +176,7 @@ MonoBehaviour:
         m_Calls: []
   - name: MonsterFootstep
     clip: {fileID: 8300000, guid: 2519c34b38680d94c8372809335830fe, type: 3}
-    volume: 0.1
+    volume: 0.068
     priority: 0
     pitch: 1
     spatialBlend: 1

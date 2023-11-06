@@ -12,7 +12,7 @@ public class Launch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (UpgradeManager.ownedUpgrades.Contains(UpgradeIds.MagBoots))
+        if (UpgradeManager.ownedUpgrades.Contains(UpgradeIds.MagBoots) && other.CompareTag(playerTag))
         {
             other.transform.TryGetComponentInParentAndChildren(out Rigidbody rb);
 
@@ -25,10 +25,10 @@ public class Launch : MonoBehaviour
         else
         {
             GetComponent<Dialogue>().TriggerDialogue();
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-            rb.AddForce(new Vector3(0f, launchForce, 0f), ForceMode.Impulse);
             AudioManager.Instance.Play("Launch");
         }
+
+
     }
 
     //private float originalJumpForce;
