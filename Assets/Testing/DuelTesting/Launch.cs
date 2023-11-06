@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using OmnicatLabs.Extensions;
+using OmnicatLabs.Audio;
 
 public class Launch : MonoBehaviour
 {
@@ -11,13 +12,23 @@ public class Launch : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        other.transform.TryGetComponentInParentAndChildren(out Rigidbody rb);
-
-        if (other.CompareTag(playerTag) && rb.velocity.y < 0f)
+        if (UpgradeManager.ownedUpgrades.Contains(UpgradeIds.MagBoots) && other.CompareTag(playerTag))
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
-            rb.AddForce(new Vector3(0f, launchForce, 0f), ForceMode.Impulse);
+            other.transform.TryGetComponentInParentAndChildren(out Rigidbody rb);
+
+            if (other.CompareTag(playerTag) && rb.velocity.y < 0f)
+            {
+                rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+                rb.AddForce(new Vector3(0f, launchForce, 0f), ForceMode.Impulse);
+            }
         }
+        else
+        {
+            GetComponent<Dialogue>().TriggerDialogue();
+            AudioManager.Instance.Play("Launch");
+        }
+
+
     }
 
     //private float originalJumpForce;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using OmnicatLabs.Tween;
+using OmnicatLabs.Audio;
 
 public class LightPuzzleLever : Interactable
 {
@@ -25,16 +26,21 @@ public class LightPuzzleLever : Interactable
 
     public override void OnReset()
     {
-        base.OnReset();
-        isFlipped = false;
-        leverPivot.localRotation = Quaternion.identity;
-        wires.ForEach(wire => wire.GetComponent<MeshRenderer>().material = wireOffMaterial);
+        if (!LightPuzzle.isCompleted)
+        {
+            base.OnReset();
+            isFlipped = false;
+            leverPivot.localRotation = Quaternion.identity;
+            wires.ForEach(wire => wire.GetComponent<MeshRenderer>().material = wireOffMaterial);
+        }
     }
 
     //changes state of each light
     public override void OnInteract()
     {
         base.OnInteract();
+
+        AudioManager.Instance.Play("Lever");
 
         isFlipped = !isFlipped;
 
@@ -44,6 +50,7 @@ public class LightPuzzleLever : Interactable
         }
         else
         {
+            AudioManager.Instance.Play("PowerOn", gameObject);
             leverPivot.TweenZRot(-120f, flipTime);
         }
 
