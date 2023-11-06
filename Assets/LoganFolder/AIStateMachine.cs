@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
+using UnityEngine.AI;
 
 public interface IEnemyState //Make the states inherit from this. Basically will force that script to have these functions. If it dont it dont work.
 {
@@ -15,14 +16,30 @@ public class AIStateMachine : MonoBehaviour //Dont touch this script.
     [HideInInspector]
     public IEnemyState currentState; //DONT TOUCH 
 
+    private NavMeshAgent agent;
+
     private void Start()
     {
+        agent = GetComponentInParent<NavMeshAgent>();
         SetState(gameObject.GetComponent<AIIdleState>());
     }
 
     private void Update()
     {
-        currentState.Run();
+        if (!agent.isStopped)
+        {
+            currentState.Run();
+        }
+        else
+        {
+            currentState.Exit();
+        }
+
+        if(currentState == null) 
+        {
+            SetState(gameObject.GetComponent<AIIdleState>());
+        }
+        
     }
 
     public void SetState(IEnemyState newState)
@@ -35,5 +52,13 @@ public class AIStateMachine : MonoBehaviour //Dont touch this script.
         currentState = newState;
         currentState.Enter(this);
     }
+
+
+   public void AIStop(bool _value)
+    {
+        agent.isStopped = _value;
+        Debug.Log("Agent isStopped = " + _value);
+    }
+
 
 }

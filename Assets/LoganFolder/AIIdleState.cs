@@ -18,14 +18,13 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
         agent = FindAnyObjectByType<NavMeshAgent>();
         target = GameObject.FindGameObjectWithTag("Player");
 
-     
     }
 
     public void Run() //Good ol update
     {
         //Debug.Log("Idling. . ");
        
-        if (Vector3.Distance(agent.transform.position, target.transform.position) >= 2)
+        if (Vector3.Distance(agent.transform.position, target.transform.position) >= 3)
         {
             stateMachine.SetState(gameObject.GetComponent<AIChaseState>()); //Sends us to .
         }
