@@ -39,15 +39,16 @@ public class AIChaseState : MonoBehaviour, IEnemyState
             agent.SetDestination(target.transform.position);
         }
 
-        else if (Attackable(target))
-        {
-            stateMachine.SetState(gameObject.GetComponent<AIAttackState>());
-        }
         else if (NavMesh.SamplePosition(target.transform.position, out _, 10.0f, NavMesh.AllAreas) != NavMesh.SamplePosition(agent.transform.position, out _, 10.0f, NavMesh.AllAreas))
         {
             stateMachine.SetState(gameObject.GetComponent<AITransitionState>());
         }
 
+        else if (Attackable(target))
+        {
+            stateMachine.SetState(gameObject.GetComponent<AIAttackState>());
+        }
+      
         else if (characterController.isGrounded == true) //Prevent the AI from randomly patrolling while I am b hopping thru da club
         {
             stateMachine.SetState(gameObject.GetComponent<AIPatrolState>());
