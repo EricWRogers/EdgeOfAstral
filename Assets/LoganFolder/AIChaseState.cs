@@ -1,6 +1,7 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class AIChaseState : MonoBehaviour, IEnemyState
 {
@@ -38,12 +39,10 @@ public class AIChaseState : MonoBehaviour, IEnemyState
         {
             agent.SetDestination(target.transform.position);
         }
-
-        else if (NavMesh.SamplePosition(target.transform.position, out _, 10.0f, NavMesh.AllAreas) != NavMesh.SamplePosition(agent.transform.position, out _, 10.0f, NavMesh.AllAreas))
+        else if (Transitionable())
         {
             stateMachine.SetState(gameObject.GetComponent<AITransitionState>());
         }
-
         else if (Attackable(target))
         {
             stateMachine.SetState(gameObject.GetComponent<AIAttackState>());
@@ -53,6 +52,8 @@ public class AIChaseState : MonoBehaviour, IEnemyState
         {
             stateMachine.SetState(gameObject.GetComponent<AIPatrolState>());
         }
+
+       
     }
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
@@ -69,7 +70,7 @@ public class AIChaseState : MonoBehaviour, IEnemyState
             target = GameObject.FindAnyObjectByType<OmnicatLabs.CharacterControllers.CharacterController>().gameObject;
             _target = GameObject.FindAnyObjectByType<OmnicatLabs.CharacterControllers.CharacterController>().gameObject;
         }
-        Debug.Log("Target = " + target.name);
+        
         if (agent.hasPath == true && agent.path.corners.Last() == _target.transform.position)
         {
             return true;
@@ -109,5 +110,24 @@ public class AIChaseState : MonoBehaviour, IEnemyState
         { 
             return false; 
         }
+    }
+
+    public bool Transitionable()
+    {
+        NavMeshHit ai, player;
+
+        NavMesh.SamplePosition(target.transform.position, out player, 10.0f, NavMesh.AllAreas);
+        NavMesh.SamplePosition(agent.transform.position, out ai, 10.0f, NavMesh.AllAreas);
+
+
+        if (ai.mask != player.mask)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
     }
 }
