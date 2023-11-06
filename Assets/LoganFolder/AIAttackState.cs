@@ -6,9 +6,12 @@ public class AIAttackState : MonoBehaviour, IEnemyState
     private AIStateMachine stateMachine;
     private NavMeshAgent agent;
     private GameObject target;
-    private NavMeshHit lastHit;
+    private AIChaseState chase;
 
+    private GameStateController controller;
     public int attackRange = 10;
+
+    private bool lose;
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
 
@@ -18,16 +21,21 @@ public class AIAttackState : MonoBehaviour, IEnemyState
         agent = gameObject.GetComponent<AIChaseState>().agent;
         target = gameObject.GetComponent<AIChaseState>().target;
 
-        lastHit = gameObject.GetComponent<AIChaseState>().lastHit;
+        chase = gameObject.GetComponent<AIChaseState>();
+
+        controller = GameStateController.Instance;
+        lose = false;
     }
 
     public void Run() //Good ol update
     {
         agent.SetDestination(target.transform.position);
 
-        if (Vector3.Distance(lastHit.position, target.transform.position) <= attackRange && Vector3.Distance(agent.transform.position, target.transform.position) <= attackRange)
+        if ( !lose && !chase.ValidatePath(target) && Vector3.Distance(chase.lastHit.position, target.transform.position) <= attackRange && Vector3.Distance(agent.transform.position, target.transform.position) <= attackRange)
         {
-            target.transform.position = gameObject.transform.position;
+            
+            controller.ActivateLose();
+            lose = true;
             stateMachine.SetState(gameObject.GetComponent<AIIdleState>());
         }
         else
@@ -37,6 +45,7 @@ public class AIAttackState : MonoBehaviour, IEnemyState
     }
         public void Exit() //Last thing the state does before sending us wherever the user specified in update.
         {
+            
             Debug.Log("Exiting Attack State");
         }
 }
