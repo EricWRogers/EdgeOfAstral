@@ -7,10 +7,10 @@ public class Checkpoint : MonoBehaviour
 {
     public bool shouldAITransition = true;
     public static Transform spawnpoint;
-    private AIMoveState agent;
+    private AIChaseState agent;
     private void Start()
     {
-         agent = FindAnyObjectByType<AIMoveState>();
+         agent = FindAnyObjectByType<AIChaseState>();
     }
     private void OnTriggerEnter(Collider other)
     {

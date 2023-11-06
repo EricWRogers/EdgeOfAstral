@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEngine.GraphicsBuffer;
 
 public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit from here.
 {
@@ -12,6 +11,7 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
 
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
+        Debug.Log("Entering Idle State");
         this.stateMachine = stateMachine;
         //Debug.Log("Entering Idle State");
         //agent = GetComponentInParent<NavMeshAgent>();
@@ -27,13 +27,13 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
        
         if (Vector3.Distance(agent.transform.position, target.transform.position) >= 2)
         {
-            stateMachine.SetState(gameObject.GetComponent<AIMoveState>()); //Sends us to move.
+            stateMachine.SetState(gameObject.GetComponent<AIChaseState>()); //Sends us to .
         }
     }
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
-        //Debug.Log("Exiting Idle State");
+        Debug.Log("Exiting Idle State");
 
     }
 }
