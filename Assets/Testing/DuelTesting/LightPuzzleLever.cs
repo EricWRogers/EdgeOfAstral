@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using OmnicatLabs.Tween;
+using OmnicatLabs.Audio;
 
 public class LightPuzzleLever : Interactable
 {
@@ -39,6 +40,8 @@ public class LightPuzzleLever : Interactable
     {
         base.OnInteract();
 
+        AudioManager.Instance.Play("Lever");
+
         isFlipped = !isFlipped;
 
         if (!isFlipped)
@@ -47,6 +50,7 @@ public class LightPuzzleLever : Interactable
         }
         else
         {
+            AudioManager.Instance.Play("PowerOn", gameObject);
             leverPivot.TweenZRot(-120f, flipTime);
         }
 
