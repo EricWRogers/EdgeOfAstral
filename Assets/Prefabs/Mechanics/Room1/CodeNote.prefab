@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 91553922316980976}
   - component: {fileID: 3579216176410605868}
   - component: {fileID: 736714539193757341}
-  m_Layer: 13
+  m_Layer: 16
   m_Name: Numbers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 2406182961591330325}
   - component: {fileID: 331065622940993837}
   - component: {fileID: 1625298499854543765}
-  m_Layer: 13
+  m_Layer: 16
   m_Name: NotePadCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -251,7 +251,7 @@ GameObject:
   - component: {fileID: 6655008786754305738}
   - component: {fileID: 6184739545696669613}
   - component: {fileID: 8266605339547367008}
-  m_Layer: 13
+  m_Layer: 16
   m_Name: CodeNote
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,6 +375,7 @@ MonoBehaviour:
   type: 1
   contactRadius: 0
   interactText: 
+  uninteractableText: 
   onInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -397,3 +398,4 @@ MonoBehaviour:
   oneTime: 0
   timeShown: 5
   lockoutTime: 5
+  followUp: {fileID: 0}

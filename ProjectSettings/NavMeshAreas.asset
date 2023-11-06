@@ -13,9 +13,9 @@ NavMeshProjectSettings:
     cost: 2
   - name: 
     cost: 1
-  - name: 
-    cost: 1
-  - name: 
+  - name: Train Yard
+    cost: 5
+  - name: Light Puzzle
     cost: 1
   - name: 
     cost: 1
@@ -92,9 +92,9 @@ NavMeshProjectSettings:
   - serializedVersion: 3
     agentTypeID: -1372625422
     agentRadius: 0.46
-    agentHeight: 1.5
+    agentHeight: 1.7
     agentSlope: 22
-    agentClimb: 1.5
+    agentClimb: 1.7
     ledgeDropHeight: 50
     maxJumpAcrossDistance: 10
     minRegionArea: 2

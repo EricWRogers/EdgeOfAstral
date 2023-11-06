@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5476181916916638955}
   - component: {fileID: 7265981930598554556}
   - component: {fileID: 2019456192891207522}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: States
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7989260454198107939}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a5b80e68fbf78049992d6b632b8cf9a, type: 3}
   m_Name: 
@@ -70,8 +70,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0957d0e159c5e984b90dc8ab7e9e1611, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 0}
   checkPoint: 0
+  agent: {fileID: 6018464776103979435}
+  target: {fileID: 0}
+  attackRange: 10
+  agentSpeed: 9
+  agentPatrolSpeed: 5
+  characterController: {fileID: 0}
 --- !u!1 &8882990262443472028
 GameObject:
   m_ObjectHideFlags: 0
@@ -83,9 +88,10 @@ GameObject:
   - component: {fileID: 1798485925413087462}
   - component: {fileID: 6018464776103979435}
   - component: {fileID: 1453213545904873022}
-  m_Layer: 0
+  - component: {fileID: 4097287320800745773}
+  m_Layer: 3
   m_Name: Monster
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -142,6 +148,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2730e25656aba5641b9dcd75e866c38e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4097287320800745773
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8882990262443472028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e555dc4af0cba409d761fa0de53ce6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growlIntervalMin: 20
+  growlIntervalMax: 45
 --- !u!1001 &2944832355913845306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -396,10 +416,20 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7906281303968348460, guid: c570cabb46fd4ba4695aa1b52a264f82,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 8397775052183303125, guid: c570cabb46fd4ba4695aa1b52a264f82,
         type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397775052183303125, guid: c570cabb46fd4ba4695aa1b52a264f82,
+        type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -435,7 +465,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3

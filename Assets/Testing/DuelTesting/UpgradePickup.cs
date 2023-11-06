@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using OmnicatLabs.CharacterControllers;
+using OmnicatLabs.Audio;
 using UnityEngine;
 
 public enum UpgradeIds
@@ -20,6 +21,8 @@ public class UpgradePickup : Interactable
 
     public override void OnInteract()
     {
+        AudioManager.Instance.Play("PickUp");
+
         base.OnInteract();
 
         if (TryGetComponent<Dialogue>(out var dialogue))
@@ -46,7 +49,14 @@ public class UpgradePickup : Interactable
                 break;
         }
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
+    }
+
+    public override void OnReset()
+    {
+        base.OnReset();
+
+        gameObject.SetActive(true);
     }
 
     private void Update()
