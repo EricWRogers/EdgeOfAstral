@@ -141,7 +141,7 @@ CanvasGroup:
   m_Enabled: 1
   m_Alpha: 0
   m_Interactable: 0
-  m_BlocksRaycasts: 1
+  m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &513072700302207394
 GameObject:
@@ -3878,6 +3878,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeTime: 0.3
   pauseMenuUI: {fileID: 7317173882818200295}
+  sensitivitySlider: {fileID: 6901107693389169589}
   controller: {fileID: 0}
 --- !u!225 &7317173882818200295
 CanvasGroup:
@@ -4288,7 +4289,7 @@ CanvasGroup:
   m_GameObject: {fileID: 7668625287560246423}
   m_Enabled: 1
   m_Alpha: 0
-  m_Interactable: 1
+  m_Interactable: 0
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
 --- !u!1 &8149184571947443125

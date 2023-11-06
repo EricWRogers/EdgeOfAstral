@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using OmnicatLabs.Tween;
+using OmnicatLabs.Audio;
 
 public class KeypadDoor : MonoBehaviour, ISaveable
 {
@@ -31,5 +32,6 @@ public class KeypadDoor : MonoBehaviour, ISaveable
     public void Open()
     {
         doorPivot.TweenYRot(60f, 2f);
+        AudioManager.Instance.Play("Door", gameObject);
     }
 }

@@ -7,7 +7,8 @@ public class MotionScanner : MonoBehaviour
 {
     GameObject player;
     public Transform doorPivot;
-    public float directionalForce = -50f;
+    public float openAngle = -50f;
+    public float timeToOpen = 5f;
     public UnityEvent onDoorClose = new UnityEvent();
     public UnityEvent onDoorOpen = new UnityEvent();
     public AirlockDoorButton buttonForThisDoor;
@@ -18,7 +19,7 @@ public class MotionScanner : MonoBehaviour
     private void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        onDoorOpen.AddListener(DoorOpen);
+        //onDoorOpen.AddListener(DoorOpen);
         onDoorClose.AddListener(DoorClose);
     }
 
@@ -27,8 +28,8 @@ public class MotionScanner : MonoBehaviour
         //If the player is within the collider, open the door
         if (collider.CompareTag("Player") && !doorOpening)
         {
-            Debug.Log("Found");
-            doorPivot.TweenYRot(directionalForce, 2f, () => onDoorOpen.Invoke());
+            //OmniTween.CancelTween(doorPivot);
+            doorPivot.TweenYRot(openAngle, timeToOpen, () => onDoorOpen.Invoke());
             doorOpening = true;
             doorClosed = false;
             buttonForOtherDoor.SetInteractable(false);
@@ -36,9 +37,16 @@ public class MotionScanner : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        Debug.Log("Exit");
+        //OmniTween.CancelTween(doorPivot);
+        doorPivot.TweenYRot(-openAngle, timeToOpen, () => onDoorClose.Invoke());
+    }
+
     void DoorOpen()
     {
-        doorPivot.TweenYRot(-directionalForce, 2f, () => onDoorClose.Invoke());
+        doorPivot.TweenYRot(-openAngle, 2f, () => onDoorClose.Invoke());
     }
 
     void DoorClose()
