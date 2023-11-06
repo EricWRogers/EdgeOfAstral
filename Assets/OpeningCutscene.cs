@@ -16,12 +16,16 @@ public class OpeningCutscene : MonoBehaviour
     {
         OmnicatLabs.CharacterControllers.CharacterController.Instance.GetComponent<PlayerInput>().enabled = false;
         shaker.CauseShake();
-        AudioManager.Instance.Play("OpeningExplosion");
         firstTutorial.GetComponent<Collider>().enabled = true;
         staminaUI.alpha = 1f;
         shaker.onShakeFinish.AddListener(() => {
             OmnicatLabs.CharacterControllers.CharacterController.Instance.GetComponent<PlayerInput>().enabled = true;
         });
 
+    }
+
+    private void PostPlay()
+    {
+        AudioManager.Instance.Play("OpeningExplosion");
     }
 }

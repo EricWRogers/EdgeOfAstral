@@ -7,21 +7,18 @@ public class Checkpoint : MonoBehaviour
 {
     public bool shouldAITransition = true;
     public static Transform spawnpoint;
-    private AIMoveState agent;
+    private AIChaseState agent;
     private void Start()
     {
-         agent = FindAnyObjectByType<AIMoveState>();
+         agent = FindAnyObjectByType<AIChaseState>();
     }
-   /* private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
-        
+
         SaveManager.Instance.Save();
         spawnpoint = transform;
         OmnicatLabs.CharacterControllers.CharacterController.Instance.savedStamina = OmnicatLabs.CharacterControllers.CharacterController.Instance.currentStamina;
-        if (shouldAITransition)
-            agent.checkPoint = true;
+        //if (shouldAITransition)
+        //    agent.checkPoint = true;
     }
-
-  
-    */
 }
