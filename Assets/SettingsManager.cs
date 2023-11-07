@@ -11,6 +11,7 @@ public class SettingsManager : MonoBehaviour
     public Slider fovSlider;
     public TMP_Dropdown graphicsDropdown;
     public TMP_Dropdown resolutionDropdown;
+    public TMP_Dropdown displayModeDropdown;
     public CinemachineVirtualCamera virtualCamera;
 
     void Start()
@@ -25,6 +26,7 @@ public class SettingsManager : MonoBehaviour
 
         PopulateResolutionDropdown();
         PopulateGraphicsDropdown();
+        PopulateDisplayModeDropdown();
     }
 
     public void ToggleVSync(bool isOn)
@@ -94,5 +96,40 @@ public class SettingsManager : MonoBehaviour
         // Set the dropdown value to the current quality level
         graphicsDropdown.value = currentQualityIndex;
     }
-}
 
+    void PopulateDisplayModeDropdown()
+    {
+        // Clear existing options
+        displayModeDropdown.ClearOptions();
+
+        // Add display mode options
+        displayModeDropdown.AddOptions(new List<string> { "Fullscreen", "Windowed Fullscreen", "Windowed"});
+
+        // Set the dropdown value to the current display mode
+        displayModeDropdown.value = (int)Screen.fullScreenMode;
+
+        // Add listener to handle display mode changes
+        displayModeDropdown.onValueChanged.AddListener(OnDisplayModeChanged);
+    }
+
+    public void OnDisplayModeChanged(int modeIndex)
+    {
+        switch (modeIndex)
+        {
+            case 0: // Full-screen
+                Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+                break;
+
+            case 1: // Windowed Full-Screen
+                Screen.fullScreenMode = FullScreenMode.FullScreenWindow;
+                break;
+            
+            case 2: // Windowed
+                Screen.fullScreenMode = FullScreenMode.Windowed;
+                break;
+            
+            default:
+                break;
+        }
+    }
+}
