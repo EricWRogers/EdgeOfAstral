@@ -61,7 +61,15 @@ public class MainMenu : MonoBehaviour
         settingsMenu.alpha = 1f;
         settingsMenu.interactable = true;
         settingsMenu.blocksRaycasts = true;
-        settingsMenu.GetComponentInChildren<Slider>().interactable = true;
+        //settingsMenu.GetComponentInChildren<Slider>().interactable = true;
+
+        Slider[] sliders = settingsMenu.GetComponentsInChildren<Slider>();
+
+        foreach (Slider slider in sliders)
+        {
+            slider.interactable = true;
+        }
+
         GetComponent<CanvasGroup>().interactable = false;
     }
 
