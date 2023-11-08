@@ -25,12 +25,15 @@ public class LeverController : MonoBehaviour
             // Move the lever forward smoothly using the Tween library
             transform.TweenPosition(forwardPosition, 1.0f, () => { /* Callback function on completion, you can leave it empty or add your function here */ });
             isForward = true;
+            AudioManager.Instance.Play("PowerOn", gameObject);
+
         }
         else
         {
             // Move the lever back to the initial position smoothly
             transform.TweenPosition(initialPosition, 1.0f, () => { /* Callback function on completion, you can leave it empty or add your function here */ });
             isForward = false;
+            AudioManager.Instance.Pause("PowerOn", gameObject);
         }
     }
 }
