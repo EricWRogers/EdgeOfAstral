@@ -34,7 +34,7 @@ public class FPSMelee : MonoBehaviour
             fractureComponent.pieces.ForEach((piece) => {
                 if (piece != null)
                 {
-                    piece.transform.localScale *= .995f;
+                    piece.transform.localScale *= .998f;
                     if (piece.transform.localScale.magnitude < 1f)
                     {
                         Destroy(piece);
