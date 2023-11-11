@@ -23,14 +23,14 @@ public class AITransitionState : MonoBehaviour, IEnemyState //Every state must i
 
     public void Run() //Good ol update
     {
-        Debug.Log("Entering Transition State");
+        //Debug.Log("Entering Transition State");
         ResetAI(agent.gameObject, target);
         stateMachine.SetState(gameObject.GetComponent<AIChaseState>());
     }
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
-        Debug.Log("Exiting Transition State");
+        //Debug.Log("Exiting Transition State");
 
     }
 

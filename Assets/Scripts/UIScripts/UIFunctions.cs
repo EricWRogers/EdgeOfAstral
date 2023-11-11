@@ -33,4 +33,9 @@ public class UIFunctions : MonoBehaviour
         #endif
         Application.Quit();
     }
+
+    private void OnDestroy()
+    {
+        GameStateController.isActive = false;
+    }
 }

@@ -50,7 +50,7 @@ public class LightPuzzleLever : Interactable
         }
         else
         {
-            AudioManager.Instance.Play("PowerOn", gameObject);
+            //Need to rework part of the audio manager for this to work AudioManager.Instance.Play("PowerOn", gameObject);
             leverPivot.TweenZRot(-120f, flipTime);
         }
 
