@@ -116,6 +116,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
         type: 3}
+      propertyPath: contactRadius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
+        type: 3}
       propertyPath: directionalForce
       value: 50
       objectReference: {fileID: 0}
@@ -397,6 +402,11 @@ PrefabInstance:
         type: 3}
       propertyPath: interactText
       value: to Open
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
+        type: 3}
+      propertyPath: contactRadius
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
         type: 3}

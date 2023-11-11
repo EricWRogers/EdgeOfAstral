@@ -819,7 +819,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2117
+  m_VersionIndex: 2120
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -14982,7 +14982,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1201
+  m_VersionIndex: 1204
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -27085,7 +27085,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1113
+  m_VersionIndex: 1116
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -28187,7 +28187,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1821
+  m_VersionIndex: 1824
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -29035,7 +29035,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 987
+  m_VersionIndex: 990
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -30047,7 +30047,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1614
+  m_VersionIndex: 1617
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -43636,7 +43636,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1775
+  m_VersionIndex: 1778
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -60036,7 +60036,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4317
+  m_VersionIndex: 4320
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -60869,7 +60869,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2072
+  m_VersionIndex: 2075
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -62303,7 +62303,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2084
+  m_VersionIndex: 2087
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -64611,7 +64611,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 5239
+  m_VersionIndex: 5242
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -65558,7 +65558,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2609
+  m_VersionIndex: 2612
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -65711,7 +65711,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  contactRadius: 3
+  contactRadius: 4
   interactText: to Pickup
   uninteractableText: 
   onInteract:
@@ -66023,7 +66023,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 1062
+  m_VersionIndex: 1065
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -67827,7 +67827,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 3550
+  m_VersionIndex: 3553
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -68420,7 +68420,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2649
+  m_VersionIndex: 2652
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -69943,6 +69943,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 20.461
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770273517376019544, guid: f506a5b6456a99b4a8634b5eebfc4ec9,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -44.83
+      objectReference: {fileID: 0}
+    - target: {fileID: 6770273517376019544, guid: f506a5b6456a99b4a8634b5eebfc4ec9,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 16.06
       objectReference: {fileID: 0}
     - target: {fileID: 7244729314096069415, guid: f506a5b6456a99b4a8634b5eebfc4ec9,
         type: 3}
@@ -71598,7 +71608,7 @@ PrefabInstance:
     - target: {fileID: 7346184409388787255, guid: 48bb4fb387535c3469c2bf10063d4a29,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.5110016
+      value: 0.755
       objectReference: {fileID: 0}
     - target: {fileID: 7346184409388787255, guid: 48bb4fb387535c3469c2bf10063d4a29,
         type: 3}
@@ -71608,7 +71618,7 @@ PrefabInstance:
     - target: {fileID: 7346184409388787255, guid: 48bb4fb387535c3469c2bf10063d4a29,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.834
+      value: -35.614
       objectReference: {fileID: 0}
     - target: {fileID: 7346184409388787255, guid: 48bb4fb387535c3469c2bf10063d4a29,
         type: 3}
@@ -71929,6 +71939,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
         type: 3}
+      propertyPath: contactRadius
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
+        type: 3}
       propertyPath: startInteractable
       value: 0
       objectReference: {fileID: 0}
@@ -71940,7 +71955,7 @@ PrefabInstance:
     - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
         type: 3}
       propertyPath: uninteractableText
-      value: Waiting On Door
+      value: Waiting On Other Door
       objectReference: {fileID: 0}
     - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
         type: 3}
@@ -73255,7 +73270,7 @@ PrefabInstance:
     - target: {fileID: 4710920981652841938, guid: 968f97496e72b0c4a9883139373ccee2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.8100014
+      value: 2.3709984
       objectReference: {fileID: 0}
     - target: {fileID: 4710920981652841938, guid: 968f97496e72b0c4a9883139373ccee2,
         type: 3}
@@ -73265,7 +73280,7 @@ PrefabInstance:
     - target: {fileID: 4710920981652841938, guid: 968f97496e72b0c4a9883139373ccee2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36.84
+      value: -37.053005
       objectReference: {fileID: 0}
     - target: {fileID: 4710920981652841938, guid: 968f97496e72b0c4a9883139373ccee2,
         type: 3}
@@ -74085,7 +74100,7 @@ PrefabInstance:
     - target: {fileID: 7346184409388787255, guid: 48bb4fb387535c3469c2bf10063d4a29,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.09
+      value: 0.15399948
       objectReference: {fileID: 0}
     - target: {fileID: 7346184409388787255, guid: 48bb4fb387535c3469c2bf10063d4a29,
         type: 3}
@@ -74095,7 +74110,7 @@ PrefabInstance:
     - target: {fileID: 7346184409388787255, guid: 48bb4fb387535c3469c2bf10063d4a29,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -36.038
+      value: -35.817997
       objectReference: {fileID: 0}
     - target: {fileID: 7346184409388787255, guid: 48bb4fb387535c3469c2bf10063d4a29,
         type: 3}
@@ -74174,7 +74189,7 @@ PrefabInstance:
     - target: {fileID: 4710920981652841938, guid: 968f97496e72b0c4a9883139373ccee2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.5602303
+      value: 2.1212273
       objectReference: {fileID: 0}
     - target: {fileID: 4710920981652841938, guid: 968f97496e72b0c4a9883139373ccee2,
         type: 3}
@@ -74184,7 +74199,7 @@ PrefabInstance:
     - target: {fileID: 4710920981652841938, guid: 968f97496e72b0c4a9883139373ccee2,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -35.9181
+      value: -36.131104
       objectReference: {fileID: 0}
     - target: {fileID: 4710920981652841938, guid: 968f97496e72b0c4a9883139373ccee2,
         type: 3}
@@ -74574,6 +74589,11 @@ PrefabInstance:
       propertyPath: codeGenerator
       value: 
       objectReference: {fileID: 2335446920126821707}
+    - target: {fileID: 1769084981999812159, guid: 380edd7af7276d84baefc4e374aab875,
+        type: 3}
+      propertyPath: contactRadius
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2249420971775064865, guid: 380edd7af7276d84baefc4e374aab875,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -77183,9 +77203,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 1
-  contactRadius: 3
+  contactRadius: 4
   interactText: to Open
-  uninteractableText: Waiting On Door
+  uninteractableText: Waiting On Other Door
   onInteract:
     m_PersistentCalls:
       m_Calls: []
@@ -77225,8 +77245,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.16242199, y: 0.20653763, z: 0.04152069}
-  m_Center: {x: 0.00000013411045, y: -0.098367736, z: 0}
+  m_Size: {x: 0.4, y: 0.4, z: 0.04}
+  m_Center: {x: 0, y: -0.1, z: 0}
 --- !u!1001 &8242868373893300321
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -78391,6 +78411,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6089742293991154590, guid: f12dbed67a5b7274bbccc1328c8d2b4a,
+        type: 3}
+      propertyPath: contactRadius
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 6089742293991154590, guid: f12dbed67a5b7274bbccc1328c8d2b4a,
         type: 3}
