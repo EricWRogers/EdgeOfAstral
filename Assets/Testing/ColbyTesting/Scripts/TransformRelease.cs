@@ -74,6 +74,8 @@ public class ObjectPositionTracker
     {
         // Check if the object has a renderer component
         Renderer renderer = objToCheck.GetComponent<Renderer>();
+        //Mesh mesh = objToCheck.GetComponent<MeshFilter>();
+        //  mesh goes below
         if (renderer == null)
         {
             // Skip objects without a renderer
