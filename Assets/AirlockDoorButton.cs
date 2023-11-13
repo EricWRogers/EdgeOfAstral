@@ -8,7 +8,8 @@ public class AirlockDoorButton : Interactable
 {
     public Transform doorPivot;
     public bool startInteractable = true;
-    public float directionalForce = -50f;
+    public float toAngle = -50f;
+    public float timeToOpen = 25f;
     public UnityEvent onDoorClose = new UnityEvent();
     public UnityEvent onDoorOpen = new UnityEvent();
     public AirlockDoorButton buttonForOtherDoor;
@@ -25,33 +26,48 @@ public class AirlockDoorButton : Interactable
         }
 
         //onDoorOpen.AddListener(DoorOpen);
-        onDoorClose.AddListener(DoorClose);
+        //onDoorClose.AddListener(DoorClose);
     }
 
     public override void OnInteract()
     {
         base.OnInteract();
 
-        if (doorToOpen.doorClosed && doorBehind.doorClosed)
+        if (doorBehind.doorClosed)
         {
-            doorPivot.TweenYRot(directionalForce, 2f, () => onDoorOpen.Invoke());
-            doorToOpen.doorOpening = true;
-            doorToOpen.doorClosed = false;
+            OmniTween.CancelTween(doorPivot, true);
+            AudioManager.Instance.Play("Door", gameObject);
+            doorPivot.RealTweenYRot(toAngle, timeToOpen, () => onDoorOpen.Invoke());
+            doorToOpen.doorOpened = true;
             SetInteractable(false);
             buttonForOtherDoor.SetInteractable(false);
         }
     }
 
-    void DoorOpen()
-    {
-        doorPivot.TweenYRot(-directionalForce, 2f, () => onDoorClose.Invoke());
-    }
+    //public override void OnInteract()
+    //{
+    //    base.OnInteract();
 
-    void DoorClose()
-    {
-        doorToOpen.doorClosed = true;
-        doorToOpen.doorOpening = false;
-        SetInteractable(true);
-        buttonForOtherDoor.SetInteractable(true);
-    }
+    //    if (doorToOpen.doorClosed && doorBehind.doorClosed)
+    //    {
+    //        doorPivot.TweenYRot(directionalForce, 2f, () => onDoorOpen.Invoke());
+    //        doorToOpen.doorOpening = true;
+    //        doorToOpen.doorClosed = false;
+    //        SetInteractable(false);
+    //        buttonForOtherDoor.SetInteractable(false);
+    //    }
+    //}
+
+    //void DoorOpen()
+    //{
+    //    doorPivot.TweenYRot(-directionalForce, 2f, () => onDoorClose.Invoke());
+    //}
+
+    //void DoorClose()
+    //{
+    //    doorToOpen.doorClosed = true;
+    //    doorToOpen.doorOpening = false;
+    //    SetInteractable(true);
+    //    buttonForOtherDoor.SetInteractable(true);
+    //}
 }

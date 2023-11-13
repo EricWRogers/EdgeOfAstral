@@ -1,7 +1,6 @@
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class AIChaseState : MonoBehaviour, IEnemyState
 {
@@ -20,7 +19,7 @@ public class AIChaseState : MonoBehaviour, IEnemyState
 
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
-        Debug.Log("Entering Chase State");
+        //Debug.Log("Entering Chase State");
         agent.speed = agentSpeed;
 
         this.stateMachine = stateMachine;
@@ -58,7 +57,7 @@ public class AIChaseState : MonoBehaviour, IEnemyState
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
-        Debug.Log("Exiting Chase State");
+        //Debug.Log("Exiting Chase State");
 
     }
 
@@ -79,7 +78,7 @@ public class AIChaseState : MonoBehaviour, IEnemyState
         NavMeshPath path = new NavMeshPath();
         agent.CalculatePath(_target.transform.position, path);
 
-        Debug.Log("Path: " + path.status);
+        //Debug.Log("Path: " + path.status);
         if (path.status == NavMeshPathStatus.PathComplete)
         {
 
@@ -95,7 +94,7 @@ public class AIChaseState : MonoBehaviour, IEnemyState
     {
         if (NavMesh.SamplePosition(_target.transform.position, out lastHit, attackRange, NavMesh.AllAreas))
         {
-            Debug.Log("We hit: " + lastHit);
+            //Debug.Log("We hit: " + lastHit);
             if (Vector3.Distance(lastHit.position, _target.transform.position) <= attackRange)
             {
                 return true;

@@ -13,7 +13,10 @@ public class CodeNoteInteraction : Interactable
     {
         base.OnHover();
 
-        GetComponent<Dialogue>().TriggerDialogue();
+        if (TryGetComponent(out Dialogue dialogue))
+        {
+            dialogue.TriggerDialogue();
+        }
     }
 
     public override void OnReset()
