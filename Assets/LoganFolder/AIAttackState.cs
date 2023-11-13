@@ -15,7 +15,7 @@ public class AIAttackState : MonoBehaviour, IEnemyState
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
 
-        Debug.Log("Entering Attack State");
+       //Debug.Log("Entering Attack State");
         this.stateMachine = stateMachine;
 
         agent = gameObject.GetComponent<AIChaseState>().agent;
@@ -46,6 +46,6 @@ public class AIAttackState : MonoBehaviour, IEnemyState
         public void Exit() //Last thing the state does before sending us wherever the user specified in update.
         {
             
-            Debug.Log("Exiting Attack State");
+            //Debug.Log("Exiting Attack State");
         }
 }

@@ -18,6 +18,6 @@ public class StaminaPickup : Interactable
             player.ChangeStamina(player.currentStamina + staminaValue);
         }
 
-        Destroy(gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }
