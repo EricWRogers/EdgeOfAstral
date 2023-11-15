@@ -1,14 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class MonsterResetter : MonoBehaviour
 {
-    private Vector3 startingPos;
-
+    public Transform resetPoint;
     private void Start()
     {
-        startingPos = transform.position;
-        SaveManager.Instance.onReset.AddListener(() => { GetComponentInChildren<AIStateMachine>().enabled = false; transform.position = startingPos;  });
+        SaveManager.Instance.onReset.AddListener(Reposition);
+    }
+
+    private void Reposition()
+    {
+        //var transState = GetComponentInChildren<AITransitionState>();
+        //Debug.Log(transState + "HEY");
+        GetComponent<NavMeshAgent>().Warp(resetPoint.position);
     }
 }

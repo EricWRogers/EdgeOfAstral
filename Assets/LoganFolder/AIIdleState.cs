@@ -11,7 +11,7 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
 
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
-        Debug.Log("Entering Idle State");
+        //Debug.Log("Entering Idle State");
         this.stateMachine = stateMachine;
         //Debug.Log("Entering Idle State");
         //agent = GetComponentInParent<NavMeshAgent>();
@@ -32,7 +32,7 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
-        Debug.Log("Exiting Idle State");
+       // Debug.Log("Exiting Idle State");
 
     }
 }
