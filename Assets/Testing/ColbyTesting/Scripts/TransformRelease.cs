@@ -55,18 +55,19 @@ public class ObjectPositionTracker
         if (selectedObject == null)
             return;
 
-        // Implement custom logic for checking overlaps and handling the release
-        bool overlaps = CheckForOverlaps(selectedObject);
+        //Determines the direction the initial direction is in
+        Vector3 direction = Vector3.Normalize(selectedObject.transform.position - initialPosition);
 
-        if (overlaps)
+        while (CheckForOverlaps(selectedObject))
         {
-            // If an overlap is detected, move the object back to its initial position
-            selectedObject.transform.position = initialPosition;
-            Debug.Log("GameObject Released and Moved Back Due to Overlap!");
-        }
-        else
-        {
-            Debug.Log("GameObject Released!");
+            selectedObject.transform.position = Vector3.MoveTowards(selectedObject.transform.position, initialPosition, 0.0001f);
+            //If the object has moved past its initial position (its direction is reversed), move it back to the start
+            if (Vector3.Normalize(selectedObject.transform.position - initialPosition) == -direction)
+            {
+                selectedObject.transform.position = initialPosition;
+                Debug.Log("GameObject still overlapping");
+                return;
+            }
         }
     }
 
