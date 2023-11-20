@@ -124,9 +124,11 @@ MonoBehaviour:
   onHover:
     m_PersistentCalls:
       m_Calls: []
+  canInteract: 1
   doorPivot: {fileID: 0}
   startInteractable: 1
-  directionalForce: -50
+  toAngle: -50
+  timeToOpen: 25
   onDoorClose:
     m_PersistentCalls:
       m_Calls:
@@ -145,6 +147,7 @@ MonoBehaviour:
   onDoorOpen:
     m_PersistentCalls:
       m_Calls: []
+  buttonForOtherDoor: {fileID: 0}
   doorToOpen: {fileID: 0}
   doorBehind: {fileID: 0}
 --- !u!65 &4318078180397289889
@@ -166,5 +169,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.16242199, y: 0.20653763, z: 0.04152069}
-  m_Center: {x: 0.00000013411045, y: -0.098367736, z: 0}
+  m_Size: {x: 0.4, y: 0.4, z: 0.04}
+  m_Center: {x: 0, y: -0.1, z: 0}
