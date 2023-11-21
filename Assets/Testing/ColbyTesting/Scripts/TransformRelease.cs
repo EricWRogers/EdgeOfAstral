@@ -37,17 +37,20 @@ public class ObjectPositionTracker
     {
         if (selectedObject != null)
         {
-            Event e = Event.current;
+            if (selectedObject.GetComponent<PreventOverlap>())
+            {
+                Event e = Event.current;
 
-            if (e.type == EventType.MouseDown)
-            {
-                // MouseDown event indicates the start of dragging
-                initialPosition = selectedObject.transform.position;
-            }
-            else if (e.type == EventType.MouseUp)
-            {
-                // MouseUp event indicates that the GameObject has been released
-                HandleRelease();
+                if (e.type == EventType.MouseDown)
+                {
+                    // MouseDown event indicates the start of dragging
+                    initialPosition = selectedObject.transform.position;
+                }
+                else if (e.type == EventType.MouseUp)
+                {
+                    // MouseUp event indicates that the GameObject has been released
+                    HandleRelease();
+                }
             }
         }
     }
