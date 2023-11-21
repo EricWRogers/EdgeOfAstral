@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -50,60 +51,130 @@ public class ObjectPositionTracker
         }
     }
 
-    private static void HandleRelease()
+    private static void HandleRelease() 
     {
         if (selectedObject == null)
             return;
 
-        //Determines the direction the initial direction is in
         Vector3 direction = Vector3.Normalize(selectedObject.transform.position - initialPosition);
 
         while (CheckForOverlaps(selectedObject))
         {
             selectedObject.transform.position = Vector3.MoveTowards(selectedObject.transform.position, initialPosition, 0.0001f);
-            //If the object has moved past its initial position (its direction is reversed), move it back to the start
-            if (Vector3.Normalize(selectedObject.transform.position - initialPosition) == -direction)
+
+            // If the object is not moving towards the initial position anymore, don't move the object
+            if (Vector3.Dot(direction, selectedObject.transform.position - initialPosition) <= 0)
             {
-                selectedObject.transform.position = initialPosition;
-                Debug.Log("GameObject still overlapping");
-                return;
+                break;
             }
         }
     }
 
-    private static bool CheckForOverlaps(GameObject objToCheck)
+    private static bool CheckForOverlaps(GameObject gameObject)
     {
-        // Check if the object has a renderer component
-        Renderer renderer = objToCheck.GetComponent<Renderer>();
-        //Mesh mesh = objToCheck.GetComponent<MeshFilter>();
-        //  mesh goes below
-        if (renderer == null)
+        MeshRenderer meshRenderer = gameObject.GetComponent<MeshRenderer>();
+
+        if (meshRenderer == null)
         {
-            // Skip objects without a renderer
             return false;
         }
 
-        // Check if the object's bounds overlap with any other object's bounds
-        Bounds boundsToCheck = renderer.bounds;
+        Bounds boundsToCheck = meshRenderer.bounds;
 
-        foreach (var gameObject in Object.FindObjectsOfType<GameObject>())
+        // Loop over other objects
+        foreach (Collider collider in Physics.OverlapBox(boundsToCheck.center, boundsToCheck.extents))
         {
-            if (gameObject != objToCheck)
-            {
-                // Check if the other object has a renderer component
-                Renderer otherRenderer = gameObject.GetComponent<Renderer>();
-                if (otherRenderer != null)
-                {
-                    Bounds otherBounds = otherRenderer.bounds;
+            GameObject otherObject = collider.gameObject;
 
-                    if (boundsToCheck.Intersects(otherBounds))
-                    {
-                        return true; // Overlap detected
-                    }
+            if (otherObject != gameObject)
+            {
+                MeshCollider otherMeshCollider = otherObject.GetComponent<MeshCollider>() ?? otherObject.AddComponent<MeshCollider>();
+                Ray ray = new(boundsToCheck.center, (otherObject.transform.position - boundsToCheck.center).normalized);
+                if (RayIntersectsMesh(ray, otherMeshCollider, out _))
+                {
+                    return true; // Overlap detected
                 }
             }
         }
 
         return false; // No overlap detected
+    }
+
+    private static bool RayIntersectsMesh(Ray ray, MeshCollider meshCollider, out RaycastHit hit)
+    {
+        hit = new RaycastHit();
+
+        if (meshCollider == null)
+        {
+            return false;
+        }
+
+        Mesh mesh = meshCollider.sharedMesh;
+
+        if (mesh == null)
+        {
+            return false;
+        }
+
+        int[] triangles = mesh.triangles;
+        Vector3[] vertices = mesh.vertices;
+
+        for (int i = 0; i < triangles.Length; i += 3)
+        {
+            Vector3 vertex0 = vertices[triangles[i]];
+            Vector3 vertex1 = vertices[triangles[i + 1]];
+            Vector3 vertex2 = vertices[triangles[i + 2]];
+
+            if (RayIntersectsTriangle(ray, vertex0, vertex1, vertex2, out float distance))
+            {
+                if (hit.collider == null || distance < hit.distance)
+                {
+                    if (Physics.Raycast(ray, out RaycastHit meshHit, distance))
+                    {
+                        hit = meshHit;
+                        return true;
+                    }
+                }
+            }
+        }
+
+        return false;
+    }
+
+    private static bool RayIntersectsTriangle(Ray ray, Vector3 vertex0, Vector3 vertex1, Vector3 vertex2, out float distance)
+    {
+        distance = 0f;
+
+        Vector3 edge1 = vertex1 - vertex0;
+        Vector3 edge2 = vertex2 - vertex0;
+
+        Vector3 h = Vector3.Cross(ray.direction, edge2);
+        float a = Vector3.Dot(edge1, h);
+
+        if (a > -float.Epsilon && a < float.Epsilon)
+        {
+            return false; // The ray is parallel to the triangle
+        }
+
+        float f = 1.0f / a;
+        Vector3 s = ray.origin - vertex0;
+        float u = f * Vector3.Dot(s, h);
+
+        if (u < 0.0f || u > 1.0f)
+        {
+            return false;
+        }
+
+        Vector3 q = Vector3.Cross(s, edge1);
+        float v = f * Vector3.Dot(ray.direction, q);
+
+        if (v < 0.0f || u + v > 1.0f)
+        {
+            return false;
+        }
+
+        distance = f * Vector3.Dot(edge2, q);
+
+        return distance > float.Epsilon;
     }
 }
