@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -51,30 +52,29 @@ public class ObjectPositionTracker
         }
     }
 
-    private static void HandleRelease() 
+    private static void HandleRelease()
     {
         if (selectedObject == null)
             return;
 
-        Vector3 direction = Vector3.Normalize(selectedObject.transform.position - initialPosition);
-
         while (CheckForOverlaps(selectedObject))
         {
-            selectedObject.transform.position = Vector3.MoveTowards(selectedObject.transform.position, initialPosition, 0.0001f);
+            selectedObject.transform.position = Vector3.MoveTowards(selectedObject.transform.position, initialPosition, 0.00001f);
 
-            // If the object is not moving towards the initial position anymore, don't move the object
-            if (Vector3.Dot(direction, selectedObject.transform.position - initialPosition) <= 0)
+            // If the object is close to the initial position, break
+            if (Vector3.Distance(selectedObject.transform.position, initialPosition) < 0.0002f)
             {
                 break;
             }
         }
     }
+
     private static bool CheckForOverlaps(GameObject myobject)
     {
         MeshRenderer meshRenderer = myobject.GetComponent<MeshRenderer>();
         Collider myCollider = myobject.GetComponent<Collider>();
 
-        if (meshRenderer == null)
+        if (meshRenderer == null || myCollider == null)
         {
             return false;
         }
