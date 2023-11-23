@@ -1,15 +1,13 @@
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
 [InitializeOnLoad]
-public class ObjectPositionTracker
+public class TransformRelease
 {
     private static GameObject selectedObject;
     private static Vector3 initialPosition;
 
-    static ObjectPositionTracker()
+    static TransformRelease()
     {
         // Register to listen to selection events in the Unity Editor
         Selection.selectionChanged += OnSelectionChanged;
