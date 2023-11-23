@@ -60,7 +60,7 @@ public class TransformRelease
 
         while (CheckForOverlaps(selectedObject))
         {
-            selectedObject.transform.position = Vector3.MoveTowards(selectedObject.transform.position, initialPosition, 0.00001f);
+            selectedObject.transform.position = Vector3.MoveTowards(selectedObject.transform.position, initialPosition, 0.0001f);
 
             // If the object is close to the initial position, break
             if (Vector3.Distance(selectedObject.transform.position, initialPosition) < 0.0002f)
@@ -89,14 +89,17 @@ public class TransformRelease
 
             if (otherObject != myobject)
             {
-                return Physics.ComputePenetration(
+                if (Physics.ComputePenetration(
                 myCollider,
                 myCollider.transform.position,
                 myCollider.transform.rotation,
                 collider,
                 collider.transform.position,
                 collider.transform.rotation,
-                out Vector3 _, out float _);
+                out Vector3 _, out float _) == true)
+                {
+                    return true;
+                }
             }
         }
 
