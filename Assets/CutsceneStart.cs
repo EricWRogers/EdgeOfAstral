@@ -16,6 +16,7 @@ public class CutsceneStart : MonoBehaviour
             controller.SetControllerLocked(true, true, true);
             controller.ChangeState(OmnicatLabs.CharacterControllers.CharacterStates.Idle);
             controller.camHolder.transform.localRotation = Quaternion.identity;
+            controller.camHolder.transform.localPosition = new Vector3(controller.camHolder.localPosition.x, 1.5f, controller.camHolder.localPosition.z);
             FindObjectOfType<PlayableDirector>().Play();
             started = true;
         }
@@ -26,7 +27,6 @@ public class CutsceneStart : MonoBehaviour
         if (FindObjectOfType<PlayableDirector>().state != PlayState.Playing && started)
         {
             OmnicatLabs.CharacterControllers.CharacterController.Instance.SetControllerLocked(false, false, false);
-            AudioManager.Instance.Play("BGM");
             if (TryGetComponent(out ChangeObjective changeObjective))
             {
                 changeObjective.Change();
@@ -35,6 +35,7 @@ public class CutsceneStart : MonoBehaviour
             {
                 dialogue.TriggerDialogue();
             }
+            AudioManager.Instance.Play("BGM");
             onFinish.Invoke();
             Destroy(gameObject);
         }
