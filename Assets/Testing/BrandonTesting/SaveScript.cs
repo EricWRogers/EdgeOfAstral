@@ -8,6 +8,15 @@ public class SaveScript : MonoBehaviour
 
     private GameData gameData;
     private string savePath;
+    public static SaveScript Instance;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+    }
 
     void Start()
     {

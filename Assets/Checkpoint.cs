@@ -14,7 +14,7 @@ public class Checkpoint : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-
+        SaveScript.Instance.SaveData();
         SaveManager.Instance.Save();
         spawnpoint = transform;
         OmnicatLabs.CharacterControllers.CharacterController.Instance.savedStamina = OmnicatLabs.CharacterControllers.CharacterController.Instance.currentStamina;
