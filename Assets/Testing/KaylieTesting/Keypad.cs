@@ -20,7 +20,7 @@ public class Keypad : Interactable
         if (door != null)
         {
             door.StartTracking();
-            go.GetComponent<KeypadUIController>().correctPass = codeGenerator.RandNum.ToString();
+            go.GetComponent<KeypadUIController>().correctPass = codeGenerator.RandNum;
             go.GetComponent<KeypadUIController>().controller = uiController;
             go.GetComponent<KeypadUIController>().onCorrectPassword.AddListener(door.Open);
         }
