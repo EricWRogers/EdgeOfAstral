@@ -6,19 +6,21 @@ using TMPro;
 
 public class RandNumGen : MonoBehaviour
 {
-    public float RandNum = 0f;
+    public string RandNum;
     public TMP_Text numText;
 
     public float test = 10f;
+    public bool generateOnStart = true;
 
     void Start()
     {
-        Generate();
+        if (generateOnStart)
+            Generate();
     }
 
-    public void Generate()
+    public virtual void Generate()
     {
-        RandNum = Random.Range(1111, 9999);
+        RandNum = Random.Range(1111, 9999).ToString();
         Debug.Log(RandNum);
         numText.SetText(RandNum.ToString());
     }
