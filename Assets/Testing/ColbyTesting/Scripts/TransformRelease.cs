@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 
@@ -106,3 +107,4 @@ public class TransformRelease
         return false; // No overlap detected
     }
 }
+#endif
