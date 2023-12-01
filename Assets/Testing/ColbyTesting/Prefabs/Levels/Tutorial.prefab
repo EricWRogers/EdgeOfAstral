@@ -29221,6 +29221,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0265506dc7670d48b5f0ef274568dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 2
   newObjective: Find out what caused the explosion
 --- !u!1 &3429272694138924676
 GameObject:
@@ -44622,6 +44623,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0265506dc7670d48b5f0ef274568dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 3
   newObjective: Find a way off the station
 --- !u!114 &5828053246083611515
 MonoBehaviour:
@@ -60871,25 +60873,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_VersionIndex: 2213
   m_IsSelectable: 1
-  m_SelectedFaces: 0400000009000000
-  m_SelectedEdges:
-  - a: 18
-    b: 19
-  - a: 17
-    b: 18
-  - a: 19
-    b: 16
-  - a: 16
-    b: 17
-  - a: 36
-    b: 37
-  - a: 38
-    b: 36
-  - a: 37
-    b: 39
-  - a: 39
-    b: 38
-  m_SelectedVertices: 1200000013000000110000001000000024000000250000002600000027000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!114 &5494099230500013388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65790,6 +65776,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0265506dc7670d48b5f0ef274568dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 1
   newObjective: Break through the vent
 --- !u!1 &8531759665595576818
 GameObject:
