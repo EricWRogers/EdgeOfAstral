@@ -1160,5 +1160,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  objectToPool: {fileID: 0}
+  objectToPool: {fileID: 5064237764682212638, guid: eabdb4d5e25cd654e96faf0845981a11,
+    type: 3}
   amountToPool: 5
