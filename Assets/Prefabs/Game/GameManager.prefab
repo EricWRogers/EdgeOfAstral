@@ -862,8 +862,16 @@ MonoBehaviour:
     onSoundComplete:
       m_PersistentCalls:
         m_Calls: []
+  ambientSounds: []
+  musicSounds: []
+  sfxSounds: []
+  defaultVolume: 0.5
   mixer: {fileID: 0}
   poolSize: 50
+  masterSlider: {fileID: 0}
+  musicSlider: {fileID: 0}
+  ambientSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
   sources: []
 --- !u!1 &3896616874456746816
 GameObject:
@@ -974,6 +982,7 @@ GameObject:
   - component: {fileID: 2663900214268015334}
   - component: {fileID: 8399224915719807006}
   - component: {fileID: 2993984963616570827}
+  - component: {fileID: 5247266202522441926}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1133,3 +1142,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &5247266202522441926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7561090201023249777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f72fdc7e8451c614ca293612b0937131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pooledObjects:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  objectToPool: {fileID: 0}
+  amountToPool: 5
