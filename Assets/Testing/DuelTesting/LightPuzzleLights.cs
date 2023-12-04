@@ -14,10 +14,13 @@ public class LightPuzzleLights : MonoBehaviour, ISaveable
     private MeshRenderer mesh;
     private bool tracked = false;
 
+    Light lt;
+
     private void Start()
     {
         mesh = GetComponent<MeshRenderer>();
         offMat = mesh.material;
+        lt = GetComponent<Light>();
     }
 
     //Changing the light state and sending a debug message
@@ -34,10 +37,12 @@ public class LightPuzzleLights : MonoBehaviour, ISaveable
         {
             Debug.Log("Change happened");
             mesh.material = litMat;
+            lt.color = Color.green;
         }
         else
         {
             mesh.material = offMat;
+            lt.color = Color.red;
         }
 
         lightStateChange.Invoke();
