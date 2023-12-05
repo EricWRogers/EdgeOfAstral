@@ -14748,6 +14748,7 @@ GameObject:
   - component: {fileID: 3800023137560002275}
   - component: {fileID: 5442481836268292100}
   - component: {fileID: 6054315268804064173}
+  - component: {fileID: 3712601910953197472}
   m_Layer: 0
   m_Name: VentCeilingHallwaySide
   m_TagString: Untagged
@@ -15087,6 +15088,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!65 &3712601910953197472
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478041553173381972}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9379494, y: 6.3341937, z: 3.0731316}
+  m_Center: {x: 0.46897495, y: 2.4417598, z: 0.7796116}
 --- !u!1 &1635624083987066764
 GameObject:
   m_ObjectHideFlags: 0
@@ -26851,6 +26873,7 @@ GameObject:
   - component: {fileID: 482584203505533238}
   - component: {fileID: 1969981737290124028}
   - component: {fileID: 8419041161154555593}
+  - component: {fileID: 6353826968047536059}
   m_Layer: 0
   m_Name: VentCeilingMaintenenceRoomSide
   m_TagString: Untagged
@@ -27190,6 +27213,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!65 &6353826968047536059
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060878541576148002}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.69471097, y: 5.48147, z: 3.620861}
+  m_Center: {x: 0.34735572, y: 2.740734, z: 0.47024727}
 --- !u!1 &2336850841472145112
 GameObject:
   m_ObjectHideFlags: 0
