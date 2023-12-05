@@ -11,6 +11,7 @@ public class ObjectiveText : MonoBehaviour
     [TextArea]
     public string startingObjective;
     public string currObjective;
+    public int currObjectivePriority = 0;
     
     private Timer currentTimer;
 
@@ -53,5 +54,10 @@ public class ObjectiveText : MonoBehaviour
                }, out currentTimer);
            }
         );
+    }
+
+    public void SetCurrObjectivePriority(int newPriority)
+    {
+        currObjectivePriority = newPriority;
     }
 }
