@@ -8,6 +8,10 @@ public class RubbleSound : MonoBehaviour
     public void Sound()
     {
         AudioManager.Instance.Play("RubbleCrash");
-        
+    }
+
+    public void PlayMonsterSound()
+    {
+        AudioManager.Instance.Play("MonsterCutsceneRoar");
     }
 }
