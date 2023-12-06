@@ -16,7 +16,7 @@ public class ParticleFlicker : MonoBehaviour
     {
         var sys = GetComponent<ParticleSystem>();
 
-        if (sys.isPaused)
+        if (!sys.isPlaying)
         {
             sys.Play();
         }
