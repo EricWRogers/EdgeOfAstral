@@ -19,8 +19,8 @@ public class MonsterAudio : MonoBehaviour
     private void PostPlay()
     {
         var rand = RandTime();
-        TimerManager.Instance.CreateTimer(rand, PlaySound, true);
-        TimerManager.Instance.CreateTimer(stepInterval, PlayFootstep, true);
+        TimerManager.Instance.CreateTimer(rand, () => AudioManager.Instance.Play("MonsterGrowl"), true);
+        //TimerManager.Instance.CreateTimer(stepInterval, PlayFootstep, true);
     }
 
     private float RandTime()
@@ -28,17 +28,22 @@ public class MonsterAudio : MonoBehaviour
         return Random.Range(growlIntervalMin, growlIntervalMax);
     }
 
-    private void PlayFootstep()
+    public void PlayFootStep()
     {
-        Debug.Log("Played");
         AudioManager.Instance.Play("MonsterFootstep", gameObject);
-        //TimerManager.Instance.CreateTimer(stepInterval, PlayFootstep);
     }
 
-    public void PlaySound()
-    {
-        var rand = RandTime();
-        AudioManager.Instance.Play("MonsterGrowl", gameObject);
-        //TimerManager.Instance.CreateTimer(rand, PlaySound);
-    }
+    //private void PlayFootstep()
+    //{
+    //    Debug.Log("Played");
+    //    AudioManager.Instance.Play("MonsterFootstep", gameObject);
+    //    //TimerManager.Instance.CreateTimer(stepInterval, PlayFootstep);
+    //}
+
+    //public void PlaySound()
+    //{
+    //    var rand = RandTime();
+    //    AudioManager.Instance.Play("MonsterGrowl", gameObject);
+    //    //TimerManager.Instance.CreateTimer(rand, PlaySound);
+    //}
 }
