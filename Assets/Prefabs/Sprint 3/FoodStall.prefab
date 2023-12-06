@@ -73,11 +73,41 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[2]
       value: 
       objectReference: {fileID: 2100000, guid: 81b12e081d0f4aa49b2741aea7b5bf41, type: 2}
+    - target: {fileID: -5140709415098497017, guid: 7af071d8bd9c2934b9f478ed169657fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed05c98c3ce68074c93b5e05844a6c82, type: 2}
+    - target: {fileID: -5140709415098497017, guid: 7af071d8bd9c2934b9f478ed169657fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9eff8ee4c059f6f449119d03d8d8a920, type: 2}
+    - target: {fileID: -2664606428877109178, guid: 7af071d8bd9c2934b9f478ed169657fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed05c98c3ce68074c93b5e05844a6c82, type: 2}
     - target: {fileID: 919132149155446097, guid: 7af071d8bd9c2934b9f478ed169657fc,
         type: 3}
       propertyPath: m_Name
       value: FoodStall
       objectReference: {fileID: 0}
+    - target: {fileID: 2394309899509016935, guid: 7af071d8bd9c2934b9f478ed169657fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 81b12e081d0f4aa49b2741aea7b5bf41, type: 2}
+    - target: {fileID: 8951510198624903984, guid: 7af071d8bd9c2934b9f478ed169657fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed05c98c3ce68074c93b5e05844a6c82, type: 2}
+    - target: {fileID: 8951510198624903984, guid: 7af071d8bd9c2934b9f478ed169657fc,
+        type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: ed05c98c3ce68074c93b5e05844a6c82, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
