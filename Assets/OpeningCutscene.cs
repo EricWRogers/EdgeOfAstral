@@ -27,5 +27,7 @@ public class OpeningCutscene : MonoBehaviour
     private void PostPlay()
     {
         AudioManager.Instance.Play("OpeningExplosion");
+        AudioManager.Instance.Play("SpaceAmbience");
+        AudioManager.Instance.Play("MechanicalAmbience");
     }
 }

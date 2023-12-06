@@ -7,6 +7,7 @@ public class MotionScanner : MonoBehaviour
 {
     GameObject player;
     public Transform doorPivot;
+    public VirtualTrigger doorTrigger;
     public float openAngle = -50f;
     public float timeToOpen = 5f;
     public UnityEvent onDoorClose = new UnityEvent();
@@ -22,6 +23,7 @@ public class MotionScanner : MonoBehaviour
     {
         onDoorClose.AddListener(OnDoorClose);
         onDoorOpen.AddListener(OnDoorOpen);
+        doorTrigger.triggerCallback.AddListener(CheckPlayer);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +37,14 @@ public class MotionScanner : MonoBehaviour
             doorPivot.RealTweenYRot(openAngle, timeToOpen, () => onDoorOpen.Invoke());
             doorOpened = true;
         }
+    }
+
+    public void CheckPlayer(VirtualTriggerContext ctx)
+    {
+        if (ctx.type == CallbackType.ENTER)
+            OmniTween.PauseTween(doorPivot);
+        if (ctx.type == CallbackType.EXIT)
+            OmniTween.Resume(doorPivot);
     }
 
     private void OnTriggerExit(Collider other)
