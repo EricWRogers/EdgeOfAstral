@@ -11,6 +11,8 @@ public class LightPuzzle : MonoBehaviour
     public List<GameObject> LightObjects = new List<GameObject>();
     public List<GameObject> finalWires = new List<GameObject>();
     public UnityEvent LightPuzzleCompleted = new UnityEvent();
+    public GameObject completeLight;
+    public Color lightColor;
 
     public static LightPuzzle Instance;
     private Timer timer;
@@ -49,7 +51,7 @@ public class LightPuzzle : MonoBehaviour
 
         for (int i = 0; i < LightObjects.Count; i++)
         {
-            if (LightObjects[i].GetComponent<LightPuzzleLights>().lit == false)
+            if (LightObjects[i].GetComponentInChildren<LightPuzzleLights>().lit == false)
             {
                 puzzleCompleted = false;
             }
@@ -57,7 +59,11 @@ public class LightPuzzle : MonoBehaviour
 
         if (puzzleCompleted == true)
         {
+            completeLight.GetComponentInChildren<LightPuzzleLights>().transform.GetComponent<MeshRenderer>().material = completeLight.GetComponentInChildren<LightPuzzleLights>().litMat;
+            completeLight.GetComponentInChildren<Light>().color = lightColor;
+
             LightPuzzleCompleted.Invoke();
+
             foreach (var wire in finalWires)
             {
                 wire.GetComponent<MeshRenderer>().material = wireOnMaterial;
