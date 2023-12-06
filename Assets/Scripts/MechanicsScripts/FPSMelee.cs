@@ -60,7 +60,6 @@ public class FPSMelee : MonoBehaviour
                     fractureComponent = frac;
                     frac.CauseFracture(-hit.normal);
                     Instantiate(sparks, hit.point, Quaternion.identity);
-                    
                 }
             }
             if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit2, attackDistance))
