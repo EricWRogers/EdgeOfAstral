@@ -60,11 +60,12 @@ public class FPSMelee : MonoBehaviour
                     fractureComponent = frac;
                     frac.CauseFracture(-hit.normal);
                     Instantiate(sparks, hit.point, Quaternion.identity);
-                    AudioManager.Instance.Play("Hammer");
+                    
                 }
             }
-            else if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit2, attackDistance))
+            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out RaycastHit hit2, attackDistance))
             {
+                Debug.Log("HitSomethin");
                 Instantiate(sparks, hit2.point, Quaternion.identity);
                 AudioManager.Instance.Play("Hammer");
             }

@@ -1037,6 +1037,50 @@ MonoBehaviour:
     onSoundComplete:
       m_PersistentCalls:
         m_Calls: []
+  - name: RubbleCrash
+    clip: {fileID: 8300000, guid: 6589546da2548874cae1cda5f9e24b99, type: 3}
+    volume: 0.104
+    priority: 128
+    pitch: 1
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 2
+    minDistance: 5
+    maxDistance: 10
+    outputAudioMixerGroup: {fileID: 24300002, guid: 3369d0f8fe8bcb54daee528b26ee74b9,
+      type: 2}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
   ambientSounds: []
   musicSounds: []
   sfxSounds: []
