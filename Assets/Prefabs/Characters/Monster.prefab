@@ -203,19 +203,6 @@ MonoBehaviour:
     onTickCallback:
       m_PersistentCalls:
         m_Calls: []
---- !u!114 &3857880650202245940
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8882990262443472028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2730e25656aba5641b9dcd75e866c38e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  resetPoint: {fileID: 0}
 --- !u!1001 &2213841329302478563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -289,7 +276,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -8664206314521076504, guid: 5413389e5bd750c419ed43c6b1a5d6f4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f0092923fe554d54094e51641d923f18, type: 2}
     - target: {fileID: -7436303520423435919, guid: 5413389e5bd750c419ed43c6b1a5d6f4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f0092923fe554d54094e51641d923f18, type: 2}
+    - target: {fileID: -6872427918779988064, guid: 5413389e5bd750c419ed43c6b1a5d6f4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f0092923fe554d54094e51641d923f18, type: 2}
+    - target: {fileID: -3233199954917977376, guid: 5413389e5bd750c419ed43c6b1a5d6f4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f0092923fe554d54094e51641d923f18, type: 2}
+    - target: {fileID: -1110780798738840181, guid: 5413389e5bd750c419ed43c6b1a5d6f4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f0092923fe554d54094e51641d923f18, type: 2}
+    - target: {fileID: -162024971873105152, guid: 5413389e5bd750c419ed43c6b1a5d6f4,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
@@ -299,6 +311,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: MonsterModel
       objectReference: {fileID: 0}
+    - target: {fileID: 8876518575368135177, guid: 5413389e5bd750c419ed43c6b1a5d6f4,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f0092923fe554d54094e51641d923f18, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
