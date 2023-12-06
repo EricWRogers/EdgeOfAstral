@@ -15,10 +15,12 @@ public class AIPatrolState : MonoBehaviour, IEnemyState //Every state must inher
     private GameObject[] patrolRoutes;
 
     private AIChaseState chaseState;
+    private Animator anim;
 
     public float agentPatrolSpeed = 5.0f;
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
+        anim = GetComponent<AIStateMachine>().anim;
         Debug.Log("Entering Patrol State");
         this.stateMachine = stateMachine;
         //Debug.Log("Entering Idle State");
@@ -31,6 +33,8 @@ public class AIPatrolState : MonoBehaviour, IEnemyState //Every state must inher
         agent.speed = agentPatrolSpeed;
 
         chaseState = gameObject.GetComponent<AIChaseState>();
+
+        anim.SetFloat("Slink", 1);
     }
 
     public void Run() //Good ol update
@@ -47,6 +51,7 @@ public class AIPatrolState : MonoBehaviour, IEnemyState //Every state must inher
 
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
+        anim.SetFloat("Slink", 0);
         Debug.Log("Exiting Patrol State");
 
     }

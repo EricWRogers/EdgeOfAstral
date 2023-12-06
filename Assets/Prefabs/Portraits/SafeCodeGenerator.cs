@@ -22,11 +22,9 @@ public class SafeCodeGenerator : RandNumGen
 
         for (int i = 0; i < 4; i++)
         {
-            nameAndNumbers.Keys.ToList().ForEach(key => Debug.Log(key));
             var random = nameAndNumbers.ElementAt(Random.Range(0, nameAndNumbers.Keys.Count));
             textComponent.SetText($"{textComponent.text}\n{random.Key}");
             RandNum += random.Value;
-            Debug.Log($"code string {RandNum}");
         }
     }
 }

@@ -12,10 +12,11 @@ public class AIAttackState : MonoBehaviour, IEnemyState
     public int attackRange = 10;
 
     private bool lose;
+    private Animator anim;
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
-
-       //Debug.Log("Entering Attack State");
+        anim = GetComponent<AIStateMachine>().anim;
+        //Debug.Log("Entering Attack State");
         this.stateMachine = stateMachine;
 
         agent = gameObject.GetComponent<AIChaseState>().agent;
@@ -25,15 +26,17 @@ public class AIAttackState : MonoBehaviour, IEnemyState
 
         controller = GameStateController.Instance;
         lose = false;
+
+        anim.SetFloat("Scream", 1);
     }
 
     public void Run() //Good ol update
     {
         agent.SetDestination(target.transform.position);
 
-        if ( !lose && !chase.ValidatePath(target) && Vector3.Distance(chase.lastHit.position, target.transform.position) <= attackRange && Vector3.Distance(agent.transform.position, target.transform.position) <= attackRange)
+        if (!lose && !chase.ValidatePath(target) && Vector3.Distance(chase.lastHit.position, target.transform.position) <= attackRange && Vector3.Distance(agent.transform.position, target.transform.position) <= attackRange)
         {
-            
+
             controller.ActivateLose();
             lose = true;
             stateMachine.SetState(gameObject.GetComponent<AIIdleState>());
@@ -43,9 +46,9 @@ public class AIAttackState : MonoBehaviour, IEnemyState
             stateMachine.SetState(gameObject.GetComponent<AIChaseState>());
         }
     }
-        public void Exit() //Last thing the state does before sending us wherever the user specified in update.
-        {
-            
-            //Debug.Log("Exiting Attack State");
-        }
+    public void Exit() //Last thing the state does before sending us wherever the user specified in update.
+    {
+        anim.SetFloat("Scream", 0);
+        //Debug.Log("Exiting Attack State");
+    }
 }

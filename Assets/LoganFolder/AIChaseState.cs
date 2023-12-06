@@ -9,6 +9,7 @@ public class AIChaseState : MonoBehaviour, IEnemyState
     public GameObject target;
 
     private int attackRange;
+    private Animator anim;
 
     public float agentSpeed = 9.0f;
 
@@ -19,6 +20,7 @@ public class AIChaseState : MonoBehaviour, IEnemyState
 
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
+        anim = GetComponent<AIStateMachine>().anim;
         //Debug.Log("Entering Chase State");
         agent.speed = agentSpeed;
 
@@ -29,6 +31,8 @@ public class AIChaseState : MonoBehaviour, IEnemyState
         //characterController = target.GetComponent<OmnicatLabs.CharacterControllers.CharacterController>();
 
         attackRange = gameObject.GetComponent<AIAttackState>().attackRange;
+
+        anim.SetFloat("Sprint", 1);
     }
 
     public void Run() //Good ol update
@@ -58,7 +62,7 @@ public class AIChaseState : MonoBehaviour, IEnemyState
     public void Exit() //Last thing the state does before sending us wherever the user specified in update.
     {
         //Debug.Log("Exiting Chase State");
-
+        anim.SetFloat("Sprint", 0);
     }
 
     public bool ValidatePath(GameObject _target)
