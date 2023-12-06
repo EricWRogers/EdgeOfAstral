@@ -127,6 +127,7 @@ GameObject:
   - component: {fileID: 1798485925413087462}
   - component: {fileID: 6018464776103979435}
   - component: {fileID: 4097287320800745773}
+  - component: {fileID: 3857880650202245940}
   m_Layer: 3
   m_Name: Monster
   m_TagString: Enemy
@@ -188,6 +189,33 @@ MonoBehaviour:
   growlIntervalMin: 20
   growlIntervalMax: 45
   stepInterval: 0.3
+  timer:
+    amountOfTime: 0
+    timeRemaining: 0
+    autoRestart: 0
+    onTickCallback:
+      m_PersistentCalls:
+        m_Calls: []
+  footstepTimer:
+    amountOfTime: 0
+    timeRemaining: 0
+    autoRestart: 0
+    onTickCallback:
+      m_PersistentCalls:
+        m_Calls: []
+--- !u!114 &3857880650202245940
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8882990262443472028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2730e25656aba5641b9dcd75e866c38e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resetPoint: {fileID: 0}
 --- !u!1001 &2213841329302478563
 PrefabInstance:
   m_ObjectHideFlags: 0
