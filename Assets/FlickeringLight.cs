@@ -12,7 +12,7 @@ public class FlickeringLight : MonoBehaviour
     {
         if (isFlickering == false)
         {
-            StartCoroutine(FlickerLight());
+            //StartCoroutine(FlickerLight());
         }
     }
 
