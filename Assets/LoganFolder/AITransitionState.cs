@@ -10,8 +10,11 @@ public class AITransitionState : MonoBehaviour, IEnemyState //Every state must i
     private GameObject target;
 
     private GameObject[] transitions;
+
+    private Animator anim;
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
+        anim = GetComponent<AIStateMachine>().anim;
         this.stateMachine = stateMachine;
         //Debug.Log("Entering Idle State");
         //agent = GetComponentInParent<NavMeshAgent>();

@@ -9,8 +9,10 @@ public class AIIdleState : MonoBehaviour, IEnemyState //Every state must inherit
     private NavMeshAgent agent;
     private GameObject target;
 
+    private Animator anim;
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
+        anim = GetComponent<AIStateMachine>().anim;
         //Debug.Log("Entering Idle State");
         this.stateMachine = stateMachine;
         //Debug.Log("Entering Idle State");
