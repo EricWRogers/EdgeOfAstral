@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -7,7 +6,10 @@ using OmnicatLabs.Timers;
 public class LightPuzzle : MonoBehaviour
 {
     public float winWaitTime = 1f;
+    public Material wireOnMaterial;
+    private Material wireOffMaterial;
     public List<GameObject> LightObjects = new List<GameObject>();
+    public List<GameObject> finalWires = new List<GameObject>();
     public UnityEvent LightPuzzleCompleted = new UnityEvent();
 
     public static LightPuzzle Instance;
@@ -20,6 +22,11 @@ public class LightPuzzle : MonoBehaviour
         {
             Instance = this;
         }
+    }
+
+    private void Start()
+    {
+        wireOffMaterial = finalWires[0].GetComponent<MeshRenderer>().material;
     }
 
     public void CheckPuzzleWin()
@@ -51,6 +58,10 @@ public class LightPuzzle : MonoBehaviour
         if (puzzleCompleted == true)
         {
             LightPuzzleCompleted.Invoke();
+            foreach (var wire in finalWires)
+            {
+                wire.GetComponent<MeshRenderer>().material = wireOnMaterial;
+            }
             isCompleted = true;
         }
     }

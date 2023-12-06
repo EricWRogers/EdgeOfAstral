@@ -30,8 +30,8 @@ TagManager:
   - WalkableProp
   - InteractableNoShader
   - InteractableV
-  - 
-  - 
+  - NotWalkable
+  - NavIgnore
   - 
   - 
   - 

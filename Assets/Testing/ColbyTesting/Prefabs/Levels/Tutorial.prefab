@@ -14748,6 +14748,7 @@ GameObject:
   - component: {fileID: 3800023137560002275}
   - component: {fileID: 5442481836268292100}
   - component: {fileID: 6054315268804064173}
+  - component: {fileID: 3712601910953197472}
   m_Layer: 0
   m_Name: VentCeilingHallwaySide
   m_TagString: Untagged
@@ -15087,6 +15088,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!65 &3712601910953197472
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1478041553173381972}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.9379494, y: 6.3341937, z: 3.0731316}
+  m_Center: {x: 0.46897495, y: 2.4417598, z: 0.7796116}
 --- !u!1 &1635624083987066764
 GameObject:
   m_ObjectHideFlags: 0
@@ -26851,6 +26873,7 @@ GameObject:
   - component: {fileID: 482584203505533238}
   - component: {fileID: 1969981737290124028}
   - component: {fileID: 8419041161154555593}
+  - component: {fileID: 6353826968047536059}
   m_Layer: 0
   m_Name: VentCeilingMaintenenceRoomSide
   m_TagString: Untagged
@@ -27190,6 +27213,27 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!65 &6353826968047536059
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060878541576148002}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.69471097, y: 5.48147, z: 3.620861}
+  m_Center: {x: 0.34735572, y: 2.740734, z: 0.47024727}
 --- !u!1 &2336850841472145112
 GameObject:
   m_ObjectHideFlags: 0
@@ -29221,6 +29265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0265506dc7670d48b5f0ef274568dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 2
   newObjective: Find out what caused the explosion
 --- !u!1 &3429272694138924676
 GameObject:
@@ -44622,6 +44667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0265506dc7670d48b5f0ef274568dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 3
   newObjective: Find a way off the station
 --- !u!114 &5828053246083611515
 MonoBehaviour:
@@ -60871,25 +60917,9 @@ MonoBehaviour:
   m_Mesh: {fileID: 0}
   m_VersionIndex: 2213
   m_IsSelectable: 1
-  m_SelectedFaces: 0400000009000000
-  m_SelectedEdges:
-  - a: 18
-    b: 19
-  - a: 17
-    b: 18
-  - a: 19
-    b: 16
-  - a: 16
-    b: 17
-  - a: 36
-    b: 37
-  - a: 38
-    b: 36
-  - a: 37
-    b: 39
-  - a: 39
-    b: 38
-  m_SelectedVertices: 1200000013000000110000001000000024000000250000002600000027000000
+  m_SelectedFaces: 
+  m_SelectedEdges: []
+  m_SelectedVertices: 
 --- !u!114 &5494099230500013388
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -65790,6 +65820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0265506dc7670d48b5f0ef274568dc7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  priority: 1
   newObjective: Break through the vent
 --- !u!1 &8531759665595576818
 GameObject:
@@ -78125,7 +78156,7 @@ PrefabInstance:
     - target: {fileID: 3690558653002785302, guid: 310c8987c3e2f1b4ba1c000daf486182,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -29.229
+      value: -29.282
       objectReference: {fileID: 0}
     - target: {fileID: 3690558653002785302, guid: 310c8987c3e2f1b4ba1c000daf486182,
         type: 3}
