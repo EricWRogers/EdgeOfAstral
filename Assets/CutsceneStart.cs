@@ -35,7 +35,7 @@ public class CutsceneStart : MonoBehaviour
             {
                 dialogue.TriggerDialogue();
             }
-            AudioManager.Instance.Play("BGM");
+            //AudioManager.Instance.Play("BGM");
             onFinish.Invoke();
             Destroy(gameObject);
         }

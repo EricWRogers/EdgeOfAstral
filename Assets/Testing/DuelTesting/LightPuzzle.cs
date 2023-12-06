@@ -26,7 +26,7 @@ public class LightPuzzle : MonoBehaviour
 
     private void Start()
     {
-        wireOffMaterial = finalWires[0].GetComponent<MeshRenderer>().material;
+        //wireOffMaterial = finalWires[0].GetComponent<MeshRenderer>().material;
     }
 
     public void CheckPuzzleWin()

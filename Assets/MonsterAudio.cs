@@ -12,13 +12,15 @@ public class MonsterAudio : MonoBehaviour
 
     public float stepInterval = .3f;
 
-    private int previousTimer;
-
+    [HideInInspector]
+    public Timer timer;
+    [HideInInspector]
+    public Timer footstepTimer;
     private void PostPlay()
     {
         var rand = RandTime();
-        previousTimer = TimerManager.Instance.CreateTimer(rand, PlaySound);
-        TimerManager.Instance.CreateTimer(stepInterval, PlayFootstep);
+        TimerManager.Instance.CreateTimer(rand, PlaySound, out timer);
+        TimerManager.Instance.CreateTimer(stepInterval, PlayFootstep, out footstepTimer);
     }
 
     private float RandTime()
@@ -29,7 +31,7 @@ public class MonsterAudio : MonoBehaviour
     private void PlayFootstep()
     {
         AudioManager.Instance.Play("MonsterFootstep", gameObject);
-        TimerManager.Instance.CreateTimer(stepInterval, PlayFootstep);
+        TimerManager.Instance.CreateTimer(stepInterval, PlayFootstep, out footstepTimer);
     }
 
     public void PlaySound()
