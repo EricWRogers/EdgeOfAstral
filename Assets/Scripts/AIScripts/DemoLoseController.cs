@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using OmnicatLabs.Timers;
+using OmnicatLabs.Audio;
 
 public class DemoLoseController : MonoBehaviour
 {
@@ -17,7 +17,7 @@ public class DemoLoseController : MonoBehaviour
         if (other.CompareTag("Player") && !activated)
         {
             GameStateController.Instance.ActivateLose();
-            TimerManager.Instance.Stop(GetComponentInParent<MonsterAudio>().footstepTimer);
+            AudioManager.Instance.Stop("MonsterFootstep");
             activated = true;
         }
     }
