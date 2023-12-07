@@ -16,11 +16,17 @@ public class MonsterAudio : MonoBehaviour
     public Timer timer;
     [HideInInspector]
     public Timer footstepTimer;
-    private void PostPlay()
+    //private void PostPlay()
+    //{
+    //    var rand = RandTime();
+    //    TimerManager.Instance.CreateTimer(rand, () => AudioManager.Instance.Play("MonsterGrowl"), true);
+    //    //TimerManager.Instance.CreateTimer(stepInterval, PlayFootstep, true);
+    //}
+
+    public void StartGrowls()
     {
         var rand = RandTime();
         TimerManager.Instance.CreateTimer(rand, () => AudioManager.Instance.Play("MonsterGrowl"), true);
-        //TimerManager.Instance.CreateTimer(stepInterval, PlayFootstep, true);
     }
 
     private float RandTime()
