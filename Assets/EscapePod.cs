@@ -9,6 +9,7 @@ public class EscapePod : MonoBehaviour
     public Transform landing;
     public Transform curtainTop;
     public CameraShakeController shaker;
+    public Animator credits;
     private bool unfurl = false;
     private void OnTriggerEnter(Collider other)
     {
@@ -31,6 +32,7 @@ public class EscapePod : MonoBehaviour
     private void Unfurl()
     {
         unfurl = true;
+        credits.SetTrigger("Win");
     }
 
     private void Update()
@@ -39,5 +41,6 @@ public class EscapePod : MonoBehaviour
         {
             curtainTop.localScale = new Vector3(curtainTop.localScale.x, curtainTop.localScale.y * .8f, curtainTop.localScale.z);
         }
+        
     }
 }
