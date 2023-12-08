@@ -3,12 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using OmnicatLabs.Extensions;
 using OmnicatLabs.Audio;
+using OmnicatLabs.Timers;
 
 public class Launch : MonoBehaviour
 {
     public string playerTag;
     public float launchForce;
     public LayerMask playerLayer;
+    public float coolDown = 0.1f;
+
+    private float coolDownCounter = 0.0f;
+
+    void Update()
+    {
+        coolDownCounter -= Time.deltaTime;
+
+        if (coolDownCounter < 0.0f)
+            coolDownCounter = 0.0f;
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -17,13 +29,15 @@ public class Launch : MonoBehaviour
             if (UpgradeManager.ownedUpgrades.Contains(UpgradeIds.MagBoots))
             {
                 other.transform.TryGetComponentInParentAndChildren(out Rigidbody rb);
-                
 
-                if (other.CompareTag(playerTag) && rb.velocity.y < 0f)
+
+                if (other.CompareTag(playerTag) && rb.velocity.y <= 0f && coolDownCounter <= 0.0f)
                 {
+                    rb.transform.position += new Vector3(0.0f, 0.01f, 0.0f);
                     rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
                     rb.AddForce(new Vector3(0f, launchForce, 0f), ForceMode.Impulse);
                     AudioManager.Instance.Play("Launch");
+                    coolDownCounter = coolDown;
                 }
             }
             else
