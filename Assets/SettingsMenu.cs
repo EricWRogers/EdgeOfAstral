@@ -13,6 +13,8 @@ public class SettingsMenu : MonoBehaviour
     public CanvasGroup soundSettingsMenu;
     public CanvasGroup pauseMenu;
 
+    private bool inMainMenu = true;
+
     private void Start()
     {
         backButton.onClick.AddListener(ExitToMainMenu);
@@ -22,6 +24,7 @@ public class SettingsMenu : MonoBehaviour
 
     private void PostPlay()
     {
+        inMainMenu = false;
         backButton.onClick.RemoveListener(ExitToMainMenu);
         backButton.onClick.AddListener(Exit);
 
@@ -58,7 +61,10 @@ public class SettingsMenu : MonoBehaviour
     {
         backButton.onClick.RemoveAllListeners();
         audioReturnButton.onClick.RemoveAllListeners();
-        backButton.onClick.AddListener(Exit);
+        if (inMainMenu)
+            backButton.onClick.AddListener(ExitToMainMenu);
+        else
+            backButton.onClick.AddListener(Exit);
         //mainMenu.alpha = 0f;
         displaySettingsMenu.alpha = 0f;
         soundSettingsMenu.alpha = 1f;

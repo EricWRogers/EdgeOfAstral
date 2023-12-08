@@ -6,9 +6,6 @@ public class TempWinTrigger : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            GameStateController.Instance.ActivateWin();
-        }
+
     }
 }
