@@ -38510,7 +38510,7 @@ PrefabInstance:
     - target: {fileID: 3815603363631087830, guid: 6c9ad15073a234542a7eab97b43ac63e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 26.764177
+      value: 26.848
       objectReference: {fileID: 0}
     - target: {fileID: 3815603363631087830, guid: 6c9ad15073a234542a7eab97b43ac63e,
         type: 3}
@@ -38559,6 +38559,21 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4318078180397289889, guid: 6c9ad15073a234542a7eab97b43ac63e,
         type: 3}
+      propertyPath: m_Size.z
+      value: 0.08540644
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318078180397289889, guid: 6c9ad15073a234542a7eab97b43ac63e,
+        type: 3}
+      propertyPath: m_Center.y
+      value: -0.10000001
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318078180397289889, guid: 6c9ad15073a234542a7eab97b43ac63e,
+        type: 3}
+      propertyPath: m_Center.z
+      value: -0.022703223
+      objectReference: {fileID: 0}
+    - target: {fileID: 4318078180397289889, guid: 6c9ad15073a234542a7eab97b43ac63e,
+        type: 3}
       propertyPath: m_Material
       value: 
       objectReference: {fileID: 13400000, guid: 93a86db3a9c4bcb488bcb801bd08231d,
@@ -38567,6 +38582,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FirstPlayableToTutorialButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 4591542585565387372, guid: 6c9ad15073a234542a7eab97b43ac63e,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     - target: {fileID: 5640577212521434827, guid: 6c9ad15073a234542a7eab97b43ac63e,
         type: 3}
@@ -46834,7 +46854,7 @@ PrefabInstance:
     - target: {fileID: 7404415504586536555, guid: a1c1d543e8ad3c74b99dd71d6b9eff4c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.543
+      value: 28.468
       objectReference: {fileID: 0}
     - target: {fileID: 7404415504586536555, guid: a1c1d543e8ad3c74b99dd71d6b9eff4c,
         type: 3}
@@ -46885,6 +46905,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TutorialToFirstPlayableButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7893143318475189457, guid: a1c1d543e8ad3c74b99dd71d6b9eff4c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -46966,8 +46991,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.4, y: 0.4, z: 0.04}
-  m_Center: {x: 0, y: -0.1, z: 0}
+  m_Size: {x: 0.4, y: 0.4, z: 0.091214195}
+  m_Center: {x: 0, y: -0.10000001, z: -0.025607102}
 --- !u!1001 &8242868373893300321
 PrefabInstance:
   m_ObjectHideFlags: 0
