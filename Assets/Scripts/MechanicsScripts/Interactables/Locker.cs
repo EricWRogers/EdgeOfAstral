@@ -6,12 +6,16 @@ public class Locker : Interactable
     public InventoryItemData unlockItem;
     public bool startInteractable = false;
     public bool useKeypad = false;
+    public VirtualTrigger trigger;
 
     private Quaternion originalOrientation;
 
     protected override void Start()
     {
         base.Start();
+
+        if (trigger != null)
+            trigger.triggerCallback.AddListener(HandleTrigger);
 
         originalOrientation = transform.rotation;
 
@@ -23,6 +27,18 @@ public class Locker : Interactable
         if (!startInteractable)
         {
             SetInteractable(false);
+        }
+    }
+
+    private void HandleTrigger(VirtualTriggerContext ctx)
+    {
+        if (ctx.type == CallbackType.ENTER)
+        {
+            OmniTween.PauseTween(doorPivot);
+        }
+        if (ctx.type == CallbackType.EXIT)
+        {
+            OmniTween.Resume(doorPivot);
         }
     }
 

@@ -60,6 +60,7 @@ MonoBehaviour:
   unlockItem: {fileID: 0}
   startInteractable: 1
   useKeypad: 0
+  trigger: {fileID: 5831361262090097920}
 --- !u!1 &3126034712337448516
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +165,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 7343831747283309995}
+    - targetCorrespondingSourceObject: {fileID: 1643350623377877734, guid: a6b23dc375a04a44ab7ebe11ba4cea44,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 9134268672118744890}
+    - targetCorrespondingSourceObject: {fileID: 1643350623377877734, guid: a6b23dc375a04a44ab7ebe11ba4cea44,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5831361262090097920}
   m_SourcePrefab: {fileID: 100100000, guid: a6b23dc375a04a44ab7ebe11ba4cea44, type: 3}
 --- !u!1 &687453469678548472 stripped
 GameObject:
@@ -186,12 +195,52 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 159.34303, y: 249.75352, z: 35.799454}
+  m_Center: {x: -0.0000059063277, y: 0, z: 5.244068}
+--- !u!65 &9134268672118744890
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687453469678548472}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 159.34303, y: 249.75352, z: 25.307425}
-  m_Center: {x: -0.000003814697, y: 0, z: -0.001953125}
+  m_Size: {x: 159.34308, y: 249.75352, z: 25.30743}
+  m_Center: {x: 0.00024032593, y: 0.000030517578, z: -0.00048828125}
+--- !u!114 &5831361262090097920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687453469678548472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ce575f9af1ce24eb88e34d7fdaef47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerCallback:
+    m_PersistentCalls:
+      m_Calls: []
+  tagFilter: []
+  layerFilter:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!4 &6276296430917927217 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5214583151115640367, guid: a6b23dc375a04a44ab7ebe11ba4cea44,

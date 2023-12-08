@@ -8,10 +8,13 @@ public class KeypadDoor : MonoBehaviour, ISaveable
 {
     public Transform doorPivot;
     private Quaternion originalOrientation;
+    public VirtualTrigger trigger;
 
     private void Start()
     {
         originalOrientation = doorPivot.rotation;
+        if (trigger != null)
+            trigger.triggerCallback.AddListener(HandleTrigger);
     }
 
     public void StartTracking()
@@ -29,9 +32,21 @@ public class KeypadDoor : MonoBehaviour, ISaveable
         
     }
 
+    private void HandleTrigger(VirtualTriggerContext ctx)
+    {
+        if (ctx.type == CallbackType.ENTER)
+        {
+            OmniTween.PauseTween(doorPivot);
+        }
+        if (ctx.type == CallbackType.EXIT)
+        {
+            OmniTween.Resume(doorPivot);
+        }
+    }
+
     public void Open()
     {
-        doorPivot.TweenYRot(60f, 2f);
+        doorPivot.RealTweenYRot(110f, 1.8f);
         AudioManager.Instance.Play("Door", gameObject);
     }
 }
