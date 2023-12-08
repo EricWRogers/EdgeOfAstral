@@ -7507,7 +7507,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f3db3cf8d4997b84c8c16be6be50589c, type: 2}
+  - {fileID: 2100000, guid: 76e5389c40af69f45af62726bf8c5370, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -69300,6 +69300,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorPivot: {fileID: 707863518554162530}
+  trigger: {fileID: 0}
 --- !u!4 &7143840574116927501 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2360099213462041326, guid: 9aa6124a1d723804595b33202940fa2c,
@@ -77348,6 +77349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doorPivot: {fileID: 8061408304051930468}
+  trigger: {fileID: 0}
 --- !u!1001 &5938306155341224777
 PrefabInstance:
   m_ObjectHideFlags: 0
