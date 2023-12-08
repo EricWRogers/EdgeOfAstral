@@ -18,6 +18,11 @@ public class AIChaseState : MonoBehaviour, IEnemyState
 
     public OmnicatLabs.CharacterControllers.CharacterController characterController;
 
+    public void SetAgentSpeed(float speed)
+    {
+        agentSpeed = speed;
+    }
+
     public void Enter(AIStateMachine stateMachine) //First thing the state does.
     {
         anim = GetComponent<AIStateMachine>().anim;
