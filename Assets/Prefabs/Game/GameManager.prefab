@@ -60,7 +60,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 5
     maxDistance: 18
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -103,7 +104,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: -7690333013256790993, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -146,7 +148,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -187,9 +190,10 @@ MonoBehaviour:
     dopplerLevel: 1
     spread: 0
     rolloffMode: 2
-    minDistance: 5
-    maxDistance: 20
-    outputAudioMixerGroup: {fileID: 0}
+    minDistance: 10
+    maxDistance: 30
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -232,7 +236,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -275,7 +280,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -305,7 +311,7 @@ MonoBehaviour:
         m_Calls: []
   - name: PickUp
     clip: {fileID: 8300000, guid: d22333a4a6f00ce43b8bcad79b250988, type: 3}
-    volume: 0.2
+    volume: 0.316
     priority: 0
     pitch: 1
     spatialBlend: 0
@@ -318,7 +324,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -361,7 +368,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -392,7 +400,7 @@ MonoBehaviour:
   - name: Door
     clip: {fileID: 8300000, guid: c3cffe72aebf5d14aa324d1c5899cf96, type: 3}
     volume: 1
-    priority: 0
+    priority: 128
     pitch: 1
     spatialBlend: 1
     panStereo: 0
@@ -401,10 +409,11 @@ MonoBehaviour:
     playOnAwake: 0
     dopplerLevel: 1
     spread: 0
-    rolloffMode: 0
+    rolloffMode: 2
     minDistance: 1
     maxDistance: 10
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -447,7 +456,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -490,7 +500,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -533,7 +544,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -576,7 +588,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -619,7 +632,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -662,7 +676,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -705,7 +720,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -748,7 +764,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -791,7 +808,8 @@ MonoBehaviour:
     rolloffMode: 0
     minDistance: 0
     maxDistance: 0
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -834,7 +852,8 @@ MonoBehaviour:
     rolloffMode: 2
     minDistance: 5
     maxDistance: 10
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: -7690333013256790993, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -864,8 +883,8 @@ MonoBehaviour:
         m_Calls: []
   - name: SpaceAmbience
     clip: {fileID: 8300000, guid: 0b779752b41f58b468a3dc493c25ff20, type: 3}
-    volume: 0.037
-    priority: 0
+    volume: 0.1
+    priority: 128
     pitch: 1
     spatialBlend: 0
     panStereo: 0
@@ -877,7 +896,8 @@ MonoBehaviour:
     rolloffMode: 2
     minDistance: 5
     maxDistance: 10
-    outputAudioMixerGroup: {fileID: 0}
+    outputAudioMixerGroup: {fileID: -7690333013256790993, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
     reverbPreset: 0
     reverb:
       dryLevel: 0
@@ -907,8 +927,8 @@ MonoBehaviour:
         m_Calls: []
   - name: MechanicalAmbience
     clip: {fileID: 8300000, guid: fba13452e10b4cb43bb417fbf1f29111, type: 3}
-    volume: 0.104
-    priority: 0
+    volume: 0.5
+    priority: 128
     pitch: 1
     spatialBlend: 0
     panStereo: 0
@@ -920,7 +940,7 @@ MonoBehaviour:
     rolloffMode: 2
     minDistance: 5
     maxDistance: 10
-    outputAudioMixerGroup: {fileID: 24300002, guid: 3369d0f8fe8bcb54daee528b26ee74b9,
+    outputAudioMixerGroup: {fileID: -7690333013256790993, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
       type: 2}
     reverbPreset: 0
     reverb:
@@ -964,7 +984,7 @@ MonoBehaviour:
     rolloffMode: 2
     minDistance: 5
     maxDistance: 10
-    outputAudioMixerGroup: {fileID: 24300002, guid: 3369d0f8fe8bcb54daee528b26ee74b9,
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
       type: 2}
     reverbPreset: 0
     reverb:
@@ -994,7 +1014,7 @@ MonoBehaviour:
       m_PersistentCalls:
         m_Calls: []
   - name: Hammer
-    clip: {fileID: 8300000, guid: 09a08dfe8c90fad4a86074458a7e3fbc, type: 3}
+    clip: {fileID: 8300000, guid: c0cea5bb39edaa64ab324280f7584429, type: 3}
     volume: 0.342
     priority: 128
     pitch: 1
@@ -1008,7 +1028,7 @@ MonoBehaviour:
     rolloffMode: 2
     minDistance: 5
     maxDistance: 10
-    outputAudioMixerGroup: {fileID: 24300002, guid: 3369d0f8fe8bcb54daee528b26ee74b9,
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
       type: 2}
     reverbPreset: 0
     reverb:
@@ -1052,7 +1072,7 @@ MonoBehaviour:
     rolloffMode: 2
     minDistance: 5
     maxDistance: 10
-    outputAudioMixerGroup: {fileID: 24300002, guid: 3369d0f8fe8bcb54daee528b26ee74b9,
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
       type: 2}
     reverbPreset: 0
     reverb:
@@ -1081,16 +1101,51 @@ MonoBehaviour:
     onSoundComplete:
       m_PersistentCalls:
         m_Calls: []
-  ambientSounds: []
-  musicSounds: []
-  sfxSounds: []
-  defaultVolume: 0.5
-  mixer: {fileID: 0}
+  - name: MonsterCutsceneRoar
+    clip: {fileID: 8300000, guid: b2750ec48f3209d4e8f35d56047b044c, type: 3}
+    volume: 0.872
+    priority: 128
+    pitch: 1
+    spatialBlend: 0
+    panStereo: 0
+    reverbZoneMix: 0
+    loop: 0
+    playOnAwake: 0
+    dopplerLevel: 0
+    spread: 0
+    rolloffMode: 2
+    minDistance: 5
+    maxDistance: 10
+    outputAudioMixerGroup: {fileID: 984036387255793970, guid: 783c11f117fc01b48a745ba2c2dc3e9e,
+      type: 2}
+    reverbPreset: 0
+    reverb:
+      dryLevel: 0
+      room: 0
+      roomHF: 0
+      roomLF: 0
+      decayTime: 0
+      decayHFRatio: 0
+      reflectionsLevel: 0
+      reflectionsDelay: 0
+      hfReference: 0
+      lfReference: 0
+      diffusion: 0
+      density: 0
+      reverbDelay: 0
+    useEcho: 0
+    echo:
+      delay: 0
+      decayRatio: 0
+      dryMix: 0
+      wetMix: 0
+    useDistortion: 0
+    distortion:
+      distortionLevel: 0
+    onSoundComplete:
+      m_PersistentCalls:
+        m_Calls: []
   poolSize: 50
-  masterSlider: {fileID: 0}
-  musicSlider: {fileID: 0}
-  ambientSlider: {fileID: 0}
-  sfxSlider: {fileID: 0}
   sources: []
 --- !u!1 &3896616874456746816
 GameObject:
@@ -1185,6 +1240,7 @@ MonoBehaviour:
   fullscreen: 1
   fullscreenExitState: {fileID: 4122449916723547077}
   settingsGroup: {fileID: 0}
+  displayGroup: {fileID: 0}
 --- !u!1 &7561090201023249777
 GameObject:
   m_ObjectHideFlags: 0
@@ -1362,3 +1418,5 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  completeLight: {fileID: 0}
+  lightColor: {r: 0, g: 0, b: 0, a: 0}

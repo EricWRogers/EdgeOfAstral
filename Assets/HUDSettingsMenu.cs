@@ -5,6 +5,7 @@ using UnityEngine;
 public class HUDSettingsMenu : UIState
 {
     public CanvasGroup settingsGroup;
+    public CanvasGroup displayGroup;
 
     public override void OnStateEnter(UIStateMachineController controller)
     {
@@ -21,10 +22,13 @@ public class HUDSettingsMenu : UIState
     {
         Time.timeScale = 1f;
         settingsGroup.alpha = 0f;
+        displayGroup.alpha = 0f;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         settingsGroup.interactable = false;
         settingsGroup.blocksRaycasts = false;
+        displayGroup.interactable = false;
+        displayGroup.blocksRaycasts = false;
         base.OnStateExit(controller);
     }
 }
